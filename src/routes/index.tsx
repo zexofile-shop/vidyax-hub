@@ -60,6 +60,8 @@ const screenshots = [
   { src: notificationsShot, alt: "VidyaX notifications inbox", label: "Notifications" },
 ];
 
+const heroScreens = screenshots.slice(0, 3);
+
 const downloadOptions = [
   { name: "Android", status: "Download APK", icon: "android", href: "https://www.mediafire.com/" },
   { name: "iOS", status: "Coming soon", icon: "apple", href: "#download" },
@@ -74,17 +76,19 @@ function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
 }
 
-function EdusparkMark({ compact = false }: { compact?: boolean }) {
+function EdusparkMark({ compact = false, highlight = false }: { compact?: boolean; highlight?: boolean }) {
   return (
-    <div className="inline-flex items-center gap-3 rounded-full border bg-card/90 px-3 py-2 shadow-card backdrop-blur">
+    <div
+      className={`inline-flex items-center gap-2 rounded-full border bg-card/90 px-2.5 py-1.5 shadow-card backdrop-blur ${highlight ? "shine-sweep" : ""}`}
+    >
       <img
         src={edusparkLogo}
         alt="Eduspark logo"
-        className="h-9 w-9 rounded-full object-cover ring-2 ring-primary/10"
+        className="h-7 w-7 rounded-full object-cover ring-2 ring-primary/10"
         loading="lazy"
       />
       {!compact && (
-        <span className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground">
+        <span className="text-[10px] font-black uppercase tracking-[0.12em] text-muted-foreground">
           Powered by Eduspark
         </span>
       )}
