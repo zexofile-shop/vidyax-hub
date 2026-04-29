@@ -281,34 +281,34 @@ function Index() {
         </div>
       </section>
 
-      <section id="screens" className="bg-secondary/60 py-18">
+      <section id="screens" className="bg-secondary/60 py-14">
         <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">
                 App Preview
               </p>
-              <h2 className="mt-3 text-4xl font-black tracking-normal sm:text-5xl">
-                Screenshots ko premium device gallery mein dekho.
+              <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
+                Real screens inside a premium device gallery.
               </h2>
             </div>
             <p className="max-w-md text-sm font-semibold leading-7 text-muted-foreground">
-              Real app screens ko normal flat images ki jagah layered 3D mobile cards mein present
-              kiya gaya hai.
+              The app interface is presented with layered mobile frames for a polished product look.
             </p>
           </div>
           <div className="mt-12 flex gap-6 overflow-x-auto pb-8 [scrollbar-width:none]">
             {screenshots.map((shot, index) => (
               <figure
                 key={shot.label}
-                className={`min-w-[245px] rounded-[2.5rem] border-[10px] border-card bg-card p-2 shadow-soft transition hover:-translate-y-3 sm:min-w-[285px] ${index % 2 === 0 ? "-rotate-2" : "rotate-2"}`}
+                className={`relative min-w-[245px] rounded-[2.5rem] border-[10px] border-card bg-card p-2 shadow-soft transition hover:-translate-y-3 sm:min-w-[285px] ${index % 2 === 0 ? "-rotate-2" : "rotate-2"}`}
               >
                 <img
                   src={shot.src}
                   alt={shot.alt}
-                  className="aspect-[9/19.5] w-full rounded-[1.9rem] object-cover"
+                  className="aspect-[9/18.2] w-full rounded-[1.9rem] object-cover object-bottom"
                   loading="lazy"
                 />
+                <div className="pointer-events-none absolute inset-x-8 top-2 h-8 rounded-b-3xl bg-card" />
                 <figcaption className="px-3 py-4 text-center text-sm font-black text-primary">
                   {shot.label}
                 </figcaption>
@@ -320,25 +320,29 @@ function Index() {
 
       <section
         id="download"
-        className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]"
+        className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]"
       >
         <div className="rounded-[2.25rem] bg-hero-gradient p-8 text-primary-foreground shadow-soft sm:p-10">
           <p className="text-sm font-black uppercase tracking-[0.22em] opacity-80">Download</p>
-          <h2 className="mt-4 text-4xl font-black tracking-normal sm:text-5xl">
-            VidyaX install karo aur free learning start karo.
+          <h2 className="mt-4 text-3xl font-black tracking-normal sm:text-4xl">
+            Install VidyaX and start learning with confidence.
           </h2>
           <p className="mt-5 text-base font-semibold leading-8 opacity-80">
-            Android APK ke liye MediaFire link attach hoga. iOS aur Windows options ko professional
-            availability cards ke form mein show kiya gaya hai.
+            Android APK will open through the attached MediaFire link. iOS and Windows options are
+            prepared as professional availability cards.
           </p>
+          <div className="mt-7">
+            <EdusparkMark compact />
+          </div>
         </div>
         <div className="grid gap-4">
           {downloadOptions.map((option) => (
             <a
               key={option.name}
-              href={option.name === "Android" ? "https://www.mediafire.com/" : "#download"}
+              href={option.href}
               target={option.name === "Android" ? "_blank" : undefined}
               rel={option.name === "Android" ? "noreferrer" : undefined}
+              onClick={handleDownloadClick}
               className="flex items-center justify-between rounded-[2rem] border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               <div className="flex items-center gap-5">
