@@ -77,7 +77,7 @@ function Index() {
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
         <BrandLogo />
-        <div className="hidden items-center gap-7 text-sm font800 text-muted-foreground sm:flex">
+        <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
           <a href="#features" className="transition hover:text-primary">Features</a>
           <a href="#screens" className="transition hover:text-primary">Screenshots</a>
           <a href="#download" className="transition hover:text-primary">Download</a>
@@ -162,7 +162,7 @@ function Index() {
           </div>
           <div className="mt-12 flex gap-6 overflow-x-auto pb-8 [scrollbar-width:none]">
             {screenshots.map((shot, index) => (
-              <figure key={shot.label} className="min-w-[245px] rounded-[2.5rem] border-[10px] border-card bg-card p-2 shadow-soft transition hover:-translate-y-3 sm:min-w-[285px]" style={{ transform: `rotate(${index % 2 === 0 ? "-2deg" : "2deg"})` }}>
+              <figure key={shot.label} className={`min-w-[245px] rounded-[2.5rem] border-[10px] border-card bg-card p-2 shadow-soft transition hover:-translate-y-3 sm:min-w-[285px] ${index % 2 === 0 ? "-rotate-2" : "rotate-2"}`}>
                 <img src={shot.src} alt={shot.alt} className="aspect-[9/19.5] w-full rounded-[1.9rem] object-cover" loading="lazy" />
                 <figcaption className="px-3 py-4 text-center text-sm font-black text-primary">{shot.label}</figcaption>
               </figure>
