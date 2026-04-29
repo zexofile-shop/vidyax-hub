@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 import achievementsShot from "../assets/vidyax-achievements.jpg";
 import appsShot from "../assets/vidyax-apps.jpg";
+import edusparkLogo from "../assets/eduspark-logo.jpg";
 import notificationsShot from "../assets/vidyax-notifications.jpg";
 import profileShot from "../assets/vidyax-profile.jpg";
 import settingsShot from "../assets/vidyax-settings.jpg";
@@ -28,23 +30,23 @@ export const Route = createFileRoute("/")({
 
 const features = [
   {
-    title: "Reputed Institute Content",
-    text: "Physics Wallah, Next Topper, Mission Jeet jaise platforms ke learning hubs ko one place mein discover karo.",
+    title: "Premium Institute Access",
+    text: "Explore learning hubs inspired by top platforms like Physics Wallah, Next Topper, and Mission Jeet in one place.",
     icon: "▦",
   },
   {
-    title: "Books Library",
-    text: "Study material, notes aur books ko clean library experience ke saath organize karke access karo.",
+    title: "Smart Book Library",
+    text: "Keep notes, study material, and useful books organized inside a clean learning library.",
     icon: "▤",
   },
   {
     title: "Test Series",
-    text: "Practice-focused tests, progress tracking aur exam-ready preparation flow ke liye dedicated space.",
+    text: "Practice with focused tests, clear progress tracking, and an exam-ready preparation flow.",
     icon: "✓",
   },
   {
     title: "Gamified Progress",
-    text: "XP, streaks, badges aur achievements learning ko motivating aur trackable banate hain.",
+    text: "XP, streaks, badges, and achievements make learning more consistent and motivating.",
     icon: "✦",
   },
 ];
@@ -58,10 +60,13 @@ const screenshots = [
 ];
 
 const downloadOptions = [
-  { name: "Android", status: "Download APK", icon: "android" },
-  { name: "iOS", status: "Coming soon", icon: "apple" },
-  { name: "Windows", status: "Coming soon", icon: "windows" },
+  { name: "Android", status: "Download APK", icon: "android", href: "https://www.mediafire.com/" },
+  { name: "iOS", status: "Coming soon", icon: "apple", href: "#download" },
+  { name: "Windows", status: "Coming soon", icon: "windows", href: "#download" },
 ];
+
+const telegramLink = "https://t.me/";
+const supportEmail = "edusparkkoficial@gmail.com";
 
 function BrandLogo() {
   return <span className="text-3xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
