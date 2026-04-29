@@ -68,6 +68,7 @@ const downloadOptions = [
 
 const telegramLink = "https://t.me/";
 const supportEmail = "edusparkkoficial@gmail.com";
+const telegramPromptStorageKey = "vidyax-telegram-prompt-count";
 
 function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
@@ -147,7 +148,12 @@ function PlatformIcon({ type }: { type: string }) {
 
 function Index() {
   const [telegramPromptOpen, setTelegramPromptOpen] = useState(false);
-  const [telegramPromptCount, setTelegramPromptCount] = useState(0);
+  const [telegramPromptCount, setTelegramPromptCount] = useState(() => {
+    if (typeof window === "undefined") {
+      return 0;
+    }
+    return Number(window.localStorage.getItem(telegramPromptStorageKey) ?? 0);
+  });
   const [pendingDownloadHref, setPendingDownloadHref] = useState<string | null>(null);
 
   const handleDownloadClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -156,7 +162,11 @@ function Index() {
     }
     event.preventDefault();
     setPendingDownloadHref(event.currentTarget.href);
-    setTelegramPromptCount((count) => count + 1);
+    setTelegramPromptCount((count) => {
+      const nextCount = count + 1;
+      window.localStorage.setItem(telegramPromptStorageKey, String(nextCount));
+      return nextCount;
+    });
     setTelegramPromptOpen(true);
   };
 
