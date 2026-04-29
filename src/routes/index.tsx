@@ -159,14 +159,12 @@ function Index() {
     }
     return Number(window.localStorage.getItem(telegramPromptStorageKey) ?? 0);
   });
-  const [pendingDownloadHref, setPendingDownloadHref] = useState<string | null>(null);
 
   const handleDownloadClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (telegramPromptCount >= 2) {
       return;
     }
     event.preventDefault();
-    setPendingDownloadHref(event.currentTarget.href);
     setTelegramPromptCount((count) => {
       const nextCount = count + 1;
       window.localStorage.setItem(telegramPromptStorageKey, String(nextCount));
@@ -177,7 +175,6 @@ function Index() {
 
   const continueDownload = () => {
     setTelegramPromptOpen(false);
-    setPendingDownloadHref(null);
     window.requestAnimationFrame(() => {
       document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
