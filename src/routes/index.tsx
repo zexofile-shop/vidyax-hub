@@ -247,35 +247,35 @@ function Index() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[560px] w-full max-w-[540px] sm:h-[660px]">
-          <div className="absolute inset-x-8 top-12 h-[520px] rounded-[4rem] bg-hero-gradient opacity-90 blur-3xl" />
-          <div className="phone-perspective float-slow absolute left-1/2 top-4 w-[245px] -translate-x-1/2 rounded-[2.6rem] border-[10px] border-card bg-card p-2 shadow-soft sm:w-[300px]">
-            <img
-              src={appsShot}
-              alt="VidyaX app home screen preview"
-              className="aspect-[9/18.2] w-full rounded-[2rem] object-cover object-bottom"
-              loading="eager"
-            />
-            <div className="pointer-events-none absolute inset-x-8 top-2 h-8 rounded-b-3xl bg-card" />
-          </div>
-          <div className="absolute bottom-24 left-0 w-[168px] rotate-[-9deg] rounded-[2rem] border-[8px] border-card bg-card p-1 shadow-card sm:w-[210px]">
-            <img
-              src={achievementsShot}
-              alt="VidyaX XP and achievements screen"
-              className="aspect-[9/18.2] w-full rounded-[1.35rem] object-cover object-bottom"
-              loading="lazy"
-            />
-            <div className="pointer-events-none absolute inset-x-6 top-1 h-6 rounded-b-2xl bg-card" />
-          </div>
-          <div className="absolute bottom-8 right-1 w-[172px] rotate-[10deg] rounded-[2rem] border-[8px] border-card bg-card p-1 shadow-card sm:w-[215px]">
-            <img
-              src={profileShot}
-              alt="VidyaX student profile screen"
-              className="aspect-[9/18.2] w-full rounded-[1.35rem] object-cover object-bottom"
-              loading="lazy"
-            />
-            <div className="pointer-events-none absolute inset-x-6 top-1 h-6 rounded-b-2xl bg-card" />
-          </div>
+        <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[600px]">
+          <div className="absolute inset-x-10 top-14 h-[430px] rounded-[4rem] bg-hero-gradient opacity-80 blur-3xl" />
+          {heroScreens.map((shot, index) => {
+            const isActive = index === activeHeroShot;
+            const position =
+              index === activeHeroShot
+                ? "left-1/2 top-2 w-[230px] -translate-x-1/2 rotate-0 sm:w-[280px]"
+                : (index + 1) % heroScreens.length === activeHeroShot
+                  ? "bottom-20 left-0 w-[160px] -rotate-[9deg] sm:w-[200px]"
+                  : "bottom-8 right-1 w-[164px] rotate-[10deg] sm:w-[205px]";
+
+            return (
+              <button
+                key={shot.label}
+                type="button"
+                onClick={() => setActiveHeroShot(index)}
+                className={`absolute ${position} ${isActive ? "z-30 phone-perspective float-slow border-[9px] p-2 shadow-soft" : "z-20 border-[7px] p-1 shadow-card hover:z-40"} overflow-hidden rounded-[2rem] border-card bg-card transition-all duration-500 active:scale-95 focus:outline-none focus:ring-4 focus:ring-ring/30 sm:rounded-[2.5rem]`}
+                aria-label={`Bring ${shot.label} screenshot to front`}
+              >
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  className="aspect-[9/18.2] w-full rounded-[1.45rem] object-cover object-top sm:rounded-[1.85rem]"
+                  loading={isActive ? "eager" : "lazy"}
+                />
+                <div className="pointer-events-none absolute inset-x-3 top-1 h-4 rounded-t-[1.4rem] bg-card/95" />
+              </button>
+            );
+          })}
         </div>
       </section>
 
