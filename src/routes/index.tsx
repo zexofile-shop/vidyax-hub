@@ -361,41 +361,93 @@ function Index() {
       </section>
 
       <section id="support" className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8">
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 rounded-[2rem] border bg-card p-6 shadow-card sm:flex-row sm:items-center">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">Support</p>
+            <h2 className="mt-2 text-3xl font-black tracking-normal">Community and help desk</h2>
+          </div>
+          <EdusparkMark />
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
           <a
-            href="https://t.me/"
+            href={telegramLink}
             target="_blank"
             rel="noreferrer"
-            className="rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
           >
-            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-2xl font-black text-primary">
-              ↗
+            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-primary transition group-hover:scale-105">
+              <TelegramIcon />
             </div>
             <h2 className="text-2xl font-black">Join Telegram</h2>
             <p className="mt-3 font-semibold leading-7 text-muted-foreground">
-              Updates, announcements aur student community ke liye Telegram channel join karo.
+              Get updates, announcements, and student community access in one place.
             </p>
           </a>
           <a
-            href="mailto:support@eduspark.app"
-            className="rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+            href={`mailto:${supportEmail}`}
+            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
           >
-            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-2xl font-black text-primary">
-              ?
+            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft transition group-hover:scale-105">
+              <GmailIcon />
             </div>
-            <h2 className="text-2xl font-black">Contact Support</h2>
+            <h2 className="text-2xl font-black">Email Support</h2>
+            <p className="mt-3 break-words font-semibold leading-7 text-muted-foreground">
+              {supportEmail}
+            </p>
+          </a>
+          <a
+            href={telegramLink}
+            target="_blank"
+            rel="noreferrer"
+            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
+          >
+            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-primary transition group-hover:scale-105">
+              <TelegramIcon />
+            </div>
+            <h2 className="text-2xl font-black">Telegram Support</h2>
             <p className="mt-3 font-semibold leading-7 text-muted-foreground">
-              Download, app access ya content related help ke liye Eduspark support se connect karo.
+              Connect directly on Telegram for download, app access, and content help.
             </p>
           </a>
         </div>
         <footer className="pt-14 text-center">
-          <BrandLogo />
-          <p className="mt-3 text-sm font-black text-muted-foreground">
-            Powered by Eduspark • Made with ❤️ in India
-          </p>
+          <div className="flex justify-center">
+            <EdusparkMark />
+          </div>
+          <p className="mt-4 text-sm font-black text-muted-foreground">VidyaX by Eduspark</p>
         </footer>
       </section>
+
+      {telegramPromptOpen && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-foreground/35 px-5 py-8 backdrop-blur-sm">
+          <div className="w-full max-w-md rounded-[2rem] border bg-card p-6 text-center shadow-soft">
+            <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-brand-soft text-primary">
+              <TelegramIcon className="h-8 w-8" />
+            </div>
+            <h2 className="text-2xl font-black">Join Telegram</h2>
+            <p className="mt-3 text-sm font-semibold leading-7 text-muted-foreground">
+              Join the VidyaX Telegram community for updates before continuing to downloads.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <a
+                href={telegramLink}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-ring/30"
+              >
+                Join Telegram
+              </a>
+              <button
+                type="button"
+                onClick={() => setTelegramPromptOpen(false)}
+                className="rounded-full border bg-card px-5 py-3 text-sm font-black text-foreground shadow-card transition hover:-translate-y-0.5 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
