@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { MouseEvent } from "react";
 import { useState } from "react";
 
 import achievementsShot from "../assets/vidyax-achievements.jpg";
@@ -147,14 +148,23 @@ function PlatformIcon({ type }: { type: string }) {
 function Index() {
   const [telegramPromptOpen, setTelegramPromptOpen] = useState(false);
   const [telegramPromptCount, setTelegramPromptCount] = useState(0);
+  const [pendingDownloadHref, setPendingDownloadHref] = useState<string | null>(null);
 
-  const handleDownloadClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleDownloadClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (telegramPromptCount >= 2) {
       return;
     }
     event.preventDefault();
+    setPendingDownloadHref(event.currentTarget.href);
     setTelegramPromptCount((count) => count + 1);
     setTelegramPromptOpen(true);
+  };
+
+  const continueDownload = () => {
+    setTelegramPromptOpen(false);
+    if (pendingDownloadHref && !pendingDownloadHref.endsWith("#download")) {
+      window.open(pendingDownloadHref, "_blank", "noreferrer");
+    }
   };
 
   return (
