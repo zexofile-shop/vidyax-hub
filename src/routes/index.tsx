@@ -279,27 +279,27 @@ function Index() {
         </div>
       </section>
 
-      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8">
+      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">Features</p>
-          <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Features</p>
+          <h2 className="mt-2 text-2xl font-black tracking-normal sm:text-3xl">
             Everything students need, designed for daily learning.
           </h2>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {features.map((feature, index) => (
             <article
               key={feature.title}
-              className="group relative overflow-hidden rounded-[2rem] border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-7"
+              className="group relative overflow-hidden rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-5"
             >
-              <div className="absolute right-5 top-5 text-5xl font-black text-brand-soft">
+              <div className="absolute right-4 top-3 text-3xl font-black text-brand-soft">
                 0{index + 1}
               </div>
-              <div className="mb-6 grid h-12 w-12 place-items-center rounded-2xl bg-brand-soft text-xl font-black text-primary transition group-hover:scale-105">
+              <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-lg font-black text-primary transition group-hover:scale-105">
                 {feature.icon}
               </div>
-              <h3 className="max-w-[16rem] text-xl font-black">{feature.title}</h3>
-              <p className="mt-3 max-w-md text-sm font-semibold leading-7 text-muted-foreground">
+              <h3 className="max-w-[14rem] text-base font-black sm:text-lg">{feature.title}</h3>
+              <p className="mt-2 max-w-md text-xs font-semibold leading-6 text-muted-foreground sm:text-sm">
                 {feature.text}
               </p>
             </article>
@@ -307,35 +307,35 @@ function Index() {
         </div>
       </section>
 
-      <section id="screens" className="bg-secondary/60 py-14">
-        <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
+      <section id="screens" className="bg-secondary/60 py-10">
+        <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">
                 App Preview
               </p>
-              <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
+              <h2 className="mt-2 text-2xl font-black tracking-normal sm:text-3xl">
                 Real screens inside a premium device gallery.
               </h2>
             </div>
-            <p className="max-w-md text-sm font-semibold leading-7 text-muted-foreground">
+            <p className="max-w-md text-xs font-semibold leading-6 text-muted-foreground sm:text-sm">
               The app interface is presented with layered mobile frames for a polished product look.
             </p>
           </div>
-          <div className="mt-12 flex gap-6 overflow-x-auto pb-8 [scrollbar-width:none]">
+          <div className="mt-8 flex gap-4 overflow-x-auto pb-6 [scrollbar-width:none]">
             {screenshots.map((shot, index) => (
               <figure
                 key={shot.label}
-                className={`relative min-w-[245px] rounded-[2.5rem] border-[10px] border-card bg-card p-2 shadow-soft transition hover:-translate-y-3 sm:min-w-[285px] ${index % 2 === 0 ? "-rotate-2" : "rotate-2"}`}
+                className={`relative min-w-[210px] rounded-[2rem] border-[8px] border-card bg-card p-1.5 shadow-soft transition hover:-translate-y-2 sm:min-w-[245px] ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`}
               >
                 <img
                   src={shot.src}
                   alt={shot.alt}
-                  className="aspect-[9/18.2] w-full rounded-[1.9rem] object-cover object-bottom"
+                  className="aspect-[9/18.2] w-full rounded-[1.5rem] object-cover object-top"
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-x-8 top-2 h-8 rounded-b-3xl bg-card" />
-                <figcaption className="px-3 py-4 text-center text-sm font-black text-primary">
+                <div className="pointer-events-none absolute inset-x-3 top-1 h-4 rounded-t-[1.35rem] bg-card/95" />
+                <figcaption className="px-3 py-3 text-center text-xs font-black text-primary">
                   {shot.label}
                 </figcaption>
               </figure>
