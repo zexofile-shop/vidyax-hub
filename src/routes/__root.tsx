@@ -30,10 +30,18 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "VidyaX — Free Learning App" },
-      { name: "description", content: "Download VidyaX for free institute content, books, test series, achievements, and smart learning tools powered by Eduspark." },
+      {
+        name: "description",
+        content:
+          "Download VidyaX for free institute content, books, test series, achievements, and smart learning tools powered by Eduspark.",
+      },
       { name: "author", content: "Eduspark" },
       { property: "og:title", content: "VidyaX — Future of Learning" },
-      { property: "og:description", content: "Explore reputed institute content, book library, test series, and app features in one modern learning platform." },
+      {
+        property: "og:description",
+        content:
+          "Explore reputed institute content, book library, test series, and app features in one modern learning platform.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@VidyaX" },
@@ -41,7 +49,10 @@ export const Route = createRootRoute({
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
