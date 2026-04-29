@@ -152,6 +152,7 @@ function PlatformIcon({ type }: { type: string }) {
 
 function Index() {
   const [telegramPromptOpen, setTelegramPromptOpen] = useState(false);
+  const [activeHeroShot, setActiveHeroShot] = useState(0);
   const [telegramPromptCount, setTelegramPromptCount] = useState(() => {
     if (typeof window === "undefined") {
       return 0;
@@ -176,14 +177,15 @@ function Index() {
 
   const continueDownload = () => {
     setTelegramPromptOpen(false);
-    if (pendingDownloadHref && !pendingDownloadHref.endsWith("#download")) {
-      window.open(pendingDownloadHref, "_blank", "noreferrer");
-    }
+    setPendingDownloadHref(null);
+    window.requestAnimationFrame(() => {
+      document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <BrandLogo />
         <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
           <a href="#features" className="transition hover:text-primary">
@@ -204,42 +206,42 @@ function Index() {
         </a>
       </nav>
 
-      <section className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 pb-14 pt-6 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-20">
+      <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-14">
         <div>
-          <EdusparkMark />
-          <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[1.05] tracking-normal text-foreground sm:text-5xl lg:text-6xl">
+          <EdusparkMark highlight />
+          <h1 className="mt-5 max-w-3xl text-3xl font-black leading-[1.08] tracking-normal text-foreground sm:text-4xl lg:text-5xl">
             VidyaX — premium learning access, made simple.
           </h1>
-          <p className="mt-5 max-w-2xl text-base font-semibold leading-8 text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm font-semibold leading-7 text-muted-foreground sm:text-base">
             Discover institute content, book library, test series, notifications, streaks, and
             achievements inside one polished app experience powered by Eduspark.
           </p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               href="https://www.mediafire.com/"
               target="_blank"
               rel="noreferrer"
               onClick={handleDownloadClick}
-              className="shine-sweep rounded-full bg-primary px-7 py-4 text-center text-base font-black text-primary-foreground shadow-soft transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-ring/30"
+              className="shine-sweep rounded-full bg-primary px-6 py-3 text-center text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-1 active:scale-95 focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               Download Android APK
             </a>
             <a
               href="#support"
-              className="rounded-full border bg-card px-7 py-4 text-center text-base font-black text-foreground shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+              className="rounded-full border bg-card px-6 py-3 text-center text-sm font-black text-foreground shadow-card transition hover:-translate-y-1 active:scale-95 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               Join Telegram
             </a>
           </div>
-          <div className="mt-9 grid max-w-xl grid-cols-3 gap-3">
+          <div className="mt-7 grid max-w-xl grid-cols-3 gap-2.5">
             {[
               ["11k+", "Students"],
               ["10+", "Achievements"],
               ["24/7", "Access"],
             ].map(([value, label]) => (
-              <div key={label} className="rounded-2xl border bg-card p-4 text-center shadow-card">
-                <div className="text-xl font-black text-primary">{value}</div>
-                <div className="mt-1 text-xs font-extrabold text-muted-foreground">{label}</div>
+              <div key={label} className="rounded-2xl border bg-card p-3 text-center shadow-card">
+                <div className="text-lg font-black text-primary">{value}</div>
+                <div className="mt-1 text-[11px] font-extrabold text-muted-foreground">{label}</div>
               </div>
             ))}
           </div>
