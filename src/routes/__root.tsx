@@ -68,6 +68,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{var p=sessionStorage.getItem("vidyax_redirect");if(p&&p!==location.pathname+location.search+location.hash){sessionStorage.removeItem("vidyax_redirect");history.replaceState(null,"",p)}}catch(e){}',
+          }}
+        />
         <HeadContent />
       </head>
       <body>
