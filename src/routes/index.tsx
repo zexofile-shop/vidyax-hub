@@ -76,7 +76,13 @@ function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
 }
 
-function EdusparkMark({ compact = false, highlight = false }: { compact?: boolean; highlight?: boolean }) {
+function EdusparkMark({
+  compact = false,
+  highlight = false,
+}: {
+  compact?: boolean;
+  highlight?: boolean;
+}) {
   return (
     <div
       className={`inline-flex items-center gap-2 rounded-full border bg-card/90 px-2.5 py-1.5 shadow-card backdrop-blur ${highlight ? "shine-sweep" : ""}`}
@@ -113,7 +119,10 @@ function GmailIcon({ className = "h-7 w-7" }: { className?: string }) {
       <path fill="#EA4335" d="M3 6.5 12 13l9-6.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5Z" />
       <path fill="#FBBC04" d="M3 6.5 12 13v3L3 9.5v-3Z" />
       <path fill="#34A853" d="M21 6.5 12 13v3l9-6.5v-3Z" />
-      <path fill="#C5221F" d="M3 6.5V6a2 2 0 0 1 3.2-1.6L12 8.6 17.8 4.4A2 2 0 0 1 21 6v.5L12 13 3 6.5Z" />
+      <path
+        fill="#C5221F"
+        d="M3 6.5V6a2 2 0 0 1 3.2-1.6L12 8.6 17.8 4.4A2 2 0 0 1 21 6v.5L12 13 3 6.5Z"
+      />
       <path fill="#4285F4" d="M21 9.5V18a2 2 0 0 1-2 2h-2V12.4l4-2.9Z" />
     </svg>
   );
