@@ -346,22 +346,22 @@ function Index() {
 
       <section
         id="download"
-        className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]"
+        className="mx-auto grid w-full max-w-7xl gap-5 px-5 py-11 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]"
       >
-        <div className="rounded-[2.25rem] bg-hero-gradient p-8 text-primary-foreground shadow-soft sm:p-10">
-          <p className="text-sm font-black uppercase tracking-[0.22em] opacity-80">Download</p>
-          <h2 className="mt-4 text-3xl font-black tracking-normal sm:text-4xl">
+        <div className="rounded-3xl bg-hero-gradient p-5 text-primary-foreground shadow-soft sm:p-7">
+          <p className="text-xs font-black uppercase tracking-[0.2em] opacity-80">Download</p>
+          <h2 className="mt-3 text-2xl font-black tracking-normal sm:text-3xl">
             Install VidyaX and start learning with confidence.
           </h2>
-          <p className="mt-5 text-base font-semibold leading-8 opacity-80">
+          <p className="mt-4 text-sm font-semibold leading-7 opacity-80">
             Android APK will open through the attached MediaFire link. iOS and Windows options are
             prepared as professional availability cards.
           </p>
-          <div className="mt-7">
+          <div className="mt-5">
             <EdusparkMark compact />
           </div>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-3">
           {downloadOptions.map((option) => (
             <a
               key={option.name}
@@ -369,55 +369,55 @@ function Index() {
               target={option.name === "Android" ? "_blank" : undefined}
               rel={option.name === "Android" ? "noreferrer" : undefined}
               onClick={handleDownloadClick}
-              className="flex items-center justify-between rounded-[2rem] border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+              className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 active:scale-[0.97] hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
-              <div className="flex items-center gap-5">
-                <div className="grid h-16 w-16 place-items-center rounded-2xl bg-brand-soft text-primary">
+              <div className="flex items-center gap-4">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-primary">
                   <PlatformIcon type={option.icon} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-black">{option.name}</h3>
-                  <p className="mt-1 text-sm font-bold text-muted-foreground">{option.status}</p>
+                  <h3 className="text-base font-black">{option.name}</h3>
+                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">{option.status}</p>
                 </div>
               </div>
-              <span className="text-2xl font-black text-primary">→</span>
+              <span className="text-xl font-black text-primary">→</span>
             </a>
           ))}
         </div>
       </section>
 
-      <section id="support" className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8">
-        <div className="mb-8 flex flex-col items-start justify-between gap-4 rounded-[2rem] border bg-card p-6 shadow-card sm:flex-row sm:items-center">
+      <section id="support" className="mx-auto w-full max-w-7xl px-5 pb-16 sm:px-8">
+        <div className="mb-5 flex flex-col items-start justify-between gap-3 rounded-2xl border bg-card p-4 shadow-card sm:flex-row sm:items-center">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">Support</p>
-            <h2 className="mt-2 text-3xl font-black tracking-normal">Community and help desk</h2>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Support</p>
+            <h2 className="mt-1 text-2xl font-black tracking-normal">Community and help desk</h2>
           </div>
           <EdusparkMark />
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="flex gap-4 overflow-x-auto pb-5 [scrollbar-width:none]">
           <a
             href={telegramLink}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
+            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
           >
-            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-primary transition group-hover:scale-105">
+            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
             </div>
-            <h2 className="text-2xl font-black">Join Telegram</h2>
-            <p className="mt-3 font-semibold leading-7 text-muted-foreground">
+            <h2 className="text-lg font-black">Join Telegram</h2>
+            <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
               Get updates, announcements, and student community access in one place.
             </p>
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
+            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
           >
-            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft transition group-hover:scale-105">
+            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
             </div>
-            <h2 className="text-2xl font-black">Email Support</h2>
-            <p className="mt-3 break-words font-semibold leading-7 text-muted-foreground">
+            <h2 className="text-lg font-black">Email Support</h2>
+            <p className="mt-2 break-words text-sm font-semibold leading-6 text-muted-foreground">
               {supportEmail}
             </p>
           </a>
@@ -425,13 +425,13 @@ function Index() {
             href={telegramLink}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-[2rem] border bg-card p-7 shadow-card transition hover:-translate-y-2 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 md:col-span-1"
+            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
           >
-            <div className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-primary transition group-hover:scale-105">
+            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
             </div>
-            <h2 className="text-2xl font-black">Telegram Support</h2>
-            <p className="mt-3 font-semibold leading-7 text-muted-foreground">
+            <h2 className="text-lg font-black">Telegram Support</h2>
+            <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
               Connect directly on Telegram for download, app access, and content help.
             </p>
           </a>
