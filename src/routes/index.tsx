@@ -69,7 +69,48 @@ const telegramLink = "https://t.me/";
 const supportEmail = "edusparkkoficial@gmail.com";
 
 function BrandLogo() {
-  return <span className="text-3xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
+  return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
+}
+
+function EdusparkMark({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className="inline-flex items-center gap-3 rounded-full border bg-card/90 px-3 py-2 shadow-card backdrop-blur">
+      <img
+        src={edusparkLogo}
+        alt="Eduspark logo"
+        className="h-9 w-9 rounded-full object-cover ring-2 ring-primary/10"
+        loading="lazy"
+      />
+      {!compact && (
+        <span className="text-xs font-black uppercase tracking-[0.16em] text-muted-foreground">
+          Powered by Eduspark
+        </span>
+      )}
+    </div>
+  );
+}
+
+function TelegramIcon({ className = "h-7 w-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M21.8 4.2 18.6 19c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L6 12.6l-5-1.5c-1.1-.3-1.1-1.1.2-1.6L20.5 2c.9-.3 1.7.2 1.3 2.2Z"
+      />
+    </svg>
+  );
+}
+
+function GmailIcon({ className = "h-7 w-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="#EA4335" d="M3 6.5 12 13l9-6.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5Z" />
+      <path fill="#FBBC04" d="M3 6.5 12 13v3L3 9.5v-3Z" />
+      <path fill="#34A853" d="M21 6.5 12 13v3l9-6.5v-3Z" />
+      <path fill="#C5221F" d="M3 6.5V6a2 2 0 0 1 3.2-1.6L12 8.6 17.8 4.4A2 2 0 0 1 21 6v.5L12 13 3 6.5Z" />
+      <path fill="#4285F4" d="M21 9.5V18a2 2 0 0 1-2 2h-2V12.4l4-2.9Z" />
+    </svg>
+  );
 }
 
 function PlatformIcon({ type }: { type: string }) {
