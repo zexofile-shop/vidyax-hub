@@ -145,6 +145,18 @@ function PlatformIcon({ type }: { type: string }) {
 }
 
 function Index() {
+  const [telegramPromptOpen, setTelegramPromptOpen] = useState(false);
+  const [telegramPromptCount, setTelegramPromptCount] = useState(0);
+
+  const handleDownloadClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (telegramPromptCount >= 2) {
+      return;
+    }
+    event.preventDefault();
+    setTelegramPromptCount((count) => count + 1);
+    setTelegramPromptOpen(true);
+  };
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
@@ -168,26 +180,22 @@ function Index() {
         </a>
       </nav>
 
-      <section className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-8 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-24">
+      <section className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 pb-14 pt-6 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-20">
         <div>
-          <div className="mb-6 inline-flex items-center gap-3 rounded-full border bg-card px-4 py-2 text-sm font-extrabold text-secondary-foreground shadow-card">
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-success text-primary-foreground">
-              ✓
-            </span>
-            Powered by Eduspark
-          </div>
-          <h1 className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal text-foreground sm:text-6xl lg:text-7xl">
-            VidyaX — future of learning, free content ke saath.
+          <EdusparkMark />
+          <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[1.05] tracking-normal text-foreground sm:text-5xl lg:text-6xl">
+            VidyaX — premium learning access, made simple.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-muted-foreground sm:text-xl">
-            Reputed institutes ke lectures, books library, test series, notifications, streaks aur
-            achievements—sab kuch ek polished app experience mein.
+          <p className="mt-5 max-w-2xl text-base font-semibold leading-8 text-muted-foreground sm:text-lg">
+            Discover institute content, book library, test series, notifications, streaks, and
+            achievements inside one polished app experience powered by Eduspark.
           </p>
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
               href="https://www.mediafire.com/"
               target="_blank"
               rel="noreferrer"
+              onClick={handleDownloadClick}
               className="shine-sweep rounded-full bg-primary px-7 py-4 text-center text-base font-black text-primary-foreground shadow-soft transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               Download Android APK
@@ -199,29 +207,30 @@ function Index() {
               Join Telegram
             </a>
           </div>
-          <div className="mt-10 grid max-w-xl grid-cols-3 gap-4">
+          <div className="mt-9 grid max-w-xl grid-cols-3 gap-3">
             {[
               ["11k+", "Students"],
               ["10+", "Achievements"],
               ["24/7", "Access"],
             ].map(([value, label]) => (
-              <div key={label} className="rounded-3xl border bg-card p-4 text-center shadow-card">
-                <div className="text-2xl font-black text-primary">{value}</div>
+              <div key={label} className="rounded-2xl border bg-card p-4 text-center shadow-card">
+                <div className="text-xl font-black text-primary">{value}</div>
                 <div className="mt-1 text-xs font-extrabold text-muted-foreground">{label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative mx-auto h-[610px] w-full max-w-[560px] sm:h-[700px]">
+        <div className="relative mx-auto h-[560px] w-full max-w-[540px] sm:h-[660px]">
           <div className="absolute inset-x-8 top-12 h-[520px] rounded-[4rem] bg-hero-gradient opacity-90 blur-3xl" />
           <div className="phone-perspective float-slow absolute left-1/2 top-4 w-[245px] -translate-x-1/2 rounded-[2.6rem] border-[10px] border-card bg-card p-2 shadow-soft sm:w-[300px]">
             <img
               src={appsShot}
               alt="VidyaX app home screen preview"
-              className="aspect-[9/19.5] w-full rounded-[2rem] object-cover"
+              className="aspect-[9/18.2] w-full rounded-[2rem] object-cover object-bottom"
               loading="eager"
             />
+            <div className="pointer-events-none absolute inset-x-8 top-2 h-8 rounded-b-3xl bg-card" />
           </div>
           <div className="absolute bottom-24 left-0 w-[168px] rotate-[-9deg] rounded-[2rem] border-[8px] border-card bg-card p-1 shadow-card sm:w-[210px]">
             <img
