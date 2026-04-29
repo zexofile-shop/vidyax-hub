@@ -449,7 +449,7 @@ function Index() {
               </a>
               <button
                 type="button"
-                onClick={() => setTelegramPromptOpen(false)}
+                onClick={continueDownload}
                 className="rounded-full border bg-card px-5 py-3 text-sm font-black text-foreground shadow-card transition hover:-translate-y-0.5 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
               >
                 Continue
