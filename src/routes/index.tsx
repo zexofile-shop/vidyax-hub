@@ -236,39 +236,44 @@ function Index() {
             <img
               src={achievementsShot}
               alt="VidyaX XP and achievements screen"
-              className="aspect-[9/19.5] w-full rounded-[1.35rem] object-cover"
+              className="aspect-[9/18.2] w-full rounded-[1.35rem] object-cover object-bottom"
               loading="lazy"
             />
+            <div className="pointer-events-none absolute inset-x-6 top-1 h-6 rounded-b-2xl bg-card" />
           </div>
           <div className="absolute bottom-8 right-1 w-[172px] rotate-[10deg] rounded-[2rem] border-[8px] border-card bg-card p-1 shadow-card sm:w-[215px]">
             <img
               src={profileShot}
               alt="VidyaX student profile screen"
-              className="aspect-[9/19.5] w-full rounded-[1.35rem] object-cover"
+              className="aspect-[9/18.2] w-full rounded-[1.35rem] object-cover object-bottom"
               loading="lazy"
             />
+            <div className="pointer-events-none absolute inset-x-6 top-1 h-6 rounded-b-2xl bg-card" />
           </div>
         </div>
       </section>
 
-      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8">
+      <section id="features" className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.22em] text-primary">Features</p>
-          <h2 className="mt-3 text-4xl font-black tracking-normal sm:text-5xl">
-            Learning app ke sare important tools ek jagah.
+          <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
+            Everything students need, designed for daily learning.
           </h2>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+          {features.map((feature, index) => (
             <article
               key={feature.title}
-              className="group rounded-[2rem] border bg-card p-6 shadow-card transition hover:-translate-y-2 hover:border-primary"
+              className="group relative overflow-hidden rounded-[2rem] border bg-card p-6 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-7"
             >
-              <div className="mb-7 grid h-14 w-14 place-items-center rounded-2xl bg-brand-soft text-2xl font-black text-primary transition group-hover:scale-110">
+              <div className="absolute right-5 top-5 text-5xl font-black text-brand-soft">
+                0{index + 1}
+              </div>
+              <div className="mb-6 grid h-12 w-12 place-items-center rounded-2xl bg-brand-soft text-xl font-black text-primary transition group-hover:scale-105">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-black">{feature.title}</h3>
-              <p className="mt-3 text-sm font-semibold leading-7 text-muted-foreground">
+              <h3 className="max-w-[16rem] text-xl font-black">{feature.title}</h3>
+              <p className="mt-3 max-w-md text-sm font-semibold leading-7 text-muted-foreground">
                 {feature.text}
               </p>
             </article>
