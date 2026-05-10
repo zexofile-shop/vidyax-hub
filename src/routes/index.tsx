@@ -63,13 +63,14 @@ const heroScreens = [
 ];
 
 const screenshots = [
+  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
+  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
+  { src: libraryShot, alt: "VidyaX book library upload", label: "Books" },
   { src: achievementsShot, alt: "VidyaX achievements and XP", label: "Achievements" },
   { src: settingsShot, alt: "VidyaX settings controls", label: "Settings" },
-  { src: notificationsShot, alt: "VidyaX notifications inbox", label: "Notifications" },
-  { src: libraryShot, alt: "VidyaX book library upload", label: "Book Library" },
-  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
-  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
 ];
+
+void notificationsShot;
 
 const androidApkUrl =
   "https://github.com/Bhavishy-dev/VidyaX-Application/releases/download/1.2.2/Vidyax1.2.2.apk";
