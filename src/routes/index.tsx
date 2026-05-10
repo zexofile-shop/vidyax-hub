@@ -79,7 +79,7 @@ const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
 
 const downloadOptions = [
-  { name: "Android", status: "Download APK", icon: "android", href: androidApkUrl, active: true },
+  { name: "Android", status: "v1.2.2 · Latest release", icon: "android", href: androidApkUrl, active: true, cta: "Download Latest APK" },
   { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
   { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
 ];
