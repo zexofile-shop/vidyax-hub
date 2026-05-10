@@ -401,8 +401,10 @@ function Index() {
                   <PlatformIcon type={option.icon} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black">{option.name}</h3>
-                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">{option.status}</p>
+                  <h3 className="text-base font-black">{option.name}{option.active ? " · v1.2.2" : ""}</h3>
+                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">
+                    {option.active ? "Download Latest APK" : option.status}
+                  </p>
                 </div>
               </div>
               <span className="text-xl font-black text-primary">→</span>
