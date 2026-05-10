@@ -3,11 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VidyaX</title>
-    <script type="module" crossorigin src="/assets/index.js"></script>
+    <title>VidyaX — Free Learning App</title>
+    <meta name="description" content="VidyaX - Premium learning access, made simple" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        var p = sessionStorage.getItem("vidyax_redirect");
+        if (p && p !== location.pathname + location.search + location.hash) {
+          sessionStorage.removeItem("vidyax_redirect");
+          history.replaceState(null, "", p);
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <!-- Triggering Vercel Redeploy -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
