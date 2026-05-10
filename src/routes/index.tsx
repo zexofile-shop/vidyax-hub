@@ -63,13 +63,14 @@ const heroScreens = [
 ];
 
 const screenshots = [
+  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
+  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
+  { src: libraryShot, alt: "VidyaX book library upload", label: "Books" },
   { src: achievementsShot, alt: "VidyaX achievements and XP", label: "Achievements" },
   { src: settingsShot, alt: "VidyaX settings controls", label: "Settings" },
-  { src: notificationsShot, alt: "VidyaX notifications inbox", label: "Notifications" },
-  { src: libraryShot, alt: "VidyaX book library upload", label: "Book Library" },
-  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
-  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
 ];
+
+void notificationsShot;
 
 const androidApkUrl =
   "https://github.com/Bhavishy-dev/VidyaX-Application/releases/download/1.2.2/Vidyax1.2.2.apk";
@@ -78,7 +79,7 @@ const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
 
 const downloadOptions = [
-  { name: "Android", status: "Download APK", icon: "android", href: androidApkUrl, active: true },
+  { name: "Android", status: "v1.2.2 · Latest release", icon: "android", href: androidApkUrl, active: true, cta: "Download Latest APK" },
   { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
   { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
 ];
@@ -274,7 +275,7 @@ function Index() {
         </div>
 
         <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[600px]">
-          <div className="absolute inset-x-10 top-14 h-[430px] rounded-[4rem] bg-hero-gradient opacity-80 blur-3xl" />
+          <div className="absolute inset-x-16 top-20 h-[360px] rounded-[4rem] bg-hero-gradient opacity-25 blur-3xl" />
           {heroScreens.map((shot, index) => {
             const isActive = index === activeHeroShot;
             const position =
@@ -400,8 +401,10 @@ function Index() {
                   <PlatformIcon type={option.icon} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black">{option.name}</h3>
-                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">{option.status}</p>
+                  <h3 className="text-base font-black">{option.name}{option.active ? " · v1.2.2" : ""}</h3>
+                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">
+                    {option.active ? "Download Latest APK" : option.status}
+                  </p>
                 </div>
               </div>
               <span className="text-xl font-black text-primary">→</span>
@@ -418,12 +421,12 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
@@ -435,7 +438,7 @@ function Index() {
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
@@ -452,7 +455,7 @@ function Index() {
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
