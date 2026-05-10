@@ -275,7 +275,7 @@ function Index() {
         </div>
 
         <div className="relative mx-auto h-[500px] w-full max-w-[520px] sm:h-[600px]">
-          <div className="absolute inset-x-10 top-14 h-[430px] rounded-[4rem] bg-hero-gradient opacity-80 blur-3xl" />
+          <div className="absolute inset-x-16 top-20 h-[360px] rounded-[4rem] bg-hero-gradient opacity-25 blur-3xl" />
           {heroScreens.map((shot, index) => {
             const isActive = index === activeHeroShot;
             const position =
