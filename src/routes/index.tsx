@@ -421,12 +421,12 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
@@ -438,7 +438,7 @@ function Index() {
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
@@ -455,7 +455,7 @@ function Index() {
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
+            className="group min-w-[78%] shrink-0 rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
