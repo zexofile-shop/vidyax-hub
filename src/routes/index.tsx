@@ -72,17 +72,12 @@ const screenshots = [
 
 void notificationsShot;
 
-const androidApkUrl =
-  "https://github.com/Bhavishy-dev/VidyaX-Application/releases/download/1.2.2/Vidyax1.2.2.apk";
+// API constants
+const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
-
-const downloadOptions = [
-  { name: "Android", status: "v1.2.2 · Latest release", icon: "android", href: androidApkUrl, active: true, cta: "Download Latest APK" },
-  { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
-  { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
-];
+const defaultApkUrl = "https://github.com/Bhavishy-dev/VidyaX-Application/releases/download/1.2.2/Vidyax1.2.2.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -177,6 +172,32 @@ function PlatformIcon({ type }: { type: string }) {
 
 function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
+  const [appData, setAppData] = useState<{
+    latestVersion: string;
+    downloadUrl: string;
+    updatedAt: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const fetchAppVersion = async () => {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'GET',
+          headers: {
+            'accept': '*/*',
+            'cache-control': 'no-cache',
+          }
+        });
+        const json = await response.json();
+        if (json.success) {
+          setAppData(json.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch app version:", error);
+      }
+    };
+    fetchAppVersion();
+  }, []);
 
   // Content protection: disable copy, right-click, selection, common keys
   useEffect(() => {
@@ -206,6 +227,30 @@ function Index() {
       document.removeEventListener("keydown", blockKeys);
     };
   }, []);
+
+  const currentVersion = appData?.latestVersion || "1.2.2";
+  const currentDownloadUrl = appData?.downloadUrl || defaultApkUrl;
+  const lastUpdatedDate = appData 
+    ? new Date(appData.updatedAt).toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      })
+    : "May 10, 2026";
+
+  const downloadOptions = [
+    { 
+      name: "Android", 
+      status: `v${currentVersion} · ${appData ? 'Latest' : 'Stable'} release`, 
+      icon: "android", 
+      href: currentDownloadUrl, 
+      active: true, 
+      cta: "Download Latest APK",
+      updatedAt: lastUpdatedDate
+    },
+    { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
+    { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
+  ];
 
   return (
     <main
@@ -401,9 +446,9 @@ function Index() {
                   <PlatformIcon type={option.icon} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black">{option.name}{option.active ? " · v1.2.2" : ""}</h3>
+                  <h3 className="text-base font-black">{option.name}{option.active ? ` · v${currentVersion}` : ""}</h3>
                   <p className="mt-0.5 text-xs font-bold text-muted-foreground">
-                    {option.active ? "Download Latest APK" : option.status}
+                    {option.active ? `Download Latest APK ${option.updatedAt ? `(Updated ${option.updatedAt})` : ""}` : option.status}
                   </p>
                 </div>
               </div>
