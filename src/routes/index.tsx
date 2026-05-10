@@ -1,13 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { MouseEvent } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 import achievementsShot from "../assets/vidyax-achievements.jpg";
 import appsShot from "../assets/vidyax-apps.jpg";
+import batchesShot from "../assets/vidyax-batches.jpg";
 import edusparkLogo from "../assets/eduspark-logo.jpg";
+import libraryShot from "../assets/vidyax-library.jpg";
+import missionShot from "../assets/vidyax-mission.jpg";
 import notificationsShot from "../assets/vidyax-notifications.jpg";
 import profileShot from "../assets/vidyax-profile.jpg";
 import settingsShot from "../assets/vidyax-settings.jpg";
+import splashShot from "../assets/vidyax-splash.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,25 +56,36 @@ const features = [
   },
 ];
 
+const heroScreens = [
+  { src: splashShot, alt: "VidyaX splash screen", label: "Splash" },
+  { src: appsShot, alt: "VidyaX apps dashboard", label: "Home" },
+  { src: profileShot, alt: "VidyaX profile screen", label: "Profile" },
+];
+
 const screenshots = [
-  { src: appsShot, alt: "VidyaX apps dashboard with available learning apps", label: "Apps Hub" },
-  { src: profileShot, alt: "VidyaX profile with streak and quick stats", label: "Profile" },
-  { src: achievementsShot, alt: "VidyaX achievements and XP screen", label: "Achievements" },
+  { src: achievementsShot, alt: "VidyaX achievements and XP", label: "Achievements" },
   { src: settingsShot, alt: "VidyaX settings controls", label: "Settings" },
   { src: notificationsShot, alt: "VidyaX notifications inbox", label: "Notifications" },
+  { src: libraryShot, alt: "VidyaX book library upload", label: "Book Library" },
+  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
+  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
 ];
 
-const heroScreens = screenshots.slice(0, 3);
+const androidApkUrl =
+  "https://github.com/Bhavishy-dev/VidyaX-Application/releases/download/1.2.2/Vidyax1.2.2.apk";
+const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
+const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
+const supportEmail = "edusparkkoficial@gmail.com";
 
 const downloadOptions = [
-  { name: "Android", status: "Download APK", icon: "android", href: "https://www.mediafire.com/" },
-  { name: "iOS", status: "Coming soon", icon: "apple", href: "#download" },
-  { name: "Windows", status: "Coming soon", icon: "windows", href: "#download" },
+  { name: "Android", status: "Download APK", icon: "android", href: androidApkUrl, active: true },
+  { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
+  { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
 ];
 
-const telegramLink = "https://t.me/";
-const supportEmail = "edusparkkoficial@gmail.com";
-const telegramPromptStorageKey = "vidyax-telegram-prompt-count";
+function scrollToDownload() {
+  document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
@@ -160,37 +175,42 @@ function PlatformIcon({ type }: { type: string }) {
 }
 
 function Index() {
-  const [telegramPromptOpen, setTelegramPromptOpen] = useState(false);
   const [activeHeroShot, setActiveHeroShot] = useState(0);
-  const [telegramPromptCount, setTelegramPromptCount] = useState(() => {
-    if (typeof window === "undefined") {
-      return 0;
-    }
-    return Number(window.localStorage.getItem(telegramPromptStorageKey) ?? 0);
-  });
 
-  const handleDownloadClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (telegramPromptCount >= 2) {
-      return;
-    }
-    event.preventDefault();
-    setTelegramPromptCount((count) => {
-      const nextCount = count + 1;
-      window.localStorage.setItem(telegramPromptStorageKey, String(nextCount));
-      return nextCount;
-    });
-    setTelegramPromptOpen(true);
-  };
-
-  const continueDownload = () => {
-    setTelegramPromptOpen(false);
-    window.requestAnimationFrame(() => {
-      document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  };
+  // Content protection: disable copy, right-click, selection, common keys
+  useEffect(() => {
+    const stop = (e: Event) => e.preventDefault();
+    const blockKeys = (e: KeyboardEvent) => {
+      const k = e.key.toLowerCase();
+      if (
+        (e.ctrlKey || e.metaKey) &&
+        ["c", "x", "u", "s", "a", "p"].includes(k)
+      ) {
+        e.preventDefault();
+      }
+      if (e.key === "F12") e.preventDefault();
+    };
+    document.addEventListener("contextmenu", stop);
+    document.addEventListener("copy", stop);
+    document.addEventListener("cut", stop);
+    document.addEventListener("dragstart", stop);
+    document.addEventListener("selectstart", stop);
+    document.addEventListener("keydown", blockKeys);
+    return () => {
+      document.removeEventListener("contextmenu", stop);
+      document.removeEventListener("copy", stop);
+      document.removeEventListener("cut", stop);
+      document.removeEventListener("dragstart", stop);
+      document.removeEventListener("selectstart", stop);
+      document.removeEventListener("keydown", blockKeys);
+    };
+  }, []);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <main
+      className="min-h-screen overflow-hidden bg-background text-foreground select-none"
+      style={{ WebkitUserSelect: "none", userSelect: "none", WebkitTouchCallout: "none" }}
+    >
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <BrandLogo />
         <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
@@ -223,17 +243,17 @@ function Index() {
             achievements inside one polished app experience powered by Eduspark.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="https://www.mediafire.com/"
-              target="_blank"
-              rel="noreferrer"
-              onClick={handleDownloadClick}
+            <button
+              type="button"
+              onClick={scrollToDownload}
               className="shine-sweep rounded-full bg-primary px-6 py-3 text-center text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-1 active:scale-95 focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
-              Download Android APK
-            </a>
+              Download Latest APK
+            </button>
             <a
-              href="#support"
+              href={telegramCommunityUrl}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full border bg-card px-6 py-3 text-center text-sm font-black text-foreground shadow-card transition hover:-translate-y-1 active:scale-95 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               Join Telegram
@@ -275,10 +295,10 @@ function Index() {
                 <img
                   src={shot.src}
                   alt={shot.alt}
-                  className="aspect-[9/18.2] w-full rounded-[1.45rem] object-cover object-top sm:rounded-[1.85rem]"
+                  draggable={false}
+                  className="pointer-events-none aspect-[9/18.2] w-full rounded-[1.45rem] object-cover object-top sm:rounded-[1.85rem]"
                   loading={isActive ? "eager" : "lazy"}
                 />
-                <div className="pointer-events-none absolute inset-x-3 top-1 h-4 rounded-t-[1.4rem] bg-card/95" />
               </button>
             );
           })}
@@ -337,10 +357,10 @@ function Index() {
                 <img
                   src={shot.src}
                   alt={shot.alt}
-                  className="aspect-[9/18.2] w-full rounded-[1.5rem] object-cover object-top"
+                  draggable={false}
+                  className="pointer-events-none aspect-[9/18.2] w-full rounded-[1.5rem] object-cover object-top"
                   loading="lazy"
                 />
-                <div className="pointer-events-none absolute inset-x-3 top-1 h-4 rounded-t-[1.35rem] bg-card/95" />
                 <figcaption className="px-3 py-3 text-center text-xs font-black text-primary">
                   {shot.label}
                 </figcaption>
@@ -360,8 +380,7 @@ function Index() {
             Install VidyaX and start learning with confidence.
           </h2>
           <p className="mt-4 text-sm font-semibold leading-7 opacity-80">
-            Android APK will open through the attached MediaFire link. iOS and Windows options are
-            prepared as professional availability cards.
+            Get the latest Android APK directly. iOS and Windows versions are coming soon.
           </p>
           <div className="mt-5">
             <EdusparkMark compact />
@@ -372,10 +391,9 @@ function Index() {
             <a
               key={option.name}
               href={option.href}
-              target={option.name === "Android" ? "_blank" : undefined}
-              rel={option.name === "Android" ? "noreferrer" : undefined}
-              onClick={handleDownloadClick}
-              className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 active:scale-[0.97] hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
+              target={option.active ? "_blank" : undefined}
+              rel={option.active ? "noreferrer" : undefined}
+              className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
             >
               <div className="flex items-center gap-4">
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-primary">
@@ -400,12 +418,12 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-        <div className="flex gap-4 overflow-x-auto pb-5 [scrollbar-width:none]">
+        <div className="grid gap-4 sm:grid-cols-3">
           <a
-            href={telegramLink}
+            href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
+            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
@@ -417,28 +435,31 @@ function Index() {
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
+            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
             </div>
             <h2 className="text-lg font-black">Email Support</h2>
-            <p className="mt-2 break-words text-sm font-semibold leading-6 text-muted-foreground">
+            <p className="mt-2 break-words text-sm font-semibold leading-6 text-primary underline underline-offset-4">
               {supportEmail}
+            </p>
+            <p className="mt-2 text-xs font-bold text-muted-foreground">
+              24×7 help support — we reply within hours.
             </p>
           </a>
           <a
-            href={telegramLink}
+            href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group min-w-[250px] rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 sm:min-w-[290px]"
+            className="group rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon />
             </div>
             <h2 className="text-lg font-black">Telegram Support</h2>
             <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
-              Connect directly on Telegram for download, app access, and content help.
+              Chat with our support bot for download, app access, and content help.
             </p>
           </a>
         </div>
@@ -449,37 +470,6 @@ function Index() {
           <p className="mt-4 text-sm font-black text-muted-foreground">VidyaX by Eduspark</p>
         </footer>
       </section>
-
-      {telegramPromptOpen && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-foreground/35 px-5 py-8 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-[2rem] border bg-card p-6 text-center shadow-soft">
-            <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-brand-soft text-primary">
-              <TelegramIcon className="h-8 w-8" />
-            </div>
-            <h2 className="text-2xl font-black">Join Telegram</h2>
-            <p className="mt-3 text-sm font-semibold leading-7 text-muted-foreground">
-              Join the VidyaX Telegram community for updates before continuing to downloads.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <a
-                href={telegramLink}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-ring/30"
-              >
-                Join Telegram
-              </a>
-              <button
-                type="button"
-                onClick={continueDownload}
-                className="rounded-full border bg-card px-5 py-3 text-sm font-black text-foreground shadow-card transition hover:-translate-y-0.5 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
-              >
-                Continue
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
