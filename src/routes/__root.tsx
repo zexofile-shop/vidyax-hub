@@ -36,7 +36,7 @@ export const Route = createRootRoute({
           "Download VidyaX for free institute content, books, test series, achievements, and smart learning tools powered by Eduspark.",
       },
       { name: "author", content: "Eduspark" },
-      { property: "og:title", content: "VidyaX — Future of Learning" },
+      { property: "og:title", content: "VidyaX — Free Learning App" },
       {
         property: "og:description",
         content:
@@ -45,6 +45,12 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@VidyaX" },
+      { name: "twitter:title", content: "VidyaX — Free Learning App" },
+      { name: "description", content: "VidyaX - Premium learning access , made simple" },
+      { property: "og:description", content: "VidyaX - Premium learning access , made simple" },
+      { name: "twitter:description", content: "VidyaX - Premium learning access , made simple" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/SnOPXSzaNzcUFZq3MeYFFXSxoy52/social-images/social-1778410156410-1000099733.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/SnOPXSzaNzcUFZq3MeYFFXSxoy52/social-images/social-1778410156410-1000099733.webp" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
