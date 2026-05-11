@@ -615,73 +615,24 @@ function ShareCard({
   };
 
   return (
-    <div className="mt-8 overflow-hidden rounded-3xl border bg-card shadow-card">
-      <div className="relative">
-        <img
-          src="/vidyax-banner.png"
-          alt="VidyaX promotional banner"
-          draggable={false}
-          className="pointer-events-none aspect-[1707/889] w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div className="p-5 sm:p-6">
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Share</p>
-        <h2 className="mt-1 text-xl font-black tracking-normal sm:text-2xl">
-          Spread VidyaX with friends
-        </h2>
-        <p className="mt-2 text-xs font-semibold leading-6 text-muted-foreground sm:text-sm">
-          Share the app banner, all download links, latest version and update info — beautifully
-          formatted, ready to send anywhere.
-        </p>
-
-        <div className="mt-4 grid grid-cols-1 gap-2 rounded-2xl border bg-secondary/40 p-3 text-[11px] font-bold text-muted-foreground sm:text-xs">
-          <div className="flex items-center justify-between gap-3">
-            <span>📦 Version</span>
-            <span className="text-foreground">v{version}</span>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span>🗓️ Last updated</span>
-            <span className="text-foreground">{updatedAt}</span>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span>🤖 Android</span>
-            <span className="text-primary">Latest APK</span>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span> iOS</span>
-            <span>Coming soon</span>
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span>🪟 Windows</span>
-            <span>Coming soon</span>
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-          <button
-            type="button"
-            onClick={handleShare}
-            disabled={sharing}
-            className="shine-sweep inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-0.5 active:scale-95 disabled:opacity-70 focus:outline-none focus:ring-4 focus:ring-ring/30"
-          >
-            <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-              <path
-                fill="currentColor"
-                d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.1c.1-.3.1-.5.1-.8s0-.5-.1-.8L16 7.1c.6.5 1.3.9 2.1.9 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .3 0 .5.1.8L8 9.9c-.6-.5-1.3-.9-2.1-.9-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2.1-.9l7.1 4.1c-.1.3-.1.5-.1.7 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.8-2.8-2.8Z"
-              />
-            </svg>
-            {sharing ? "Sharing…" : "Share VidyaX"}
-          </button>
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="inline-flex items-center justify-center gap-2 rounded-full border bg-card px-5 py-3 text-sm font-black text-foreground shadow-card transition hover:-translate-y-0.5 hover:border-primary active:scale-95 focus:outline-none focus:ring-4 focus:ring-ring/30"
-          >
-            {copied ? "Copied ✓" : "Copy details"}
-          </button>
-        </div>
-      </div>
+    <div className="mt-8 flex flex-col items-center gap-3 text-center">
+      <p className="text-sm font-bold text-muted-foreground sm:text-base">
+        Spread VidyaX with your friends ✨
+      </p>
+      <button
+        type="button"
+        onClick={handleShare}
+        disabled={sharing}
+        className="shine-sweep inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-black text-primary-foreground shadow-soft transition hover:-translate-y-0.5 active:scale-95 disabled:opacity-70 focus:outline-none focus:ring-4 focus:ring-ring/30"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.1c.1-.3.1-.5.1-.8s0-.5-.1-.8L16 7.1c.6.5 1.3.9 2.1.9 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .3 0 .5.1.8L8 9.9c-.6-.5-1.3-.9-2.1-.9-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2.1-.9l7.1 4.1c-.1.3-.1.5-.1.7 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.8-2.8-2.8Z"
+          />
+        </svg>
+        {sharing ? "Sharing…" : copied ? "Copied ✓" : "Share VidyaX"}
+      </button>
     </div>
   );
 }
