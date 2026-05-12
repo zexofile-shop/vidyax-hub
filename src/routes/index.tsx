@@ -582,7 +582,6 @@ function ShareCard({
           await nav.share({
             title,
             text: shareText,
-            url: siteUrl,
             files: [file],
           });
           return;
@@ -592,9 +591,9 @@ function ShareCard({
       }
 
       if (nav.share) {
-        await nav.share({ title, text: shareText, url: siteUrl });
+        await nav.share({ title, text: shareText });
       } else {
-        await navigator.clipboard.writeText(`${shareText}\n\n${siteUrl}`);
+        await navigator.clipboard.writeText(shareText);
         setCopied(true);
         setTimeout(() => setCopied(false), 2200);
       }
@@ -607,7 +606,7 @@ function ShareCard({
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText}\n\n${siteUrl}`);
+      await navigator.clipboard.writeText(shareText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch {
