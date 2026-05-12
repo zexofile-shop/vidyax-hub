@@ -466,51 +466,49 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-        <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
+         <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex min-h-[230px] min-w-[78%] shrink-0 flex-col rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
           >
-            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
-              <TelegramIcon />
+            <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
+              <TelegramIcon className="h-4 w-4" />
             </div>
-            <h2 className="text-lg font-black">Join Telegram</h2>
-            <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
-              Updates, announcements & student community access in one place.
+            <h2 className="text-sm font-black leading-tight">Join Telegram</h2>
+            <p className="mt-1 line-clamp-2 text-[11px] font-semibold leading-4 text-muted-foreground">
+              Updates & student community access.
             </p>
-            <p className="mt-auto pt-3 text-xs font-bold text-primary">Open channel →</p>
+            <p className="mt-auto text-[10px] font-bold text-primary">Open channel →</p>
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group flex min-h-[230px] min-w-[78%] shrink-0 flex-col rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
           >
-            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft transition group-hover:scale-105">
+            <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
             </div>
-            <h2 className="text-lg font-black">Email Support</h2>
-            <p className="mt-2 break-all text-xs font-semibold leading-5 text-primary underline underline-offset-4">
+            <h2 className="text-sm font-black leading-tight">Email Support</h2>
+            <p className="mt-1 line-clamp-2 break-all text-[10px] font-semibold leading-4 text-primary underline underline-offset-4">
               {supportEmail}
             </p>
-            <p className="mt-auto pt-3 text-xs font-bold text-muted-foreground">
-              24×7 — replies within hours.
-            </p>
+            <p className="mt-auto text-[10px] font-bold text-muted-foreground">24×7 replies.</p>
           </a>
           <a
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex min-h-[230px] min-w-[78%] shrink-0 flex-col rounded-2xl border bg-card p-5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:min-w-[280px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
           >
-            <div className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-soft text-primary transition group-hover:scale-105">
-              <TelegramIcon />
+            <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
+              <TelegramIcon className="h-4 w-4" />
             </div>
-            <h2 className="text-lg font-black">Telegram Support</h2>
-            <p className="mt-2 text-sm font-semibold leading-6 text-muted-foreground">
-              Chat with our support bot for downloads & content help.
+            <h2 className="text-sm font-black leading-tight">Telegram Support</h2>
+            <p className="mt-1 line-clamp-2 text-[11px] font-semibold leading-4 text-muted-foreground">
+              Bot for downloads & content help.
             </p>
-            <p className="mt-auto pt-3 text-xs font-bold text-primary">Open bot →</p>
+            <p className="mt-auto text-[10px] font-bold text-primary">Open bot →</p>
           </a>
         </div>
 
