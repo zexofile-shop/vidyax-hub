@@ -561,6 +561,9 @@ function ShareCard({
     "",
     `📦 Latest version: v${version}`,
     `🗓️ Last updated: ${updatedAt}`,
+    "",
+    "📣 Join our Telegram for latest updates & app updates 👀",
+    `   ${telegramCommunityUrl}`,
   ].join("\n");
 
   const handleShare = async () => {
