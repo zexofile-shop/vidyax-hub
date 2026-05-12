@@ -466,12 +466,12 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-         <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
+         <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 pt-1 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
@@ -484,7 +484,7 @@ function Index() {
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
@@ -499,7 +499,7 @@ function Index() {
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
