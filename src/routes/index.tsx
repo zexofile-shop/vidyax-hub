@@ -182,11 +182,11 @@ function Index() {
     const fetchAppVersion = async () => {
       try {
         const response = await fetch(API_URL, {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'accept': '*/*',
-            'cache-control': 'no-cache',
-          }
+            accept: "*/*",
+            "cache-control": "no-cache",
+          },
         });
         const json = await response.json();
         if (json.success) {
@@ -204,10 +204,7 @@ function Index() {
     const stop = (e: Event) => e.preventDefault();
     const blockKeys = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
-      if (
-        (e.ctrlKey || e.metaKey) &&
-        ["c", "x", "u", "s", "a", "p"].includes(k)
-      ) {
+      if ((e.ctrlKey || e.metaKey) && ["c", "x", "u", "s", "a", "p"].includes(k)) {
         e.preventDefault();
       }
       if (e.key === "F12") e.preventDefault();
@@ -230,23 +227,23 @@ function Index() {
 
   const currentVersion = appData?.latestVersion || "1.2.2";
   const currentDownloadUrl = appData?.downloadUrl || defaultApkUrl;
-  const lastUpdatedDate = appData 
-    ? new Date(appData.updatedAt).toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
+  const lastUpdatedDate = appData
+    ? new Date(appData.updatedAt).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
       })
     : "May 10, 2026";
 
   const downloadOptions = [
-    { 
-      name: "Android", 
-      status: `v${currentVersion} · ${appData ? 'Latest' : 'Stable'} release`, 
-      icon: "android", 
-      href: currentDownloadUrl, 
-      active: true, 
+    {
+      name: "Android",
+      status: `v${currentVersion} · ${appData ? "Latest" : "Stable"} release`,
+      icon: "android",
+      href: currentDownloadUrl,
+      active: true,
       cta: "Download Latest APK",
-      updatedAt: lastUpdatedDate
+      updatedAt: lastUpdatedDate,
     },
     { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
     { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
@@ -446,9 +443,14 @@ function Index() {
                   <PlatformIcon type={option.icon} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black">{option.name}{option.active ? ` · v${currentVersion}` : ""}</h3>
+                  <h3 className="text-base font-black">
+                    {option.name}
+                    {option.active ? ` · v${currentVersion}` : ""}
+                  </h3>
                   <p className="mt-0.5 text-xs font-bold text-muted-foreground">
-                    {option.active ? `Download Latest APK ${option.updatedAt ? `(Updated ${option.updatedAt})` : ""}` : option.status}
+                    {option.active
+                      ? `Download Latest APK ${option.updatedAt ? `(Updated ${option.updatedAt})` : ""}`
+                      : option.status}
                   </p>
                 </div>
               </div>
@@ -466,12 +468,12 @@ function Index() {
           </div>
           <EdusparkMark />
         </div>
-         <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 sm:mx-0 sm:px-0 [scrollbar-width:none]">
+        <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 pt-1 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
@@ -484,7 +486,7 @@ function Index() {
           </a>
           <a
             href={`mailto:${supportEmail}`}
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft transition group-hover:scale-105">
               <GmailIcon />
@@ -499,7 +501,7 @@ function Index() {
             href={telegramSupportUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px]"
+            className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
               <TelegramIcon className="h-4 w-4" />
@@ -582,7 +584,6 @@ function ShareCard({
           await nav.share({
             title,
             text: shareText,
-            url: siteUrl,
             files: [file],
           });
           return;
@@ -592,9 +593,9 @@ function ShareCard({
       }
 
       if (nav.share) {
-        await nav.share({ title, text: shareText, url: siteUrl });
+        await nav.share({ title, text: shareText });
       } else {
-        await navigator.clipboard.writeText(`${shareText}\n\n${siteUrl}`);
+        await navigator.clipboard.writeText(shareText);
         setCopied(true);
         setTimeout(() => setCopied(false), 2200);
       }
@@ -607,7 +608,7 @@ function ShareCard({
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(`${shareText}\n\n${siteUrl}`);
+      await navigator.clipboard.writeText(shareText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch {
