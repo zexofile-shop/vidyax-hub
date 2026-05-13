@@ -704,6 +704,16 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
         "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
     },
     {
+      img: faqPrivacyImg,
+      alt: "Google Play Protect shield",
+      q_en: "Play Protect shows a warning while installing — is the app unsafe?",
+      a_en:
+        "No, the app is safe. Google Play Protect shows this popup for any APK installed outside the Play Store, even popular ones. Just tap 'Install anyway' (or 'More details' → 'Install anyway'). VidyaX is signed by Eduspark, served over HTTPS, and contains no malware.",
+      q_hi: "Play Protect install karte waqt warning deta hai — kya app safe nahi hai?",
+      a_hi:
+        "App bilkul safe hai. Google Play Protect ye popup har us APK pe dikhata hai jo Play Store ke bahar se install hoti hai, chahe wo popular hi kyu na ho. Bas 'Install anyway' (ya 'More details' → 'Install anyway') pe tap kar do. VidyaX Eduspark se signed hai, HTTPS pe serve hoti hai, aur isme koi malware nahi hai.",
+    },
+    {
       img: faqPlatformsImg,
       alt: "iOS and Windows coming soon",
       q_en: "When will iOS and Windows versions launch?",
