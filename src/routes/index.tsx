@@ -89,6 +89,10 @@ function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
 }
