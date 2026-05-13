@@ -842,7 +842,7 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
                     width={768}
                     height={512}
                     loading="lazy"
-                    className="h-32 w-full object-cover sm:h-28"
+                    className="aspect-[3/2] w-full object-contain bg-muted/40"
                   />
                 </div>
                 <p className="flex-1">{t(item.a_en, item.a_hi)}</p>
