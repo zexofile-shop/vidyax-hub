@@ -102,6 +102,63 @@ export const Route = createRootRoute({
           publisher: { "@type": "Organization", name: "Eduspark" },
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is VidyaX?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "VidyaX is a free learning platform built by Eduspark. It offers free batches, a book library, test series, achievements and institute apps in one place — without any paid subscription.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is VidyaX completely free?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. VidyaX is 100% free. All learning content, batches and the library are accessible without any charge.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I install the VidyaX APK safely?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Download the APK from vidyax.site, then in Android Settings → Security → 'Install unknown apps', allow your browser. The app is signed by Eduspark and uses HTTPS.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "When will iOS and Windows versions launch?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "iOS and Windows builds are in active development and will go live on the same download page when released.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I update the VidyaX app?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Visit vidyax.site, download the latest APK and install it. Your old data and login remain intact.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is my data safe on VidyaX?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. VidyaX only stores essential information, never sells data to third parties, uses HTTPS, and follows Eduspark's privacy guidelines.",
+              },
+            },
+          ],
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
