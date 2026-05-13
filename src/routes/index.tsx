@@ -520,6 +520,8 @@ function Index() {
           updatedAt={lastUpdatedDate}
         />
 
+        <FaqSection version={currentVersion} updatedAt={lastUpdatedDate} />
+
         <footer className="pt-14 text-center">
           <div className="flex justify-center">
             <EdusparkMark />
