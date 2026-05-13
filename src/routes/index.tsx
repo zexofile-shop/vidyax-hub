@@ -83,7 +83,7 @@ const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://www.mediafire.com/file/69bj76x1m7zv415/vidyaX.apk/file";
+const defaultApkUrl = "https://www.mediafire.com/file/lopnaqm8pj1x4ga/VidyaX_v1.2.3.apk/file";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -235,7 +235,7 @@ function Index() {
     };
   }, []);
 
-  const currentVersion = appData?.latestVersion || "1.2.2";
+  const currentVersion = appData?.latestVersion || "1.2.3";
   const currentDownloadUrl = appData?.downloadUrl || defaultApkUrl;
   const lastUpdatedDate = appData
     ? new Date(appData.updatedAt).toLocaleDateString("en-IN", {
@@ -243,7 +243,7 @@ function Index() {
         month: "short",
         year: "numeric",
       })
-    : "May 10, 2026";
+    : "May 13, 2026";
 
   const downloadOptions = [
     {
