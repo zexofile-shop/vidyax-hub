@@ -759,18 +759,23 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
   const t = (en: string, hi: string) => (lang === "en" ? en : hi);
 
   const handleShareFaq = async () => {
-    const url = "https://vidyax.site/#faq";
+    const url = "https://vidyax.site";
     const title = "VidyaX — FAQ";
-    const text = `${t("Got questions about VidyaX? Here are the answers ✨", "VidyaX ke baare me sawaal? Yaha sab answers hain ✨")}\n${url}`;
+    const text = t(
+      "Got questions about VidyaX? Here are the answers ✨",
+      "VidyaX ke baare me sawaal? Yaha sab answers hain ✨",
+    );
     try {
       const nav = navigator as Navigator;
       if (nav.share) {
         await nav.share({ title, text, url });
       } else {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(`${text}\n${url}`);
       }
     } catch {
       // ignore
+    }
+  };
     }
   };
 
