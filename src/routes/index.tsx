@@ -646,3 +646,72 @@ function ShareCard({
     </div>
   );
 }
+
+function FaqSection({ version, updatedAt }: { version: string; updatedAt: string }) {
+  const faqs = [
+    {
+      q: "VidyaX kya hai?",
+      a: "VidyaX ek free learning platform hai jise Eduspark ne banaya hai. Yaha aapko free batches, book library, test series, achievements aur institute apps ek hi jagah milte hain — bina kisi paid subscription ke.",
+    },
+    {
+      q: "Kya VidyaX bilkul free hai?",
+      a: "Haan, VidyaX 100% free hai. Saari learning content, batches aur library bina kisi charge ke access kar sakte ho. Kuch features future me institute-specific ho sakte hain, lekin core app hamesha free rahega.",
+    },
+    {
+      q: "Latest version kaunsa hai aur kab update hua?",
+      a: `Abhi latest version ${version} hai (last updated: ${updatedAt}). Updates ke liye Telegram channel join karo — har naye release ki link wahin sabse pehle milti hai.`,
+    },
+    {
+      q: "APK install karte waqt 'Unknown Sources' warning aata hai, kya karu?",
+      a: "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
+    },
+    {
+      q: "iOS aur Windows version kab aayega?",
+      a: "iOS aur Windows builds active development me hain. Release hote hi same download page pe live ho jayenge. Telegram channel join karke updates pe nazar rakho.",
+    },
+    {
+      q: "App update kaise karu?",
+      a: "Site pe wapas aakar latest APK download karo aur install kar lo — purana data aur login waise ka waisa rahega. Auto-update ke liye Telegram channel se notify hote raho.",
+    },
+    {
+      q: "Login ya download me dikkat aaye to kya karu?",
+      a: "Sabse pehle Telegram support bot try karo (fast replies). Detailed query ke liye support email pe likho — 24×7 reply milta hai.",
+    },
+    {
+      q: "Mera data safe hai?",
+      a: "Haan. VidyaX sirf zaruri info store karta hai aur kisi third-party ko sell nahi karta. App secure connections (HTTPS) use karta hai aur Eduspark ki privacy guidelines follow karta hai.",
+    },
+  ];
+
+  return (
+    <section className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7">
+      <div className="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">FAQ</p>
+          <h2 className="mt-1 text-2xl font-black tracking-normal">
+            Frequently asked questions
+          </h2>
+        </div>
+        <span className="hidden rounded-full bg-brand-soft px-3 py-1 text-[11px] font-black text-primary sm:inline-block">
+          {faqs.length} answers
+        </span>
+      </div>
+      <Accordion type="single" collapsible className="w-full">
+        {faqs.map((item, idx) => (
+          <AccordionItem
+            key={idx}
+            value={`faq-${idx}`}
+            className="border-b last:border-b-0"
+          >
+            <AccordionTrigger className="text-left text-sm font-black sm:text-base">
+              {item.q}
+            </AccordionTrigger>
+            <AccordionContent className="text-sm font-medium leading-relaxed text-muted-foreground">
+              {item.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </section>
+  );
+}
