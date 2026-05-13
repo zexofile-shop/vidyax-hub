@@ -656,6 +656,7 @@ import faqAboutImg from "../assets/faq-about.jpg";
 import faqFreeImg from "../assets/faq-free.jpg";
 import faqVersionImg from "../assets/faq-version.jpg";
 import faqInstallImg from "../assets/faq-install.jpg";
+import faqPlayProtectImg from "../assets/faq-playprotect.jpg";
 import faqPlatformsImg from "../assets/faq-platforms.jpg";
 import faqUpdateImg from "../assets/faq-update.jpg";
 import faqSupportImg from "../assets/faq-support.jpg";
