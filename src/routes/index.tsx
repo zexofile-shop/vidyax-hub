@@ -705,7 +705,7 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
         "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
     },
     {
-      img: faqPrivacyImg,
+      img: faqPlayProtectImg,
       alt: "Google Play Protect shield",
       q_en: "Play Protect shows a warning while installing — is the app unsafe?",
       a_en:
