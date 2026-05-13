@@ -267,22 +267,23 @@ function Index() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <BrandLogo />
         <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
-          <a href="#features" className="transition hover:text-primary">
+          <button type="button" onClick={() => scrollToId("features")} className="transition hover:text-primary">
             Features
-          </a>
-          <a href="#screens" className="transition hover:text-primary">
+          </button>
+          <button type="button" onClick={() => scrollToId("screens")} className="transition hover:text-primary">
             Screenshots
-          </a>
-          <a href="#download" className="transition hover:text-primary">
+          </button>
+          <button type="button" onClick={scrollToDownload} className="transition hover:text-primary">
             Download
-          </a>
+          </button>
         </div>
-        <a
-          href="#download"
+        <button
+          type="button"
+          onClick={scrollToDownload}
           className="rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-card focus:outline-none focus:ring-4 focus:ring-ring/30"
         >
           Get APK
-        </a>
+        </button>
       </nav>
 
       <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-14">
