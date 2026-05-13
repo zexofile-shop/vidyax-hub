@@ -818,7 +818,7 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            हिंदी
+            Hinglish
           </button>
         </div>
       </div>
