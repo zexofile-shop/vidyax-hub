@@ -255,8 +255,8 @@ function Index() {
       cta: "Download Latest APK",
       updatedAt: lastUpdatedDate,
     },
-    { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
-    { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
+    { name: "iOS", status: "Coming soon", icon: "apple", href: "", active: false },
+    { name: "Windows", status: "Coming soon", icon: "windows", href: "", active: false },
   ];
 
   return (
