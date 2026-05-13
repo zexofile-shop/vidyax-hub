@@ -134,6 +134,14 @@ export const Route = createRootRoute({
             },
             {
               "@type": "Question",
+              name: "Play Protect shows a warning while installing — is the app unsafe?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No, the app is safe. Google Play Protect shows this popup for any APK installed outside the Play Store. Tap 'Install anyway' (or 'More details' → 'Install anyway'). VidyaX is signed by Eduspark, served over HTTPS, and contains no malware.",
+              },
+            },
+            {
+              "@type": "Question",
               name: "When will iOS and Windows versions launch?",
               acceptedAnswer: {
                 "@type": "Answer",

@@ -89,6 +89,10 @@ function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function BrandLogo() {
   return <span className="text-2xl font-black tracking-normal text-brand-gradient">VidyaX</span>;
 }
@@ -251,8 +255,8 @@ function Index() {
       cta: "Download Latest APK",
       updatedAt: lastUpdatedDate,
     },
-    { name: "iOS", status: "Coming soon", icon: "apple", href: "#download", active: false },
-    { name: "Windows", status: "Coming soon", icon: "windows", href: "#download", active: false },
+    { name: "iOS", status: "Coming soon", icon: "apple", href: "", active: false },
+    { name: "Windows", status: "Coming soon", icon: "windows", href: "", active: false },
   ];
 
   return (
@@ -263,22 +267,23 @@ function Index() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <BrandLogo />
         <div className="hidden items-center gap-7 text-sm font-extrabold text-muted-foreground sm:flex">
-          <a href="#features" className="transition hover:text-primary">
+          <button type="button" onClick={() => scrollToId("features")} className="transition hover:text-primary">
             Features
-          </a>
-          <a href="#screens" className="transition hover:text-primary">
+          </button>
+          <button type="button" onClick={() => scrollToId("screens")} className="transition hover:text-primary">
             Screenshots
-          </a>
-          <a href="#download" className="transition hover:text-primary">
+          </button>
+          <button type="button" onClick={scrollToDownload} className="transition hover:text-primary">
             Download
-          </a>
+          </button>
         </div>
-        <a
-          href="#download"
+        <button
+          type="button"
+          onClick={scrollToDownload}
           className="rounded-full bg-primary px-5 py-3 text-sm font-extrabold text-primary-foreground shadow-soft transition hover:-translate-y-0.5 hover:shadow-card focus:outline-none focus:ring-4 focus:ring-ring/30"
         >
           Get APK
-        </a>
+        </button>
       </nav>
 
       <section className="mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-10 pt-4 sm:px-8 lg:grid-cols-[1fr_0.95fr] lg:pb-14">
@@ -651,6 +656,7 @@ import faqAboutImg from "../assets/faq-about.jpg";
 import faqFreeImg from "../assets/faq-free.jpg";
 import faqVersionImg from "../assets/faq-version.jpg";
 import faqInstallImg from "../assets/faq-install.jpg";
+import faqPlayProtectImg from "../assets/faq-playprotect.jpg";
 import faqPlatformsImg from "../assets/faq-platforms.jpg";
 import faqUpdateImg from "../assets/faq-update.jpg";
 import faqSupportImg from "../assets/faq-support.jpg";
@@ -699,6 +705,16 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
         "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
     },
     {
+      img: faqPlayProtectImg,
+      alt: "Google Play Protect shield",
+      q_en: "Play Protect shows a warning while installing — is the app unsafe?",
+      a_en:
+        "No, the app is safe. Google Play Protect shows this popup for any APK installed outside the Play Store, even popular ones. Just tap 'Install anyway' (or 'More details' → 'Install anyway'). VidyaX is signed by Eduspark, served over HTTPS, and contains no malware.",
+      q_hi: "Play Protect install karte waqt warning deta hai — kya app safe nahi hai?",
+      a_hi:
+        "App bilkul safe hai. Google Play Protect ye popup har us APK pe dikhata hai jo Play Store ke bahar se install hoti hai, chahe wo popular hi kyu na ho. Bas 'Install anyway' (ya 'More details' → 'Install anyway') pe tap kar do. VidyaX Eduspark se signed hai, HTTPS pe serve hoti hai, aur isme koi malware nahi hai.",
+    },
+    {
       img: faqPlatformsImg,
       alt: "iOS and Windows coming soon",
       q_en: "When will iOS and Windows versions launch?",
@@ -743,15 +759,18 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
   const t = (en: string, hi: string) => (lang === "en" ? en : hi);
 
   const handleShareFaq = async () => {
-    const url = "https://vidyax.site/#faq";
+    const url = "https://vidyax.site";
     const title = "VidyaX — FAQ";
-    const text = `${t("Got questions about VidyaX? Here are the answers ✨", "VidyaX ke baare me sawaal? Yaha sab answers hain ✨")}\n${url}`;
+    const text = t(
+      "Got questions about VidyaX? Here are the answers ✨",
+      "VidyaX ke baare me sawaal? Yaha sab answers hain ✨",
+    );
     try {
       const nav = navigator as Navigator;
       if (nav.share) {
         await nav.share({ title, text, url });
       } else {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(`${text}\n${url}`);
       }
     } catch {
       // ignore
@@ -799,7 +818,7 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            हिंदी
+            Hinglish
           </button>
         </div>
       </div>
@@ -823,7 +842,7 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
                     width={768}
                     height={512}
                     loading="lazy"
-                    className="h-32 w-full object-cover sm:h-28"
+                    className="aspect-[3/2] w-full object-contain bg-muted/40"
                   />
                 </div>
                 <p className="flex-1">{t(item.a_en, item.a_hi)}</p>
