@@ -776,8 +776,6 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
       // ignore
     }
   };
-    }
-  };
 
   return (
     <section id="faq" className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7">
