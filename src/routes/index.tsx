@@ -647,55 +647,163 @@ function ShareCard({
   );
 }
 
+import faqAboutImg from "../assets/faq-about.jpg";
+import faqFreeImg from "../assets/faq-free.jpg";
+import faqVersionImg from "../assets/faq-version.jpg";
+import faqInstallImg from "../assets/faq-install.jpg";
+import faqPlatformsImg from "../assets/faq-platforms.jpg";
+import faqUpdateImg from "../assets/faq-update.jpg";
+import faqSupportImg from "../assets/faq-support.jpg";
+import faqPrivacyImg from "../assets/faq-privacy.jpg";
+
 function FaqSection({ version, updatedAt }: { version: string; updatedAt: string }) {
+  const [lang, setLang] = useState<"en" | "hi">("en");
+
   const faqs = [
     {
-      q: "VidyaX kya hai?",
-      a: "VidyaX ek free learning platform hai jise Eduspark ne banaya hai. Yaha aapko free batches, book library, test series, achievements aur institute apps ek hi jagah milte hain — bina kisi paid subscription ke.",
+      img: faqAboutImg,
+      alt: "Student using VidyaX learning app",
+      q_en: "What is VidyaX?",
+      a_en:
+        "VidyaX is a free learning platform built by Eduspark. You get free batches, a book library, test series, achievements and institute apps in one place — without any paid subscription.",
+      q_hi: "VidyaX kya hai?",
+      a_hi:
+        "VidyaX ek free learning platform hai jise Eduspark ne banaya hai. Yaha aapko free batches, book library, test series, achievements aur institute apps ek hi jagah milte hain — bina kisi paid subscription ke.",
     },
     {
-      q: "Kya VidyaX bilkul free hai?",
-      a: "Haan, VidyaX 100% free hai. Saari learning content, batches aur library bina kisi charge ke access kar sakte ho. Kuch features future me institute-specific ho sakte hain, lekin core app hamesha free rahega.",
+      img: faqFreeImg,
+      alt: "Piggy bank with free tag",
+      q_en: "Is VidyaX completely free?",
+      a_en:
+        "Yes, VidyaX is 100% free. You can access all learning content, batches and the library without any charge. Some features may become institute-specific in the future, but the core app will always remain free.",
+      q_hi: "Kya VidyaX bilkul free hai?",
+      a_hi:
+        "Haan, VidyaX 100% free hai. Saari learning content, batches aur library bina kisi charge ke access kar sakte ho. Kuch features future me institute-specific ho sakte hain, lekin core app hamesha free rahega.",
     },
     {
-      q: "Latest version kaunsa hai aur kab update hua?",
-      a: `Abhi latest version ${version} hai (last updated: ${updatedAt}). Updates ke liye Telegram channel join karo — har naye release ki link wahin sabse pehle milti hai.`,
+      img: faqVersionImg,
+      alt: "Phone showing version update",
+      q_en: "Which is the latest version and when was it updated?",
+      a_en: `The latest version is ${version} (last updated: ${updatedAt}). Join our Telegram channel to get every new release link first.`,
+      q_hi: "Latest version kaunsa hai aur kab update hua?",
+      a_hi: `Abhi latest version ${version} hai (last updated: ${updatedAt}). Updates ke liye Telegram channel join karo — har naye release ki link wahin sabse pehle milti hai.`,
     },
     {
-      q: "APK install karte waqt 'Unknown Sources' warning aata hai, kya karu?",
-      a: "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
+      img: faqInstallImg,
+      alt: "Android mascot with safety shield",
+      q_en: "I get an 'Unknown Sources' warning while installing the APK. What should I do?",
+      a_en:
+        "This is a normal Android security warning because the app is being installed from outside the Play Store. Go to Settings → Security → 'Install unknown apps' and allow your browser, then the APK will install. The app is safe and signed by Eduspark.",
+      q_hi: "APK install karte waqt 'Unknown Sources' warning aata hai, kya karu?",
+      a_hi:
+        "Ye Android ka normal security warning hai kyunki app Play Store ke bahar se install ho raha hai. Settings → Security → 'Install unknown apps' me apne browser ko allow kar do, phir APK install ho jayega. App safe hai, Eduspark ne sign kiya hua hai.",
     },
     {
-      q: "iOS aur Windows version kab aayega?",
-      a: "iOS aur Windows builds active development me hain. Release hote hi same download page pe live ho jayenge. Telegram channel join karke updates pe nazar rakho.",
+      img: faqPlatformsImg,
+      alt: "iOS and Windows coming soon",
+      q_en: "When will iOS and Windows versions launch?",
+      a_en:
+        "iOS and Windows builds are in active development. As soon as they release, they will go live on the same download page. Join the Telegram channel to stay updated.",
+      q_hi: "iOS aur Windows version kab aayega?",
+      a_hi:
+        "iOS aur Windows builds active development me hain. Release hote hi same download page pe live ho jayenge. Telegram channel join karke updates pe nazar rakho.",
     },
     {
-      q: "App update kaise karu?",
-      a: "Site pe wapas aakar latest APK download karo aur install kar lo — purana data aur login waise ka waisa rahega. Auto-update ke liye Telegram channel se notify hote raho.",
+      img: faqUpdateImg,
+      alt: "Phone updating with smile",
+      q_en: "How do I update the app?",
+      a_en:
+        "Come back to the site, download the latest APK and install — your old data and login stay exactly as they are. For auto-update notifications, stay subscribed to our Telegram channel.",
+      q_hi: "App update kaise karu?",
+      a_hi:
+        "Site pe wapas aakar latest APK download karo aur install kar lo — purana data aur login waise ka waisa rahega. Auto-update ke liye Telegram channel se notify hote raho.",
     },
     {
-      q: "Login ya download me dikkat aaye to kya karu?",
-      a: "Sabse pehle Telegram support bot try karo (fast replies). Detailed query ke liye support email pe likho — 24×7 reply milta hai.",
+      img: faqSupportImg,
+      alt: "Customer support agent",
+      q_en: "What if I face login or download issues?",
+      a_en:
+        "First try the Telegram support bot (fast replies). For detailed queries, write to our support email — you'll get a reply 24×7.",
+      q_hi: "Login ya download me dikkat aaye to kya karu?",
+      a_hi:
+        "Sabse pehle Telegram support bot try karo (fast replies). Detailed query ke liye support email pe likho — 24×7 reply milta hai.",
     },
     {
-      q: "Mera data safe hai?",
-      a: "Haan. VidyaX sirf zaruri info store karta hai aur kisi third-party ko sell nahi karta. App secure connections (HTTPS) use karta hai aur Eduspark ki privacy guidelines follow karta hai.",
+      img: faqPrivacyImg,
+      alt: "Privacy lock and shield",
+      q_en: "Is my data safe?",
+      a_en:
+        "Yes. VidyaX only stores essential information and never sells data to third parties. The app uses secure (HTTPS) connections and follows Eduspark's privacy guidelines.",
+      q_hi: "Mera data safe hai?",
+      a_hi:
+        "Haan. VidyaX sirf zaruri info store karta hai aur kisi third-party ko sell nahi karta. App secure connections (HTTPS) use karta hai aur Eduspark ki privacy guidelines follow karta hai.",
     },
   ];
 
+  const t = (en: string, hi: string) => (lang === "en" ? en : hi);
+
+  const handleShareFaq = async () => {
+    const url = "https://vidyax.site/#faq";
+    const title = "VidyaX — FAQ";
+    const text = `${t("Got questions about VidyaX? Here are the answers ✨", "VidyaX ke baare me sawaal? Yaha sab answers hain ✨")}\n${url}`;
+    try {
+      const nav = navigator as Navigator;
+      if (nav.share) {
+        await nav.share({ title, text, url });
+      } else {
+        await navigator.clipboard.writeText(text);
+      }
+    } catch {
+      // ignore
+    }
+  };
+
   return (
-    <section className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7">
-      <div className="mb-4 flex items-center justify-between gap-3">
+    <section id="faq" className="mt-10 rounded-2xl border bg-card p-5 shadow-card sm:p-7">
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">FAQ</p>
           <h2 className="mt-1 text-2xl font-black tracking-normal">
-            Frequently asked questions
+            {t("Frequently asked questions", "Aksar puchhe jaane wale sawaal")}
           </h2>
+          <p className="mt-1 text-xs font-bold text-muted-foreground">
+            {t(`${faqs.length} answers · tap any question`, `${faqs.length} jawab · kisi bhi sawaal pe tap karo`)}
+          </p>
         </div>
-        <span className="hidden rounded-full bg-brand-soft px-3 py-1 text-[11px] font-black text-primary sm:inline-block">
-          {faqs.length} answers
-        </span>
+        <div
+          role="tablist"
+          aria-label="FAQ language"
+          className="inline-flex shrink-0 self-start rounded-full border bg-background p-1 text-xs font-black"
+        >
+          <button
+            type="button"
+            role="tab"
+            aria-selected={lang === "en"}
+            onClick={() => setLang("en")}
+            className={`rounded-full px-3 py-1.5 transition ${
+              lang === "en"
+                ? "bg-primary text-primary-foreground shadow-soft"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            English
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={lang === "hi"}
+            onClick={() => setLang("hi")}
+            className={`rounded-full px-3 py-1.5 transition ${
+              lang === "hi"
+                ? "bg-primary text-primary-foreground shadow-soft"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            हिंदी
+          </button>
+        </div>
       </div>
+
       <Accordion type="single" collapsible className="w-full">
         {faqs.map((item, idx) => (
           <AccordionItem
@@ -704,14 +812,45 @@ function FaqSection({ version, updatedAt }: { version: string; updatedAt: string
             className="border-b last:border-b-0"
           >
             <AccordionTrigger className="text-left text-sm font-black sm:text-base">
-              {item.q}
+              <span className="pr-3">{t(item.q_en, item.q_hi)}</span>
             </AccordionTrigger>
             <AccordionContent className="text-sm font-medium leading-relaxed text-muted-foreground">
-              {item.a}
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
+                <div className="overflow-hidden rounded-xl border bg-muted/40 sm:w-44 sm:shrink-0">
+                  <img
+                    src={item.img}
+                    alt={item.alt}
+                    width={768}
+                    height={512}
+                    loading="lazy"
+                    className="h-32 w-full object-cover sm:h-28"
+                  />
+                </div>
+                <p className="flex-1">{t(item.a_en, item.a_hi)}</p>
+              </div>
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
+
+      <div className="mt-6 flex flex-col items-center gap-2 border-t pt-5 text-center">
+        <p className="text-xs font-bold text-muted-foreground">
+          {t("Found these helpful? Share with a friend.", "Helpful laga? Apne dost ke saath share karo.")}
+        </p>
+        <button
+          type="button"
+          onClick={handleShareFaq}
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 bg-brand-soft px-5 py-2 text-xs font-black text-primary transition hover:-translate-y-0.5 hover:border-primary active:scale-95 focus:outline-none focus:ring-4 focus:ring-ring/30"
+        >
+          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.1c.1-.3.1-.5.1-.8s0-.5-.1-.8L16 7.1c.6.5 1.3.9 2.1.9 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .3 0 .5.1.8L8 9.9c-.6-.5-1.3-.9-2.1-.9-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2.1-.9l7.1 4.1c-.1.3-.1.5-.1.7 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.8-2.8-2.8Z"
+            />
+          </svg>
+          {t("Share FAQ", "FAQ share karo")}
+        </button>
+      </div>
     </section>
   );
 }
