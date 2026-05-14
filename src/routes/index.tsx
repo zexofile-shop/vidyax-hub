@@ -273,9 +273,12 @@ function Index() {
           <button type="button" onClick={() => scrollToId("screens")} className="transition hover:text-primary">
             Screenshots
           </button>
-          <button type="button" onClick={scrollToDownload} className="transition hover:text-primary">
+          <Link to="/download" className="transition hover:text-primary">
             Download
-          </button>
+          </Link>
+          <Link to="/faq" className="transition hover:text-primary">
+            FAQ
+          </Link>
         </div>
         <button
           type="button"
@@ -538,6 +541,16 @@ function Index() {
             <EdusparkMark />
           </div>
           <p className="mt-4 text-sm font-black text-muted-foreground">VidyaX by Eduspark</p>
+          <nav className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-bold text-muted-foreground">
+            <Link to="/" className="hover:text-primary">Home</Link>
+            <Link to="/download" className="hover:text-primary">Download</Link>
+            <Link to="/faq" className="hover:text-primary">FAQ</Link>
+            <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
+            <Link to="/dmca" className="hover:text-primary">DMCA</Link>
+          </nav>
+          <p className="mt-3 text-[11px] font-semibold text-muted-foreground">
+            © {new Date().getFullYear()} Eduspark · VidyaX. All rights reserved.
+          </p>
         </footer>
       </section>
     </main>
