@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useState } from "react";
 import {
@@ -544,7 +544,7 @@ function Index() {
   );
 }
 
-function ShareCard({
+export function ShareCard({
   version,
   androidUrl,
   updatedAt,
@@ -662,7 +662,7 @@ import faqUpdateImg from "../assets/faq-update.jpg";
 import faqSupportImg from "../assets/faq-support.jpg";
 import faqPrivacyImg from "../assets/faq-privacy.jpg";
 
-function FaqSection({ version, updatedAt }: { version: string; updatedAt: string }) {
+export function FaqSection({ version, updatedAt }: { version: string; updatedAt: string }) {
   const [lang, setLang] = useState<"en" | "hi">("en");
 
   const faqs = [
