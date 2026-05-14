@@ -5,6 +5,7 @@ import { ShareCard } from "./index";
 export const Route = createFileRoute("/download")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "Download VidyaX APK — Latest Vidya X by Eduspark" },
       {
         name: "description",
@@ -122,7 +123,7 @@ function DownloadPage() {
         </div>
         <div className="mt-3 text-center">
           <Link to="/" className="text-xs font-black text-muted-foreground hover:text-primary">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "Privacy Policy — VidyaX by Eduspark" },
       {
         name: "description",
@@ -141,7 +142,7 @@ function PrivacyPage() {
 
         <div className="mt-10 text-center">
           <Link to="/" className="text-xs font-black text-primary hover:underline">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </article>

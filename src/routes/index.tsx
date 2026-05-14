@@ -22,6 +22,7 @@ import splashShot from "../assets/vidyax-splash.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "VidyaX — Free Learning App" },
       {
         name: "description",
@@ -255,8 +256,22 @@ function Index() {
       cta: "Download Latest APK",
       updatedAt: lastUpdatedDate,
     },
-    { name: "iOS", status: "Coming soon", icon: "apple", href: "", active: false },
-    { name: "Windows", status: "Coming soon", icon: "windows", href: "", active: false },
+    {
+      name: "iOS",
+      status: "Coming soon",
+      icon: "apple",
+      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20iOS&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20iOS.`,
+      active: false,
+      cta: "Notify me",
+    },
+    {
+      name: "Windows",
+      status: "Coming soon",
+      icon: "windows",
+      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20Windows&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20Windows.`,
+      active: false,
+      cta: "Notify me",
+    },
   ];
 
   return (
@@ -447,7 +462,7 @@ function Index() {
           {downloadOptions.map((option) => (
             <a
               key={option.name}
-              href={option.href}
+              href={option.href || "#"}
               target={option.active ? "_blank" : undefined}
               rel={option.active ? "noreferrer" : undefined}
               className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
@@ -468,7 +483,9 @@ function Index() {
                   </p>
                 </div>
               </div>
-              <span className="text-xl font-black text-primary">→</span>
+              <span className="text-xs font-black text-primary">
+                {option.active ? "Download" : option.cta || "Notify me"}
+              </span>
             </a>
           ))}
         </div>
@@ -772,7 +789,7 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
   const t = (en: string, hi: string) => (lang === "en" ? en : hi);
 
   const handleShareFaq = async () => {
-    const url = "https://vidyax.site";
+    const url = "https://vidyax.site/faq";
     const title = "VidyaX — FAQ";
     const text = t(
       "Got questions about VidyaX? Here are the answers ✨",

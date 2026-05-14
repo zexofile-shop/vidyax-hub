@@ -5,6 +5,7 @@ import { FaqSection } from "./index";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "VidyaX FAQ — Common questions about Vidya X by Eduspark" },
       {
         name: "description",
@@ -66,7 +67,7 @@ function FaqPage() {
         <FaqSection version={version} updatedAt={updatedAt} />
         <div className="mt-8 text-center">
           <Link to="/" className="text-xs font-black text-primary hover:underline">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </div>
