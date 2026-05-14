@@ -788,7 +788,7 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
   const t = (en: string, hi: string) => (lang === "en" ? en : hi);
 
   const handleShareFaq = async () => {
-    const url = "https://vidyax.site";
+    const url = "https://vidyax.site/faq";
     const title = "VidyaX — FAQ";
     const text = t(
       "Got questions about VidyaX? Here are the answers ✨",
