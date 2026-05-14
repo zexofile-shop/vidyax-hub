@@ -58,8 +58,8 @@ export const Route = createRootRoute({
       { name: "twitter:site", content: "@VidyaX" },
       { name: "twitter:title", content: "VidyaX — Free Learning App" },
       { name: "twitter:description", content: "VidyaX (Vidya X) - Premium learning access, made simple" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/SnOPXSzaNzcUFZq3MeYFFXSxoy52/social-images/social-1778410156410-1000099733.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/SnOPXSzaNzcUFZq3MeYFFXSxoy52/social-images/social-1778410156410-1000099733.webp" },
+      { property: "og:image", content: "https://vidyax.site/vidyax-banner.png" },
+      { name: "twitter:image", content: "https://vidyax.site/vidyax-banner.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
