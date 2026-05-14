@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/dmca")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "DMCA Policy — VidyaX by Eduspark" },
       {
         name: "description",
