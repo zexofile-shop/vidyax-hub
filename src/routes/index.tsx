@@ -461,7 +461,7 @@ function Index() {
           {downloadOptions.map((option) => (
             <a
               key={option.name}
-              href={option.href}
+              href={option.href || "#"}
               target={option.active ? "_blank" : undefined}
               rel={option.active ? "noreferrer" : undefined}
               className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
@@ -482,7 +482,9 @@ function Index() {
                   </p>
                 </div>
               </div>
-              <span className="text-xl font-black text-primary">→</span>
+              <span className="text-xs font-black text-primary">
+                {option.active ? "Download" : option.cta || "Notify me"}
+              </span>
             </a>
           ))}
         </div>
