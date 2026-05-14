@@ -141,7 +141,7 @@ function PrivacyPage() {
 
         <div className="mt-10 text-center">
           <Link to="/" className="text-xs font-black text-primary hover:underline">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </article>

@@ -122,7 +122,7 @@ function DownloadPage() {
         </div>
         <div className="mt-3 text-center">
           <Link to="/" className="text-xs font-black text-muted-foreground hover:text-primary">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </section>

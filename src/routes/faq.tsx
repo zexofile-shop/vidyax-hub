@@ -66,7 +66,7 @@ function FaqPage() {
         <FaqSection version={version} updatedAt={updatedAt} />
         <div className="mt-8 text-center">
           <Link to="/" className="text-xs font-black text-primary hover:underline">
-            ← Back to home
+            Back to home
           </Link>
         </div>
       </div>
