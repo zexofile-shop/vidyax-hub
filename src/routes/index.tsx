@@ -22,6 +22,7 @@ import splashShot from "../assets/vidyax-splash.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "VidyaX — Free Learning App" },
       {
         name: "description",
