@@ -5,6 +5,7 @@ import { FaqSection } from "./index";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
+      { name: "google-site-verification", content: "DEJFR5l2Bgd1ltRMs0yaGFgZOlqzBfjn3u40t2TyEvk" },
       { title: "VidyaX FAQ — Common questions about Vidya X by Eduspark" },
       {
         name: "description",
