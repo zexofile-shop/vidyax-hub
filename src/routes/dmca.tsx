@@ -39,6 +39,33 @@ function DmcaPage() {
         <p className="mt-2 text-xs font-bold text-muted-foreground">Last updated: May 14, 2026</p>
 
         <div className="prose prose-sm mt-6 max-w-none space-y-5 text-sm font-medium leading-7 text-foreground">
+          <div className="rounded-2xl border border-primary/20 bg-brand-soft p-5">
+            <h2 className="text-lg font-black text-primary">A heartfelt note to every rights holder 🙏</h2>
+            <p className="mt-3">
+              Eduspark is a small, independently-run learning institute. Our mission with VidyaX is
+              simple — help students who genuinely want to learn but cannot afford the price of
+              premium coaching. Many bright kids in India lose their dream of a good career only
+              because subscriptions, test series and reference books are out of their family budget.
+              VidyaX exists to put that knowledge within their reach.
+            </p>
+            <p className="mt-3">
+              We deeply respect every creator and institute that builds high-quality content. We are
+              not trying to replace you, undercut your business, or profit from your effort — VidyaX
+              is and always will be free, with no ads, no paid plans, and no resale. If anything
+              referenced through VidyaX belongs to you and you would prefer it removed, we will take
+              it down quickly and without argument. A polite email is enough — please write to{" "}
+              <a className="font-black text-primary underline" href="mailto:edusparkkoficial@gmail.com">
+                edusparkkoficial@gmail.com
+              </a>
+              .
+            </p>
+            <p className="mt-3">
+              Thank you for understanding the spirit behind this project. If you would like to
+              collaborate, sponsor a batch for needy students, or contribute official content, we
+              would be honoured to work with you.
+            </p>
+          </div>
+
           <p>
             VidyaX (operated by Eduspark) respects the intellectual property rights of others and
             expects users of the app and website to do the same. This DMCA Policy describes how
