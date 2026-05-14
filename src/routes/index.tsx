@@ -255,8 +255,22 @@ function Index() {
       cta: "Download Latest APK",
       updatedAt: lastUpdatedDate,
     },
-    { name: "iOS", status: "Coming soon", icon: "apple", href: "", active: false },
-    { name: "Windows", status: "Coming soon", icon: "windows", href: "", active: false },
+    {
+      name: "iOS",
+      status: "Coming soon",
+      icon: "apple",
+      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20iOS&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20iOS.`,
+      active: false,
+      cta: "Notify me",
+    },
+    {
+      name: "Windows",
+      status: "Coming soon",
+      icon: "windows",
+      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20Windows&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20Windows.`,
+      active: false,
+      cta: "Notify me",
+    },
   ];
 
   return (
