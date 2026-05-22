@@ -192,13 +192,7 @@ function Index() {
   useEffect(() => {
     const fetchAppVersion = async () => {
       try {
-        const response = await fetch(API_URL, {
-          method: "GET",
-          headers: {
-            accept: "*/*",
-            "cache-control": "no-cache",
-          },
-        });
+        const response = await fetch(`${API_URL}?t=${Date.now()}`);
         const json = await response.json();
         if (json.success) {
           setAppData(json.data);
@@ -209,6 +203,8 @@ function Index() {
     };
     fetchAppVersion();
   }, []);
+
+
 
   // Content protection: disable copy, right-click, selection, common keys
   useEffect(() => {
