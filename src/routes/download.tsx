@@ -24,7 +24,7 @@ export const Route = createFileRoute("/download")({
 });
 
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
-const defaultApkUrl = "https://www.mediafire.com/file/lopnaqm8pj1x4ga/VidyaX_v1.2.3.apk/file";
+const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.4/Vidyax-v1.2.4.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 
 function DownloadPage() {
