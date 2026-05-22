@@ -26,13 +26,13 @@ export const Route = createFileRoute("/faq")({
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 
 function FaqPage() {
-  const [version, setVersion] = useState("1.2.3");
-  const [updatedAt, setUpdatedAt] = useState("May 13, 2026");
+  const [version, setVersion] = useState("1.2.4");
+  const [updatedAt, setUpdatedAt] = useState("Latest");
 
   useEffect(() => {
     (async () => {
       try {
-        const r = await fetch(API_URL, { headers: { "cache-control": "no-cache" } });
+        const r = await fetch(`${API_URL}?t=${Date.now()}`);
         const j = await r.json();
         if (j?.success && j.data) {
           setVersion(j.data.latestVersion);
@@ -49,6 +49,7 @@ function FaqPage() {
       }
     })();
   }, []);
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
