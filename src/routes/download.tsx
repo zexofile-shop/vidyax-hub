@@ -35,7 +35,7 @@ function DownloadPage() {
   useEffect(() => {
     (async () => {
       try {
-        const r = await fetch(API_URL, { headers: { "cache-control": "no-cache" } });
+        const r = await fetch(`${API_URL}?t=${Date.now()}`);
         const j = await r.json();
         if (j?.success) setData(j.data);
       } catch {
@@ -44,7 +44,7 @@ function DownloadPage() {
     })();
   }, []);
 
-  const version = data?.latestVersion || "1.2.3";
+  const version = data?.latestVersion || "1.2.4";
   const apkUrl = data?.downloadUrl || defaultApkUrl;
   const updatedAt = data
     ? new Date(data.updatedAt).toLocaleDateString("en-IN", {
@@ -52,7 +52,8 @@ function DownloadPage() {
         month: "short",
         year: "numeric",
       })
-    : "May 13, 2026";
+    : "Updating…";
+
 
   const platforms = [
     { name: "Android", status: `v${version} · Latest stable`, href: apkUrl, active: true, cta: "Download APK" },
