@@ -236,7 +236,7 @@ function Index() {
     };
   }, []);
 
-  const currentVersion = appData?.latestVersion || "1.2.3";
+  const currentVersion = appData?.latestVersion || "1.2.4";
   const currentDownloadUrl = appData?.downloadUrl || defaultApkUrl;
   const lastUpdatedDate = appData
     ? new Date(appData.updatedAt).toLocaleDateString("en-IN", {
