@@ -84,7 +84,7 @@ const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://drive.google.com/drive/folders/1rH1HagcD2o6DGgj5BtmMZIq-dUmY9VIB";
+const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.4/Vidyax-v1.2.4.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
