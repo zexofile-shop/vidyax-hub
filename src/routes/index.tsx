@@ -84,7 +84,7 @@ const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://www.mediafire.com/file/lopnaqm8pj1x4ga/VidyaX_v1.2.3.apk/file";
+const defaultApkUrl = "https://drive.google.com/drive/folders/1rH1HagcD2o6DGgj5BtmMZIq-dUmY9VIB";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
