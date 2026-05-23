@@ -227,7 +227,7 @@ export default function TelegramAlertPopup() {
                 margin: "12px 4px 0",
                 textAlign: "center",
                 color: "#e4e4e7",
-                fontSize: "0.82rem",
+                fontSize: "0.8rem",
                 lineHeight: 1.56,
                 fontWeight: 500,
               }}
@@ -243,7 +243,7 @@ export default function TelegramAlertPopup() {
                   fontWeight: 700,
                 }}
               >
-                otherwise, you may be banned from vidyaX.
+                otherwise, you'll be banned from vidyaX.
               </span>
             </p>
 
