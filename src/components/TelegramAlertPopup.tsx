@@ -1,4 +1,3 @@
-// file: src/components/TelegramAlertPopup.tsx
 import { useEffect, useState } from "react";
 
 const TELEGRAM_URL = "https://t.me/+J_bKwBOe70czNjI1";
@@ -228,54 +227,59 @@ export default function TelegramAlertPopup() {
                 margin: "12px 4px 0",
                 textAlign: "center",
                 color: "#e4e4e7",
-                fontSize: "0.92rem",
-                lineHeight: 1.68,
+                fontSize: "0.86rem",
+                lineHeight: 1.62,
                 fontWeight: 500,
               }}
             >
-              Join our Telegram channel now to stay updated with
-              <br />
-              important announcements and the next app update.
-            </p>
-
-            <p
-              style={{
-                margin: "12px 0 0",
-                textAlign: "center",
-                color: "#f3f4f6",
-                fontSize: "0.9rem",
-                lineHeight: 1.7,
-                fontWeight: 600,
-              }}
-            >
+              Join our Telegram channel now to stay updated with important
+              announcements and the next app update,{" "}
               <span
                 style={{
                   color: "#fca5a5",
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
                   textDecorationThickness: "2px",
+                  fontWeight: 700,
                 }}
               >
-                Otherwise, you may be banned from vidyaX.
+                otherwise, you may be banned from vidyaX.
               </span>
             </p>
 
+            <button
+              type="button"
+              onClick={openTelegram}
+              style={{
+                marginTop: "18px",
+                width: "100%",
+                minHeight: "46px",
+                borderRadius: "14px",
+                border: "1px solid #313138",
+                background: "#18181b",
+                color: "#ffffff",
+                fontSize: "0.94rem",
+                fontWeight: 800,
+                cursor: "pointer",
+              }}
+            >
+              Join Telegram
+            </button>
+
             <div
               style={{
-                marginTop: "16px",
-                paddingTop: "14px",
-                borderTop: "1px solid #27272d",
+                marginTop: "14px",
                 textAlign: "center",
               }}
             >
               <span
                 role="button"
                 tabIndex={0}
-                onClick={openTelegram}
+                onClick={closePopup}
                 onKeyDown={(event) => {
                   if (event.key === "Enter" || event.key === " ") {
                     event.preventDefault();
-                    openTelegram();
+                    closePopup();
                   }
                 }}
                 style={{
@@ -289,28 +293,9 @@ export default function TelegramAlertPopup() {
                   cursor: "pointer",
                 }}
               >
-                Join Telegram
+                Close
               </span>
             </div>
-
-            <button
-              type="button"
-              onClick={closePopup}
-              style={{
-                marginTop: "16px",
-                width: "100%",
-                minHeight: "46px",
-                borderRadius: "14px",
-                border: "1px solid #313138",
-                background: "#18181b",
-                color: "#ffffff",
-                fontSize: "0.94rem",
-                fontWeight: 800,
-                cursor: "pointer",
-              }}
-            >
-              Close
-            </button>
           </div>
         </div>
       </div>
