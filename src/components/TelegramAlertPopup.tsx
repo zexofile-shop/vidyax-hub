@@ -1,3 +1,4 @@
+// file: src/components/TelegramAlertPopup.tsx
 import { useEffect, useState } from "react";
 
 const TELEGRAM_URL = "https://t.me/+J_bKwBOe70czNjI1";
@@ -54,7 +55,7 @@ export default function TelegramAlertPopup() {
           @keyframes telegramPopupEnter {
             from {
               opacity: 0;
-              transform: translateY(12px) scale(0.985);
+              transform: translateY(10px) scale(0.985);
             }
             to {
               opacity: 1;
@@ -74,7 +75,7 @@ export default function TelegramAlertPopup() {
           alignItems: "center",
           justifyContent: "center",
           padding: "16px",
-          background: "rgba(8, 8, 10, 0.78)",
+          background: "rgba(8, 8, 10, 0.76)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           opacity: isVisible ? 1 : 0,
@@ -89,18 +90,18 @@ export default function TelegramAlertPopup() {
           style={{
             position: "relative",
             width: "100%",
-            maxWidth: "392px",
+            maxWidth: "360px",
             overflow: "hidden",
-            borderRadius: "28px",
-            border: "1px solid #3a1517",
+            borderRadius: "24px",
+            border: "1px solid #321315",
             background:
-              "linear-gradient(180deg, #171214 0%, #120d0e 48%, #0d0a0b 100%)",
+              "linear-gradient(180deg, #151214 0%, #100d0e 52%, #0c0a0b 100%)",
             boxShadow:
-              "0 24px 64px rgba(0,0,0,0.48), 0 8px 24px rgba(78, 11, 16, 0.22)",
+              "0 22px 56px rgba(0,0,0,0.46), 0 8px 20px rgba(88, 14, 18, 0.18)",
             color: "#ffffff",
             transform: isVisible
               ? "translateY(0) scale(1)"
-              : "translateY(12px) scale(0.985)",
+              : "translateY(10px) scale(0.985)",
             opacity: isVisible ? 1 : 0,
             transition:
               "transform 180ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease",
@@ -111,9 +112,9 @@ export default function TelegramAlertPopup() {
         >
           <div
             style={{
-              height: "4px",
+              height: "3px",
               width: "100%",
-              background: "linear-gradient(90deg, #8f1d1d 0%, #dc2626 100%)",
+              background: "linear-gradient(90deg, #7f1d1d 0%, #dc2626 100%)",
             }}
           />
 
@@ -126,13 +127,13 @@ export default function TelegramAlertPopup() {
               top: "12px",
               right: "12px",
               zIndex: 2,
-              width: "40px",
-              height: "40px",
-              border: "1px solid #34343a",
+              width: "38px",
+              height: "38px",
+              border: "1px solid #303036",
               borderRadius: "999px",
               background: "#18181b",
               color: "#ffffff",
-              fontSize: "22px",
+              fontSize: "20px",
               fontWeight: 700,
               cursor: "pointer",
             }}
@@ -142,20 +143,20 @@ export default function TelegramAlertPopup() {
 
           <div
             style={{
-              padding: "22px 18px 18px",
+              padding: "18px 16px 16px",
             }}
           >
             <div
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                minHeight: "30px",
-                padding: "0 12px",
+                minHeight: "28px",
+                padding: "0 11px",
                 borderRadius: "999px",
                 background: "#7f1d1d",
                 border: "1px solid #991b1b",
                 color: "#ffffff",
-                fontSize: "11px",
+                fontSize: "10px",
                 fontWeight: 800,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
@@ -168,34 +169,34 @@ export default function TelegramAlertPopup() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "18px",
-                marginBottom: "16px",
+                marginTop: "16px",
+                marginBottom: "14px",
               }}
             >
               <div
                 style={{
-                  width: "76px",
-                  height: "76px",
-                  borderRadius: "22px",
+                  width: "68px",
+                  height: "68px",
+                  borderRadius: "20px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   background: "linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)",
                   border: "1px solid #b91c1c",
-                  boxShadow: "0 10px 24px rgba(80, 10, 16, 0.24)",
+                  boxShadow: "0 8px 20px rgba(80, 10, 16, 0.2)",
                 }}
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2.2"
+                  strokeWidth="2.1"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
                   style={{
-                    width: "34px",
-                    height: "34px",
+                    width: "30px",
+                    height: "30px",
                     color: "#ffffff",
                   }}
                 >
@@ -211,10 +212,10 @@ export default function TelegramAlertPopup() {
               style={{
                 margin: 0,
                 textAlign: "center",
-                fontSize: "1.55rem",
-                lineHeight: 1.12,
+                fontSize: "1.35rem",
+                lineHeight: 1.15,
                 fontWeight: 900,
-                letterSpacing: "-0.025em",
+                letterSpacing: "-0.02em",
                 color: "#ffffff",
               }}
             >
@@ -224,26 +225,27 @@ export default function TelegramAlertPopup() {
             <p
               id="telegram-popup-description"
               style={{
-                margin: "14px 6px 0",
+                margin: "12px 4px 0",
                 textAlign: "center",
                 color: "#e4e4e7",
-                fontSize: "0.97rem",
-                lineHeight: 1.7,
+                fontSize: "0.92rem",
+                lineHeight: 1.68,
                 fontWeight: 500,
               }}
             >
-              Join our Telegram channel now, otherwise you may miss the next app
-              update and important announcements.
+              Join our Telegram channel now to stay updated with
+              <br />
+              important announcements and the next app update.
             </p>
 
             <p
               style={{
-                margin: "14px 0 0",
+                margin: "12px 0 0",
                 textAlign: "center",
-                color: "#ffffff",
-                fontSize: "0.97rem",
-                lineHeight: 1.72,
-                fontWeight: 700,
+                color: "#f3f4f6",
+                fontSize: "0.9rem",
+                lineHeight: 1.7,
+                fontWeight: 600,
               }}
             >
               <span
@@ -254,15 +256,15 @@ export default function TelegramAlertPopup() {
                   textDecorationThickness: "2px",
                 }}
               >
-                Otherwise you&apos;ll be banned from our app vidyaX.
+                Otherwise, you may be banned from vidyaX.
               </span>
             </p>
 
             <div
               style={{
-                marginTop: "18px",
-                paddingTop: "16px",
-                borderTop: "1px solid #2b2b31",
+                marginTop: "16px",
+                paddingTop: "14px",
+                borderTop: "1px solid #27272d",
                 textAlign: "center",
               }}
             >
@@ -279,7 +281,7 @@ export default function TelegramAlertPopup() {
                 style={{
                   display: "inline-block",
                   color: "#f87171",
-                  fontSize: "1rem",
+                  fontSize: "0.98rem",
                   fontWeight: 800,
                   textDecoration: "underline",
                   textUnderlineOffset: "5px",
@@ -295,14 +297,14 @@ export default function TelegramAlertPopup() {
               type="button"
               onClick={closePopup}
               style={{
-                marginTop: "18px",
+                marginTop: "16px",
                 width: "100%",
-                minHeight: "50px",
-                borderRadius: "16px",
-                border: "1px solid #323238",
+                minHeight: "46px",
+                borderRadius: "14px",
+                border: "1px solid #313138",
                 background: "#18181b",
                 color: "#ffffff",
-                fontSize: "0.96rem",
+                fontSize: "0.94rem",
                 fontWeight: 800,
                 cursor: "pointer",
               }}
