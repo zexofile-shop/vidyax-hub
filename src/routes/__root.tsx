@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import TelegramAlertPopup from "../components/TelegramAlertPopup";
 
 import appCss from "../styles.css?url";
 
@@ -177,6 +178,7 @@ export const Route = createRootRoute({
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <TelegramAlertPopup />
       {children}
     </>
   );
