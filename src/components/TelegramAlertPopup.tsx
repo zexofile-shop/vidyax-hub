@@ -227,8 +227,8 @@ export default function TelegramAlertPopup() {
                 margin: "12px 4px 0",
                 textAlign: "center",
                 color: "#e4e4e7",
-                fontSize: "0.86rem",
-                lineHeight: 1.62,
+                fontSize: "0.82rem",
+                lineHeight: 1.56,
                 fontWeight: 500,
               }}
             >
