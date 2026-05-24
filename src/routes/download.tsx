@@ -24,7 +24,7 @@ export const Route = createFileRoute("/download")({
 });
 
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
-const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.4/Vidyax-v1.2.4.apk";
+const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.41.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 
 function DownloadPage() {
@@ -44,7 +44,7 @@ function DownloadPage() {
     })();
   }, []);
 
-  const version = data?.latestVersion || "1.2.4";
+  const version = data?.latestVersion || "1.2.41";
   const apkUrl = data?.downloadUrl || defaultApkUrl;
   const updatedAt = data
     ? new Date(data.updatedAt).toLocaleDateString("en-IN", {
@@ -52,7 +52,7 @@ function DownloadPage() {
         month: "short",
         year: "numeric",
       })
-    : "22 May 2026";
+    : "24 May 2026";
 
 
   const platforms = [
