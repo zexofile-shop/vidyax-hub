@@ -674,6 +674,73 @@ export function ShareCard({
         </svg>
         {sharing ? "Sharing…" : copied ? "Copied ✓" : "Share VidyaX"}
       </button>
+
+      <AdhyayXPromoCard />
+    </div>
+  );
+}
+
+function AdhyayXPromoCard() {
+  return (
+    <div className="mt-8 w-full max-w-md rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-card to-muted/40 p-5 shadow-card sm:p-6">
+      <div className="flex items-center justify-center gap-2">
+        <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-primary">
+          Co-Partners
+        </span>
+      </div>
+      <h3 className="mt-3 text-center text-xl font-black leading-tight text-foreground sm:text-2xl">
+        AdhyayX
+      </h3>
+      <p className="mt-1 text-center text-xs font-bold text-muted-foreground">
+        In partnership with VidyaX & Eduspark
+      </p>
+
+      <ul className="mt-5 space-y-2.5 text-left">
+        {[
+          "5000+ Active Tests Available",
+          "Physics Wallah Mock Tests included",
+          "Current Affairs & Daily News updates",
+          "Bundle of Books for every learner",
+        ].map((feature) => (
+          <li
+            key={feature}
+            className="flex items-start gap-2.5 text-sm font-bold text-foreground"
+          >
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden="true">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12l5 5L20 7"
+                />
+              </svg>
+            </span>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="https://AdhyayX.site"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-black text-background shadow-soft transition hover:-translate-y-0.5 active:scale-95"
+      >
+        Open AdhyayX
+        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M7 17L17 7M9 7h8v8"
+          />
+        </svg>
+      </a>
     </div>
   );
 }

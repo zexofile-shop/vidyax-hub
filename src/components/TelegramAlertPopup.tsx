@@ -113,7 +113,7 @@ export default function TelegramAlertPopup() {
             style={{
               height: "3px",
               width: "100%",
-              background: "linear-gradient(90deg, #7f1d1d 0%, #dc2626 100%)",
+              background: "linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%)",
             }}
           />
 
@@ -152,8 +152,8 @@ export default function TelegramAlertPopup() {
                 minHeight: "28px",
                 padding: "0 11px",
                 borderRadius: "999px",
-                background: "#7f1d1d",
-                border: "1px solid #991b1b",
+                background: "#1e3a8a",
+                border: "1px solid #1d4ed8",
                 color: "#ffffff",
                 fontSize: "10px",
                 fontWeight: 800,
@@ -161,7 +161,7 @@ export default function TelegramAlertPopup() {
                 textTransform: "uppercase",
               }}
             >
-              Security Notice
+              A Little Help 💙
             </div>
 
             <div
@@ -180,29 +180,12 @@ export default function TelegramAlertPopup() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)",
-                  border: "1px solid #b91c1c",
-                  boxShadow: "0 8px 20px rgba(80, 10, 16, 0.2)",
+                  background: "linear-gradient(180deg, #0ea5e9 0%, #6366f1 100%)",
+                  border: "1px solid #818cf8",
+                  boxShadow: "0 8px 20px rgba(14, 165, 233, 0.25)",
                 }}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    color: "#ffffff",
-                  }}
-                >
-                  <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
-                  <path d="M12 9v4" />
-                  <path d="M12 17h.01" />
-                </svg>
+                <span style={{ fontSize: "32px" }} aria-hidden="true">💙</span>
               </div>
             </div>
 
@@ -218,7 +201,7 @@ export default function TelegramAlertPopup() {
                 color: "#ffffff",
               }}
             >
-              Important Update Alert
+              A Small Request From Us 🙏
             </h2>
 
             <p
@@ -227,24 +210,31 @@ export default function TelegramAlertPopup() {
                 margin: "12px 4px 0",
                 textAlign: "center",
                 color: "#e4e4e7",
-                fontSize: "0.8rem",
-                lineHeight: 1.56,
+                fontSize: "0.82rem",
+                lineHeight: 1.6,
                 fontWeight: 500,
               }}
             >
-              Join our Telegram channel now to stay updated with important
-              announcements and the next app update,{" "}
+              We provide{" "}
+              <span style={{ color: "#7dd3fc", fontWeight: 800 }}>
+                lakhs of rupees worth of premium content
+              </span>{" "}
+              absolutely free to thousands of students every day. If VidyaX
+              has genuinely helped you and you'd like to support us, please{" "}
               <span
                 style={{
-                  color: "#fca5a5",
+                  color: "#a5b4fc",
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
                   textDecorationThickness: "2px",
                   fontWeight: 700,
                 }}
               >
-                otherwise, you'll be banned from vidyaX.
-              </span>
+                subscribe to our Telegram channel and share VidyaX
+              </span>{" "}
+              with your friends and classmates. Your one share helps another
+              student access free quality education. That's the only fee we
+              ever ask for. 💙
             </p>
 
             <button
@@ -255,15 +245,15 @@ export default function TelegramAlertPopup() {
                 width: "100%",
                 minHeight: "46px",
                 borderRadius: "14px",
-                border: "1px solid #313138",
-                background: "#18181b",
+                border: "1px solid #4f46e5",
+                background: "linear-gradient(180deg, #0ea5e9 0%, #6366f1 100%)",
                 color: "#ffffff",
                 fontSize: "0.94rem",
                 fontWeight: 800,
                 cursor: "pointer",
               }}
             >
-              Join Telegram
+              Subscribe & Support Us 💙
             </button>
 
             <div
@@ -284,7 +274,7 @@ export default function TelegramAlertPopup() {
                 }}
                 style={{
                   display: "inline-block",
-                  color: "#f87171",
+                  color: "#94a3b8",
                   fontSize: "0.98rem",
                   fontWeight: 800,
                   textDecoration: "underline",
