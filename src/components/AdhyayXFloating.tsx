@@ -54,7 +54,7 @@ export default function AdhyayXFloating() {
         className="block h-14 w-14 overflow-hidden rounded-full border-2 border-white bg-white shadow-lg ring-1 ring-black/10 transition-transform hover:scale-105 sm:h-16 sm:w-16"
       >
         <img
-          src={logo.url}
+          src={logo}
           alt="AdhyayX"
           className="h-full w-full object-cover"
           loading="lazy"
