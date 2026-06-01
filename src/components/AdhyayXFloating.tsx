@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/adhyayx-logo.jpg.asset.json";
+import logo from "../assets/adhyayx-logo.jpg";
 
 const TIP_TEXT = "AdhyayX is Live Now!";
 
