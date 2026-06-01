@@ -274,7 +274,7 @@ export default function TelegramAlertPopup() {
                 }}
                 style={{
                   display: "inline-block",
-                  color: "#f87171",
+                  color: "#94a3b8",
                   fontSize: "0.98rem",
                   fontWeight: 800,
                   textDecoration: "underline",
