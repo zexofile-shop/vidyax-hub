@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/adhyayx-logo.jpg";
 
-const TIP_TEXT = "AdhyayX is Live Now!";
+const TIP_TEXT = "AdhyayX is Live Now! ";
 
 export default function AdhyayXFloating() {
   const [showTip, setShowTip] = useState(true);
