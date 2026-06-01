@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import TelegramAlertPopup from "../components/TelegramAlertPopup";
+import AdhyayXFloating from "../components/AdhyayXFloating";
 
 import appCss from "../styles.css?url";
 
@@ -180,6 +181,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <>
       <TelegramAlertPopup />
       {children}
+      <AdhyayXFloating />
     </>
   );
 }
