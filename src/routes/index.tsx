@@ -19,17 +19,24 @@ import pwAsset from "../assets/vidyax-pw.jpg.asset.json";
 import leaderboardAsset from "../assets/vidyax-leaderboard.jpg.asset.json";
 import appsAsset from "../assets/vidyax-apps.jpg.asset.json";
 import quickactionsAsset from "../assets/vidyax-quickactions.jpg.asset.json";
+import batchesAsset from "../assets/vidyax-batches.jpg.asset.json";
 
-const splashShot = splashAsset.url;
-const homeShot = homeAsset.url;
-const profileShot = profileAsset.url;
-const settingsShot = settingsAsset.url;
-const lectureForestShot = lectureForestAsset.url;
-const lecturePhysicsShot = lecturePhysicsAsset.url;
-const pwShot = pwAsset.url;
-const leaderboardShot = leaderboardAsset.url;
-const appsShot = appsAsset.url;
-const quickactionsShot = quickactionsAsset.url;
+// Asset CDN base — needed because the site is also hosted on a non-Lovable domain (vidyax.site / GitHub Pages)
+// where the relative /__l5e/ path is not served. Lovable's CDN serves these via the .lovable.app origin.
+const ASSET_BASE = "https://vidyax.lovable.app";
+const a = (u: string) => (u.startsWith("http") ? u : `${ASSET_BASE}${u}`);
+
+const splashShot = a(splashAsset.url);
+const homeShot = a(homeAsset.url);
+const profileShot = a(profileAsset.url);
+const settingsShot = a(settingsAsset.url);
+const lectureForestShot = a(lectureForestAsset.url);
+const lecturePhysicsShot = a(lecturePhysicsAsset.url);
+const pwShot = a(pwAsset.url);
+const leaderboardShot = a(leaderboardAsset.url);
+const appsShot = a(appsAsset.url);
+const quickactionsShot = a(quickactionsAsset.url);
+const batchesShot = a(batchesAsset.url);
 
 export const Route = createFileRoute("/")({
   head: () => ({
