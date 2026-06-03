@@ -308,6 +308,9 @@ function Index() {
           <Link to="/download" className="transition hover:text-primary">
             Download
           </Link>
+          <Link to="/tutorials" className="transition hover:text-primary">
+            Tutorials
+          </Link>
           <Link to="/faq" className="transition hover:text-primary">
             FAQ
           </Link>
