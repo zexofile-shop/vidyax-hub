@@ -261,7 +261,7 @@ function Index() {
         month: "short",
         year: "numeric",
       })
-    : "June 03, 2026";
+    : "3 Jun 2026";
 
   const downloadOptions = [
     {
