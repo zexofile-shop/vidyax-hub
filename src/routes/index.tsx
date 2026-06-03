@@ -497,9 +497,9 @@ function Index() {
                     {option.name}
                     {option.active ? ` · v${currentVersion}` : ""}
                   </h3>
-                  <p className="mt-0.5 text-xs font-bold text-muted-foreground">
+                  <p className="mt-0.5 text-[11px] font-bold text-muted-foreground sm:text-xs">
                     {option.active
-                      ? `Download Latest APK ${option.updatedAt ? `(Updated ${option.updatedAt})` : ""}`
+                      ? `Latest APK · Updated ${option.updatedAt ?? ""}`
                       : option.status}
                   </p>
                 </div>
