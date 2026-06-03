@@ -401,26 +401,27 @@ function Index() {
             Everything students need, designed for daily learning.
           </h2>
         </div>
-        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mt-7 grid grid-cols-2 gap-2.5 sm:gap-3">
           {features.map((feature, index) => (
             <article
               key={feature.title}
-              className="group relative overflow-hidden rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-5"
+              className="group relative overflow-hidden rounded-xl border bg-card p-2.5 shadow-card transition hover:-translate-y-1 hover:border-primary sm:p-4"
             >
-              <div className="absolute right-4 top-3 text-3xl font-black text-brand-soft">
+              <div className="absolute right-2 top-1.5 text-xl font-black text-brand-soft sm:text-2xl">
                 0{index + 1}
               </div>
-              <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-lg font-black text-primary transition group-hover:scale-105">
+              <div className="mb-2 grid h-7 w-7 place-items-center rounded-lg bg-brand-soft text-sm font-black text-primary transition group-hover:scale-105 sm:h-9 sm:w-9 sm:text-base">
                 {feature.icon}
               </div>
-              <h3 className="max-w-[14rem] text-base font-black sm:text-lg">{feature.title}</h3>
-              <p className="mt-2 max-w-md text-xs font-semibold leading-6 text-muted-foreground sm:text-sm">
+              <h3 className="text-[12px] font-black leading-tight sm:text-sm">{feature.title}</h3>
+              <p className="mt-1 text-[10px] font-semibold leading-4 text-muted-foreground sm:text-xs sm:leading-5">
                 {feature.text}
               </p>
             </article>
           ))}
         </div>
       </section>
+
 
       <section id="screens" className="bg-secondary/60 py-10">
         <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
