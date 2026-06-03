@@ -585,6 +585,102 @@ function Index() {
   );
 }
 
+const tutorialSegments: { title: string; desc: string; videoUrl: string; poster?: string }[] = [
+  {
+    title: "How to Login",
+    desc: "Step-by-step login process for new VidyaX users.",
+    videoUrl: "",
+    poster: splashShot,
+  },
+  {
+    title: "How to Connect PW Account",
+    desc: "Link your Physics Wallah account inside VidyaX in seconds.",
+    videoUrl: "",
+    poster: pwShot,
+  },
+  {
+    title: "How to Enroll in Batches",
+    desc: "Browse batches and enroll in your preferred course.",
+    videoUrl: "",
+    poster: lecturePhysicsShot,
+  },
+  {
+    title: "How to Use the Lecture Player",
+    desc: "Notes, autoplay, downloads, bookmarks — everything explained.",
+    videoUrl: "",
+    poster: lectureForestShot,
+  },
+];
+
+function TutorialsSection() {
+  return (
+    <section id="tutorials" className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8">
+      <div className="max-w-3xl">
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Tutorials</p>
+        <h2 className="mt-2 text-2xl font-black tracking-normal sm:text-3xl">
+          How to use VidyaX — short, segment-wise video guides.
+        </h2>
+        <p className="mt-3 text-sm font-semibold leading-7 text-muted-foreground">
+          Pick a tutorial and learn exactly what you need. Videos play right here — no YouTube redirect.
+        </p>
+      </div>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {tutorialSegments.map((seg, i) => (
+          <article
+            key={seg.title}
+            className="overflow-hidden rounded-2xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary"
+          >
+            <div className="relative aspect-video w-full bg-black/90">
+              {seg.videoUrl ? (
+                <video
+                  controls
+                  controlsList="nodownload"
+                  preload="metadata"
+                  poster={seg.poster}
+                  className="h-full w-full object-cover"
+                >
+                  <source src={seg.videoUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="relative h-full w-full">
+                  {seg.poster && (
+                    <img
+                      src={seg.poster}
+                      alt={seg.title}
+                      className="absolute inset-0 h-full w-full object-cover object-top opacity-30"
+                    />
+                  )}
+                  <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-2 text-center text-primary-foreground">
+                    <div className="grid h-14 w-14 place-items-center rounded-full bg-primary/90 shadow-soft">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                        <path fill="currentColor" d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <span className="rounded-full bg-black/60 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
+                      Tutorial coming soon
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="p-4">
+              <p className="text-[10px] font-black uppercase tracking-wider text-primary">
+                Segment {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-1 text-base font-black sm:text-lg">{seg.title}</h3>
+              <p className="mt-1 text-xs font-semibold leading-5 text-muted-foreground sm:text-sm">
+                {seg.desc}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
 export function ShareCard({
   version,
   androidUrl,
