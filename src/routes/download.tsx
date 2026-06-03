@@ -52,11 +52,11 @@ function DownloadPage() {
         month: "short",
         year: "numeric",
       })
-    : "03 June 2026";
+    : "3 Jun 2026";
 
 
   const platforms = [
-    { name: "Android", status: `v${version} · Last updated on 24 May `, href: apkUrl, active: true, cta: "Download APK" },
+    { name: "Android", status: `v${version} · Updated ${updatedAt}`, href: apkUrl, active: true, cta: "Download APK" },
     { name: "iOS", status: "Coming soon", href: "", active: false, cta: "Notify me" },
     { name: "Windows", status: "Coming soon", href: "", active: false, cta: "Notify me" },
   ];
