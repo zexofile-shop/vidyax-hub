@@ -8,16 +8,28 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import achievementsShot from "../assets/vidyax-achievements.jpg";
-import appsShot from "../assets/vidyax-apps.jpg";
-import batchesShot from "../assets/vidyax-batches.jpg";
 import edusparkLogo from "../assets/eduspark-logo.jpg";
-import libraryShot from "../assets/vidyax-library.jpg";
-import missionShot from "../assets/vidyax-mission.jpg";
-import notificationsShot from "../assets/vidyax-notifications.jpg";
-import profileShot from "../assets/vidyax-profile.jpg";
-import settingsShot from "../assets/vidyax-settings.jpg";
-import splashShot from "../assets/vidyax-splash.jpg";
+import splashAsset from "../assets/vidyax-splash.jpg.asset.json";
+import homeAsset from "../assets/vidyax-home.jpg.asset.json";
+import profileAsset from "../assets/vidyax-profile.jpg.asset.json";
+import settingsAsset from "../assets/vidyax-settings.jpg.asset.json";
+import lectureForestAsset from "../assets/vidyax-lecture-forest.jpg.asset.json";
+import lecturePhysicsAsset from "../assets/vidyax-lecture-physics.jpg.asset.json";
+import pwAsset from "../assets/vidyax-pw.jpg.asset.json";
+import leaderboardAsset from "../assets/vidyax-leaderboard.jpg.asset.json";
+import appsAsset from "../assets/vidyax-apps.jpg.asset.json";
+import quickactionsAsset from "../assets/vidyax-quickactions.jpg.asset.json";
+
+const splashShot = splashAsset.url;
+const homeShot = homeAsset.url;
+const profileShot = profileAsset.url;
+const settingsShot = settingsAsset.url;
+const lectureForestShot = lectureForestAsset.url;
+const lecturePhysicsShot = lecturePhysicsAsset.url;
+const pwShot = pwAsset.url;
+const leaderboardShot = leaderboardAsset.url;
+const appsShot = appsAsset.url;
+const quickactionsShot = quickactionsAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,19 +77,19 @@ const features = [
 
 const heroScreens = [
   { src: splashShot, alt: "VidyaX splash screen", label: "Splash" },
-  { src: appsShot, alt: "VidyaX apps dashboard", label: "Home" },
+  { src: homeShot, alt: "VidyaX home dashboard", label: "Home" },
   { src: profileShot, alt: "VidyaX profile screen", label: "Profile" },
 ];
 
 const screenshots = [
-  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
-  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
-  { src: libraryShot, alt: "VidyaX book library upload", label: "Books" },
-  { src: achievementsShot, alt: "VidyaX achievements and XP", label: "Achievements" },
-  { src: settingsShot, alt: "VidyaX settings controls", label: "Settings" },
+  { src: settingsShot, alt: "VidyaX settings", label: "Settings" },
+  { src: pwShot, alt: "Physics Wallah batches inside VidyaX", label: "Physics Wallah" },
+  { src: leaderboardShot, alt: "VidyaX leaderboard", label: "Leaderboard" },
+  { src: appsShot, alt: "VidyaX apps grid", label: "Apps" },
+  { src: quickactionsShot, alt: "VidyaX quick actions", label: "Quick Actions" },
+  { src: lectureForestShot, alt: "VidyaX lecture player", label: "Lecture Player" },
+  { src: lecturePhysicsShot, alt: "VidyaX physics lecture", label: "Live Class" },
 ];
-
-void notificationsShot;
 
 // API constants
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
@@ -166,7 +178,7 @@ function PlatformIcon({ type }: { type: string }) {
       <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden="true">
         <path
           fill="currentColor"
-          d="M16.9 12.6c0-2 1.6-3 1.7-3.1-1-.1-2.8-.6-4.1 1-1.1 1.3-2.1 1.3-3.3 0-1.4-1.5-3.3-1-4.3.4-1.9 2.8-.5 7.5 1.4 10.1.9 1.2 2 1.1 2.8.7.9-.4 1.8-.4 2.8 0 .9.4 1.9.5 2.8-.7.7-1 1.2-2.1 1.5-3.2-2.6-1-2.9-4.2-1.3-5.2ZM14.8 2.8c-1.7.2-3.2 1.9-3 3.7 1.7.2 3.4-1.5 3-3.7Z"
+          d="M17.05 12.04c-.03-2.6 2.13-3.86 2.22-3.92-1.21-1.77-3.1-2.02-3.77-2.04-1.6-.16-3.13.94-3.95.94-.82 0-2.07-.92-3.41-.9-1.76.03-3.38 1.02-4.28 2.6-1.83 3.17-.47 7.86 1.31 10.43.87 1.26 1.91 2.67 3.27 2.62 1.32-.05 1.82-.85 3.42-.85 1.6 0 2.05.85 3.45.82 1.42-.03 2.32-1.29 3.19-2.55 1.01-1.46 1.42-2.88 1.44-2.95-.03-.01-2.76-1.06-2.79-4.2zM14.6 4.43c.72-.87 1.21-2.08 1.07-3.29-1.04.04-2.3.69-3.05 1.56-.67.77-1.25 2-1.09 3.18 1.16.09 2.34-.59 3.07-1.45z"
         />
       </svg>
     );
@@ -256,7 +268,7 @@ function Index() {
       name: "iOS",
       status: "Coming soon",
       icon: "apple",
-      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20iOS&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20iOS.`,
+      href: telegramSupportUrl,
       active: false,
       cta: "Notify me",
     },
@@ -264,7 +276,7 @@ function Index() {
       name: "Windows",
       status: "Coming soon",
       icon: "windows",
-      href: `mailto:${supportEmail}?subject=Notify%20me%20%E2%80%94%20VidyaX%20Windows&body=Hi%20Eduspark%2C%20please%20notify%20me%20when%20VidyaX%20launches%20on%20Windows.`,
+      href: telegramSupportUrl,
       active: false,
       cta: "Notify me",
     },
@@ -438,6 +450,9 @@ function Index() {
         </div>
       </section>
 
+      <TutorialsSection />
+
+
       <section
         id="download"
         className="mx-auto grid w-full max-w-7xl gap-5 px-5 py-11 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]"
@@ -569,6 +584,102 @@ function Index() {
     </main>
   );
 }
+
+const tutorialSegments: { title: string; desc: string; videoUrl: string; poster?: string }[] = [
+  {
+    title: "How to Login",
+    desc: "Step-by-step login process for new VidyaX users.",
+    videoUrl: "",
+    poster: splashShot,
+  },
+  {
+    title: "How to Connect PW Account",
+    desc: "Link your Physics Wallah account inside VidyaX in seconds.",
+    videoUrl: "",
+    poster: pwShot,
+  },
+  {
+    title: "How to Enroll in Batches",
+    desc: "Browse batches and enroll in your preferred course.",
+    videoUrl: "",
+    poster: lecturePhysicsShot,
+  },
+  {
+    title: "How to Use the Lecture Player",
+    desc: "Notes, autoplay, downloads, bookmarks — everything explained.",
+    videoUrl: "",
+    poster: lectureForestShot,
+  },
+];
+
+function TutorialsSection() {
+  return (
+    <section id="tutorials" className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8">
+      <div className="max-w-3xl">
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-primary">Tutorials</p>
+        <h2 className="mt-2 text-2xl font-black tracking-normal sm:text-3xl">
+          How to use VidyaX — short, segment-wise video guides.
+        </h2>
+        <p className="mt-3 text-sm font-semibold leading-7 text-muted-foreground">
+          Pick a tutorial and learn exactly what you need. Videos play right here — no YouTube redirect.
+        </p>
+      </div>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {tutorialSegments.map((seg, i) => (
+          <article
+            key={seg.title}
+            className="overflow-hidden rounded-2xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary"
+          >
+            <div className="relative aspect-video w-full bg-black/90">
+              {seg.videoUrl ? (
+                <video
+                  controls
+                  controlsList="nodownload"
+                  preload="metadata"
+                  poster={seg.poster}
+                  className="h-full w-full object-cover"
+                >
+                  <source src={seg.videoUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="relative h-full w-full">
+                  {seg.poster && (
+                    <img
+                      src={seg.poster}
+                      alt={seg.title}
+                      className="absolute inset-0 h-full w-full object-cover object-top opacity-30"
+                    />
+                  )}
+                  <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-2 text-center text-primary-foreground">
+                    <div className="grid h-14 w-14 place-items-center rounded-full bg-primary/90 shadow-soft">
+                      <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true">
+                        <path fill="currentColor" d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <span className="rounded-full bg-black/60 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">
+                      Tutorial coming soon
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="p-4">
+              <p className="text-[10px] font-black uppercase tracking-wider text-primary">
+                Segment {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-1 text-base font-black sm:text-lg">{seg.title}</h3>
+              <p className="mt-1 text-xs font-semibold leading-5 text-muted-foreground sm:text-sm">
+                {seg.desc}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 
 export function ShareCard({
   version,
