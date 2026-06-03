@@ -585,6 +585,7 @@ function Index() {
           <nav className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-bold text-muted-foreground">
             <Link to="/" className="hover:text-primary">Home</Link>
             <Link to="/download" className="hover:text-primary">Download</Link>
+            <Link to="/tutorials" className="hover:text-primary">Tutorials</Link>
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
