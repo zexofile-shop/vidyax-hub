@@ -460,7 +460,7 @@ function Index() {
         </div>
       </section>
 
-      <TutorialsSection />
+      <TutorialsCTA />
 
 
       <section
