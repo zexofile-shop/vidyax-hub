@@ -450,6 +450,9 @@ function Index() {
         </div>
       </section>
 
+      <TutorialsSection />
+
+
       <section
         id="download"
         className="mx-auto grid w-full max-w-7xl gap-5 px-5 py-11 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]"
