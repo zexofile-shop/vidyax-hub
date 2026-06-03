@@ -52,7 +52,7 @@ function DownloadPage() {
         month: "short",
         year: "numeric",
       })
-    : "03 June 2026";
+    : "3 Jun 2026";
 
 
   const platforms = [
