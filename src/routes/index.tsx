@@ -77,19 +77,19 @@ const features = [
 
 const heroScreens = [
   { src: splashShot, alt: "VidyaX splash screen", label: "Splash" },
-  { src: appsShot, alt: "VidyaX apps dashboard", label: "Home" },
+  { src: homeShot, alt: "VidyaX home dashboard", label: "Home" },
   { src: profileShot, alt: "VidyaX profile screen", label: "Profile" },
 ];
 
 const screenshots = [
-  { src: missionShot, alt: "VidyaX Mission Jeet batches", label: "Mission Jeet" },
-  { src: batchesShot, alt: "VidyaX trending batches", label: "Live Batches" },
-  { src: libraryShot, alt: "VidyaX book library upload", label: "Books" },
-  { src: achievementsShot, alt: "VidyaX achievements and XP", label: "Achievements" },
-  { src: settingsShot, alt: "VidyaX settings controls", label: "Settings" },
+  { src: settingsShot, alt: "VidyaX settings", label: "Settings" },
+  { src: pwShot, alt: "Physics Wallah batches inside VidyaX", label: "Physics Wallah" },
+  { src: leaderboardShot, alt: "VidyaX leaderboard", label: "Leaderboard" },
+  { src: appsShot, alt: "VidyaX apps grid", label: "Apps" },
+  { src: quickactionsShot, alt: "VidyaX quick actions", label: "Quick Actions" },
+  { src: lectureForestShot, alt: "VidyaX lecture player", label: "Lecture Player" },
+  { src: lecturePhysicsShot, alt: "VidyaX physics lecture", label: "Live Class" },
 ];
-
-void notificationsShot;
 
 // API constants
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
