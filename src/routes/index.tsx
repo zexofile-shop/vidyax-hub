@@ -8,16 +8,28 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import achievementsShot from "../assets/vidyax-achievements.jpg";
-import appsShot from "../assets/vidyax-apps.jpg";
-import batchesShot from "../assets/vidyax-batches.jpg";
 import edusparkLogo from "../assets/eduspark-logo.jpg";
-import libraryShot from "../assets/vidyax-library.jpg";
-import missionShot from "../assets/vidyax-mission.jpg";
-import notificationsShot from "../assets/vidyax-notifications.jpg";
-import profileShot from "../assets/vidyax-profile.jpg";
-import settingsShot from "../assets/vidyax-settings.jpg";
-import splashShot from "../assets/vidyax-splash.jpg";
+import splashAsset from "../assets/vidyax-splash.jpg.asset.json";
+import homeAsset from "../assets/vidyax-home.jpg.asset.json";
+import profileAsset from "../assets/vidyax-profile.jpg.asset.json";
+import settingsAsset from "../assets/vidyax-settings.jpg.asset.json";
+import lectureForestAsset from "../assets/vidyax-lecture-forest.jpg.asset.json";
+import lecturePhysicsAsset from "../assets/vidyax-lecture-physics.jpg.asset.json";
+import pwAsset from "../assets/vidyax-pw.jpg.asset.json";
+import leaderboardAsset from "../assets/vidyax-leaderboard.jpg.asset.json";
+import appsAsset from "../assets/vidyax-apps.jpg.asset.json";
+import quickactionsAsset from "../assets/vidyax-quickactions.jpg.asset.json";
+
+const splashShot = splashAsset.url;
+const homeShot = homeAsset.url;
+const profileShot = profileAsset.url;
+const settingsShot = settingsAsset.url;
+const lectureForestShot = lectureForestAsset.url;
+const lecturePhysicsShot = lecturePhysicsAsset.url;
+const pwShot = pwAsset.url;
+const leaderboardShot = leaderboardAsset.url;
+const appsShot = appsAsset.url;
+const quickactionsShot = quickactionsAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
