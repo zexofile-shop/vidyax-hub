@@ -104,6 +104,16 @@ const screenshots = [
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const telegramSupportUrl = "https://t.me/Edusparkcontactbot";
+const notifyIosUrl =
+  "https://t.me/Edusparkcontactbot?text=" +
+  encodeURIComponent(
+    "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX iOS version is released. I want to be among the first users to install it on my iPhone/iPad.\n\nThank you!",
+  );
+const notifyWindowsUrl =
+  "https://t.me/Edusparkcontactbot?text=" +
+  encodeURIComponent(
+    "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
+  );
 const supportEmail = "edusparkkoficial@gmail.com";
 const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.5.apk";
 
