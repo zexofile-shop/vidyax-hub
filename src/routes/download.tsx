@@ -96,8 +96,8 @@ function DownloadPage() {
             <a
               key={p.name}
               href={p.href || "#"}
-              target={p.active ? "_blank" : undefined}
-              rel={p.active ? "noreferrer" : undefined}
+              target="_blank"
+              rel="noreferrer"
               className={`rounded-2xl border bg-card p-5 shadow-card transition ${
                 p.active ? "hover:-translate-y-1 hover:border-primary" : "opacity-70"
               }`}
