@@ -90,13 +90,13 @@ const heroScreens = [
 
 // Order reversed per user request (last shown first, first shown last)
 const screenshots = [
+  { src: pwShot, alt: "Physics Wallah batches inside VidyaX", label: "Physics Wallah" },
   { src: batchesShot, alt: "VidyaX batches & Next Toppers", label: "Batches" },
   { src: lecturePhysicsShot, alt: "VidyaX physics lecture", label: "Live Class" },
   { src: lectureForestShot, alt: "VidyaX lecture player", label: "Lecture Player" },
   { src: quickactionsShot, alt: "VidyaX quick actions", label: "Quick Actions" },
   { src: appsShot, alt: "VidyaX apps grid", label: "Apps" },
   { src: leaderboardShot, alt: "VidyaX leaderboard", label: "Leaderboard" },
-  { src: pwShot, alt: "Physics Wallah batches inside VidyaX", label: "Physics Wallah" },
   { src: settingsShot, alt: "VidyaX settings", label: "Settings" },
 ];
 
