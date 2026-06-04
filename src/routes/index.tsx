@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 
 import edusparkLogo from "../assets/eduspark-logo.jpg";
+import AdhyayXFloating from "../components/AdhyayXFloating";
 import splashAsset from "../assets/vidyax-splash.jpg.asset.json";
 import homeAsset from "../assets/vidyax-home.jpg.asset.json";
 import profileAsset from "../assets/vidyax-profile.jpg.asset.json";
