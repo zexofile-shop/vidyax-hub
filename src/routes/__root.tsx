@@ -181,7 +181,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <>
       <TelegramAlertPopup />
       {children}
-      <AdhyayXFloating />
     </>
   );
 }
