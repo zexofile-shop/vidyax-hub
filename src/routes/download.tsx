@@ -67,8 +67,8 @@ function DownloadPage() {
 
   const platforms = [
     { name: "Android", status: `v${version} · Updated ${updatedAt}`, href: apkUrl, active: true, cta: "Download APK" },
-    { name: "iOS", status: "Coming soon", href: "", active: false, cta: "Notify me" },
-    { name: "Windows", status: "Coming soon", href: "", active: false, cta: "Notify me" },
+    { name: "iOS", status: "Coming soon", href: notifyIosUrl, active: false, cta: "Notify me" },
+    { name: "Windows", status: "Coming soon", href: notifyWindowsUrl, active: false, cta: "Notify me" },
   ];
 
   return (
