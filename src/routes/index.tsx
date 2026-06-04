@@ -605,6 +605,7 @@ function Index() {
           </p>
         </footer>
       </section>
+      <AdhyayXFloating />
     </main>
   );
 }
