@@ -26,6 +26,16 @@ export const Route = createFileRoute("/download")({
 const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
 const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.5.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
+const notifyIosUrl =
+  "https://t.me/Edusparkcontactbot?text=" +
+  encodeURIComponent(
+    "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX iOS version is released. I want to be among the first users to install it on my iPhone/iPad.\n\nThank you!",
+  );
+const notifyWindowsUrl =
+  "https://t.me/Edusparkcontactbot?text=" +
+  encodeURIComponent(
+    "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
+  );
 
 function DownloadPage() {
   const [data, setData] = useState<{ latestVersion: string; downloadUrl: string; updatedAt: string } | null>(
@@ -57,8 +67,8 @@ function DownloadPage() {
 
   const platforms = [
     { name: "Android", status: `v${version} · Updated ${updatedAt}`, href: apkUrl, active: true, cta: "Download APK" },
-    { name: "iOS", status: "Coming soon", href: "", active: false, cta: "Notify me" },
-    { name: "Windows", status: "Coming soon", href: "", active: false, cta: "Notify me" },
+    { name: "iOS", status: "Coming soon", href: notifyIosUrl, active: false, cta: "Notify me" },
+    { name: "Windows", status: "Coming soon", href: notifyWindowsUrl, active: false, cta: "Notify me" },
   ];
 
   return (
@@ -86,8 +96,8 @@ function DownloadPage() {
             <a
               key={p.name}
               href={p.href || "#"}
-              target={p.active ? "_blank" : undefined}
-              rel={p.active ? "noreferrer" : undefined}
+              target="_blank"
+              rel="noreferrer"
               className={`rounded-2xl border bg-card p-5 shadow-card transition ${
                 p.active ? "hover:-translate-y-1 hover:border-primary" : "opacity-70"
               }`}
