@@ -216,6 +216,7 @@ function PlatformIcon({ type }: { type: string }) {
 
 function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
+  const [androidDialogOpen, setAndroidDialogOpen] = useState(false);
   const [appData, setAppData] = useState<{
     latestVersion: string;
     downloadUrl: string;
