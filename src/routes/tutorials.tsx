@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+
 import thumbInstall from "../assets/thumb-install.png.asset.json";
 import thumbLogin from "../assets/thumb-login.png.asset.json";
 import thumbBatches from "../assets/thumb-batches.png.asset.json";
