@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+
 
 const TELEGRAM_URL = "https://t.me/+J_bKwBOe70czNjI1";
 
