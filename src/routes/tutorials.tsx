@@ -178,11 +178,12 @@ function TutorialsPage() {
               type="button"
               onClick={() => setActiveIdx(null)}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/95 text-xl font-black leading-none text-black shadow-md hover:bg-white"
+              className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black shadow-lg ring-1 ring-black/10 hover:bg-white/90"
               style={{ aspectRatio: "1 / 1" }}
             >
-              <span className="block leading-none">×</span>
+              <X className="h-5 w-5" strokeWidth={2.5} />
             </button>
+
             <div className="bg-black">
               <video
                 key={segments[activeIdx].videoUrl}
