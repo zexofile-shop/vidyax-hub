@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShareCard } from "./index";
+import { AndroidDownloadDialog } from "../components/AndroidDownloadDialog";
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -41,6 +42,7 @@ function DownloadPage() {
   const [data, setData] = useState<{ latestVersion: string; downloadUrl: string; updatedAt: string } | null>(
     null,
   );
+  const [androidDialogOpen, setAndroidDialogOpen] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -92,21 +94,36 @@ function DownloadPage() {
         </p>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {platforms.map((p) => (
-            <a
-              key={p.name}
-              href={p.href || "#"}
-              target="_blank"
-              rel="noreferrer"
-              className={`rounded-2xl border bg-card p-5 shadow-card transition ${
-                p.active ? "hover:-translate-y-1 hover:border-primary" : "opacity-70"
-              }`}
-            >
-              <h3 className="text-base font-black">{p.name}</h3>
-              <p className="mt-1 text-xs font-bold text-muted-foreground">{p.status}</p>
-              <p className="mt-4 text-sm font-black text-primary">{p.cta} →</p>
-            </a>
-          ))}
+          {platforms.map((p) => {
+            const isAndroid = p.name === "Android";
+            const cls = `rounded-2xl border bg-card p-5 shadow-card transition text-left ${
+              p.active ? "hover:-translate-y-1 hover:border-primary" : "opacity-70"
+            }`;
+            const inner = (
+              <>
+                <h3 className="text-base font-black">{p.name}</h3>
+                <p className="mt-1 text-xs font-bold text-muted-foreground">{p.status}</p>
+                <p className="mt-4 text-sm font-black text-primary">{p.cta} →</p>
+              </>
+            );
+            if (isAndroid) {
+              return (
+                <button
+                  key={p.name}
+                  type="button"
+                  onClick={() => setAndroidDialogOpen(true)}
+                  className={`${cls} w-full`}
+                >
+                  {inner}
+                </button>
+              );
+            }
+            return (
+              <a key={p.name} href={p.href || "#"} target="_blank" rel="noreferrer" className={cls}>
+                {inner}
+              </a>
+            );
+          })}
         </div>
 
         <div className="mt-8 rounded-2xl border bg-card p-5 shadow-card">
@@ -138,6 +155,12 @@ function DownloadPage() {
           </Link>
         </div>
       </section>
+
+      <AndroidDownloadDialog
+        open={androidDialogOpen}
+        onClose={() => setAndroidDialogOpen(false)}
+        version={version}
+      />
     </main>
   );
 }
