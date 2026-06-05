@@ -10,6 +10,7 @@ import {
 
 import edusparkLogo from "../assets/eduspark-logo.jpg";
 import AdhyayXFloating from "../components/AdhyayXFloating";
+import { AndroidDownloadDialog } from "../components/AndroidDownloadDialog";
 import splashAsset from "../assets/vidyax-splash.jpg.asset.json";
 import homeAsset from "../assets/vidyax-home.jpg.asset.json";
 import profileAsset from "../assets/vidyax-profile.jpg.asset.json";
@@ -494,35 +495,57 @@ function Index() {
           </div>
         </div>
         <div className="grid gap-3">
-          {downloadOptions.map((option) => (
-            <a
-              key={option.name}
-              href={option.href || "#"}
-              target={option.active ? "_blank" : undefined}
-              rel={option.active ? "noreferrer" : undefined}
-              className="flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30"
-            >
-              <div className="flex items-center gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-primary">
-                  <PlatformIcon type={option.icon} />
+          {downloadOptions.map((option) => {
+            const isAndroid = option.name === "Android";
+            const commonClass =
+              "flex items-center justify-between rounded-2xl border bg-card p-4 shadow-card transition hover:-translate-y-1 hover:border-primary focus:outline-none focus:ring-4 focus:ring-ring/30 text-left w-full";
+            const inner = (
+              <>
+                <div className="flex items-center gap-4">
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-soft text-primary">
+                    <PlatformIcon type={option.icon} />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black">
+                      {option.name}
+                      {option.active ? ` · v${currentVersion}` : ""}
+                    </h3>
+                    <p className="mt-0.5 text-[11px] font-bold text-muted-foreground sm:text-xs">
+                      {option.active
+                        ? `Latest APK · Updated ${option.updatedAt ?? ""}`
+                        : option.status}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-black">
-                    {option.name}
-                    {option.active ? ` · v${currentVersion}` : ""}
-                  </h3>
-                  <p className="mt-0.5 text-[11px] font-bold text-muted-foreground sm:text-xs">
-                    {option.active
-                      ? `Latest APK · Updated ${option.updatedAt ?? ""}`
-                      : option.status}
-                  </p>
-                </div>
-              </div>
-              <span className="text-xs font-black text-primary">
-                {option.active ? "Download" : option.cta || "Notify me"}
-              </span>
-            </a>
-          ))}
+                <span className="text-xs font-black text-primary">
+                  {option.active ? "Download" : option.cta || "Notify me"}
+                </span>
+              </>
+            );
+            if (isAndroid) {
+              return (
+                <button
+                  key={option.name}
+                  type="button"
+                  onClick={() => setAndroidDialogOpen(true)}
+                  className={commonClass}
+                >
+                  {inner}
+                </button>
+              );
+            }
+            return (
+              <a
+                key={option.name}
+                href={option.href || "#"}
+                target={option.active ? "_blank" : undefined}
+                rel={option.active ? "noreferrer" : undefined}
+                className={commonClass}
+              >
+                {inner}
+              </a>
+            );
+          })}
         </div>
       </section>
 
