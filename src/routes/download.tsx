@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShareCard } from "./index";
-import { AndroidDownloadDialog } from "../components/AndroidDownloadDialog";
+
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -42,7 +42,7 @@ function DownloadPage() {
   const [data, setData] = useState<{ latestVersion: string; downloadUrl: string; updatedAt: string } | null>(
     null,
   );
-  const [androidDialogOpen, setAndroidDialogOpen] = useState(false);
+
 
   useEffect(() => {
     (async () => {
@@ -103,19 +103,14 @@ function DownloadPage() {
               <>
                 <h3 className="text-base font-black">{p.name}</h3>
                 <p className="mt-1 text-xs font-bold text-muted-foreground">{p.status}</p>
-                <p className="mt-4 text-sm font-black text-primary">{p.cta} →</p>
+                <p className="mt-4 text-sm font-black text-primary">{p.cta}</p>
               </>
             );
             if (isAndroid) {
               return (
-                <button
-                  key={p.name}
-                  type="button"
-                  onClick={() => setAndroidDialogOpen(true)}
-                  className={`${cls} w-full`}
-                >
+                <Link key={p.name} to="/android" className={cls}>
                   {inner}
-                </button>
+                </Link>
               );
             }
             return (
@@ -125,6 +120,7 @@ function DownloadPage() {
             );
           })}
         </div>
+
 
         <div className="mt-8 rounded-2xl border bg-card p-5 shadow-card">
           <h2 className="text-lg font-black">Install instructions (Android)</h2>
@@ -156,11 +152,7 @@ function DownloadPage() {
         </div>
       </section>
 
-      <AndroidDownloadDialog
-        open={androidDialogOpen}
-        onClose={() => setAndroidDialogOpen(false)}
-        version={version}
-      />
     </main>
   );
 }
+

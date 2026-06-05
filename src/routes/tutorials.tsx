@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+
 import thumbInstall from "../assets/thumb-install.png.asset.json";
 import thumbLogin from "../assets/thumb-login.png.asset.json";
 import thumbBatches from "../assets/thumb-batches.png.asset.json";
@@ -123,14 +125,13 @@ function TutorialsPage() {
               onClick={() => setActiveIdx(i)}
               className="text-left overflow-hidden rounded-xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary sm:rounded-2xl"
             >
-              {/* 16:9 thumbnail — matches the uploaded YouTube-style covers, no cropping */}
-              <div className="relative aspect-video w-full overflow-hidden bg-black">
-                <img
-                  src={seg.poster}
-                  alt={seg.title}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
+              {/* 16:9 thumbnail rendered as background-image to avoid any baseline/whitespace */}
+              <div
+                className="relative aspect-video w-full overflow-hidden bg-black bg-cover bg-center"
+                style={{ backgroundImage: `url(${seg.poster})` }}
+                role="img"
+                aria-label={seg.title}
+              >
                 <div className="absolute inset-0 flex items-center justify-center bg-black/10">
                   <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/95 shadow-soft sm:h-14 sm:w-14">
                     <svg viewBox="0 0 24 24" className="h-4 w-4 text-primary-foreground sm:h-6 sm:w-6" aria-hidden="true">
@@ -139,6 +140,7 @@ function TutorialsPage() {
                   </div>
                 </div>
               </div>
+
               <div className="p-2.5 sm:p-4">
                 <p className="text-[9px] font-black uppercase tracking-wider text-primary sm:text-[10px]">
                   Segment {String(i + 1).padStart(2, "0")}
@@ -176,11 +178,12 @@ function TutorialsPage() {
               type="button"
               onClick={() => setActiveIdx(null)}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/95 text-xl font-black leading-none text-black shadow-md hover:bg-white"
+              className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-black shadow-lg ring-1 ring-black/10 hover:bg-white/90"
               style={{ aspectRatio: "1 / 1" }}
             >
-              <span className="block leading-none">×</span>
+              <X className="h-5 w-5" strokeWidth={2.5} />
             </button>
+
             <div className="bg-black">
               <video
                 key={segments[activeIdx].videoUrl}

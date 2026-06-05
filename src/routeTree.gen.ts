@@ -15,6 +15,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as DmcaRouteImport } from './routes/dmca'
+import { Route as AndroidRouteImport } from './routes/android'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TutorialsRoute = TutorialsRouteImport.update({
@@ -47,6 +48,11 @@ const DmcaRoute = DmcaRouteImport.update({
   path: '/dmca',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AndroidRoute = AndroidRouteImport.update({
+  id: '/android',
+  path: '/android',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/android': typeof AndroidRoute
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/android': typeof AndroidRoute
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/android': typeof AndroidRoute
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/android'
     | '/dmca'
     | '/download'
     | '/faq'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/android'
     | '/dmca'
     | '/download'
     | '/faq'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/android'
     | '/dmca'
     | '/download'
     | '/faq'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AndroidRoute: typeof AndroidRoute
   DmcaRoute: typeof DmcaRoute
   DownloadRoute: typeof DownloadRoute
   FaqRoute: typeof FaqRoute
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DmcaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/android': {
+      id: '/android'
+      path: '/android'
+      fullPath: '/android'
+      preLoaderRoute: typeof AndroidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AndroidRoute: AndroidRoute,
   DmcaRoute: DmcaRoute,
   DownloadRoute: DownloadRoute,
   FaqRoute: FaqRoute,

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
+
 
 const TELEGRAM_URL = "https://t.me/+J_bKwBOe70czNjI1";
 
@@ -106,24 +108,22 @@ export default function TelegramAlertPopup() {
             top: "14px",
             right: "14px",
             zIndex: 2,
-            width: "36px",
-            height: "36px",
-            minWidth: "36px",
-            minHeight: "36px",
+            width: "38px",
+            height: "38px",
+            minWidth: "38px",
+            minHeight: "38px",
             flexShrink: 0,
             aspectRatio: "1 / 1",
             padding: 0,
             border: "1.5px solid oklch(0.902 0.019 252.4)",
             borderRadius: "999px",
             background: "oklch(0.981 0.009 253.2)",
-            color: "oklch(0.56 0.044 254.8)",
-            fontSize: "20px",
-            fontWeight: 700,
+            color: "oklch(0.35 0.05 258)",
             cursor: "pointer",
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            lineHeight: 1,
+            lineHeight: 0,
             transition: "background 150ms",
           }}
           onMouseEnter={(e) =>
@@ -135,8 +135,9 @@ export default function TelegramAlertPopup() {
               "oklch(0.981 0.009 253.2)")
           }
         >
-          ×
+          <X size={18} strokeWidth={2.75} />
         </button>
+
 
         <div style={{ padding: "22px 22px 24px" }}>
           {/* Badge */}

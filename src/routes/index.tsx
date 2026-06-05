@@ -10,7 +10,7 @@ import {
 
 import edusparkLogo from "../assets/eduspark-logo.jpg";
 import AdhyayXFloating from "../components/AdhyayXFloating";
-import { AndroidDownloadDialog } from "../components/AndroidDownloadDialog";
+
 import splashAsset from "../assets/vidyax-splash.jpg.asset.json";
 import homeAsset from "../assets/vidyax-home.jpg.asset.json";
 import profileAsset from "../assets/vidyax-profile.jpg.asset.json";
@@ -216,7 +216,7 @@ function PlatformIcon({ type }: { type: string }) {
 
 function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
-  const [androidDialogOpen, setAndroidDialogOpen] = useState(false);
+
   const [appData, setAppData] = useState<{
     latestVersion: string;
     downloadUrl: string;
@@ -525,16 +525,16 @@ function Index() {
             );
             if (isAndroid) {
               return (
-                <button
+                <Link
                   key={option.name}
-                  type="button"
-                  onClick={() => setAndroidDialogOpen(true)}
+                  to="/android"
                   className={commonClass}
                 >
                   {inner}
-                </button>
+                </Link>
               );
             }
+
             return (
               <a
                 key={option.name}
@@ -631,11 +631,7 @@ function Index() {
         </footer>
       </section>
       <AdhyayXFloating />
-      <AndroidDownloadDialog
-        open={androidDialogOpen}
-        onClose={() => setAndroidDialogOpen(false)}
-        version={currentVersion}
-      />
+
     </main>
   );
 }
