@@ -525,16 +525,16 @@ function Index() {
             );
             if (isAndroid) {
               return (
-                <button
+                <Link
                   key={option.name}
-                  type="button"
-                  onClick={() => setAndroidDialogOpen(true)}
+                  to="/android"
                   className={commonClass}
                 >
                   {inner}
-                </button>
+                </Link>
               );
             }
+
             return (
               <a
                 key={option.name}
