@@ -128,7 +128,7 @@ function TutorialsPage() {
                 <img
                   src={seg.poster}
                   alt={seg.title}
-                  className="absolute inset-0 h-full w-full object-contain"
+                  className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/10">
