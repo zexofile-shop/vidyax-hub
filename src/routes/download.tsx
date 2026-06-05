@@ -151,12 +151,8 @@ function DownloadPage() {
           </Link>
         </div>
       </section>
-
-      <AndroidDownloadDialog
-        open={androidDialogOpen}
-        onClose={() => setAndroidDialogOpen(false)}
-        version={version}
-      />
+      </section>
     </main>
   );
 }
+
