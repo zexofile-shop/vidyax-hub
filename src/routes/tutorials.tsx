@@ -125,14 +125,13 @@ function TutorialsPage() {
               onClick={() => setActiveIdx(i)}
               className="text-left overflow-hidden rounded-xl border bg-card shadow-card transition hover:-translate-y-1 hover:border-primary sm:rounded-2xl"
             >
-              {/* 16:9 thumbnail — matches the uploaded YouTube-style covers, no cropping */}
-              <div className="relative aspect-video w-full overflow-hidden bg-black">
-                <img
-                  src={seg.poster}
-                  alt={seg.title}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                />
+              {/* 16:9 thumbnail rendered as background-image to avoid any baseline/whitespace */}
+              <div
+                className="relative aspect-video w-full overflow-hidden bg-black bg-cover bg-center"
+                style={{ backgroundImage: `url(${seg.poster})` }}
+                role="img"
+                aria-label={seg.title}
+              >
                 <div className="absolute inset-0 flex items-center justify-center bg-black/10">
                   <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary/95 shadow-soft sm:h-14 sm:w-14">
                     <svg viewBox="0 0 24 24" className="h-4 w-4 text-primary-foreground sm:h-6 sm:w-6" aria-hidden="true">
@@ -141,6 +140,7 @@ function TutorialsPage() {
                   </div>
                 </div>
               </div>
+
               <div className="p-2.5 sm:p-4">
                 <p className="text-[9px] font-black uppercase tracking-wider text-primary sm:text-[10px]">
                   Segment {String(i + 1).padStart(2, "0")}
