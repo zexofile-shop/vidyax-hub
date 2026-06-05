@@ -151,7 +151,7 @@ function DownloadPage() {
           </Link>
         </div>
       </section>
-      </section>
+
     </main>
   );
 }
