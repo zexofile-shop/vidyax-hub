@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShareCard } from "./index";
-import { AndroidDownloadDialog } from "../components/AndroidDownloadDialog";
+
 
 export const Route = createFileRoute("/download")({
   head: () => ({
