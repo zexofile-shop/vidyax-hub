@@ -631,6 +631,11 @@ function Index() {
         </footer>
       </section>
       <AdhyayXFloating />
+      <AndroidDownloadDialog
+        open={androidDialogOpen}
+        onClose={() => setAndroidDialogOpen(false)}
+        version={currentVersion}
+      />
     </main>
   );
 }
