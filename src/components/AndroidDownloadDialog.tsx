@@ -29,10 +29,10 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
   },
   {
     id: "emu",
-    label: "Emulator",
-    subtitle: "For PC / Mac emulators",
+    label: "Emulator (AMD build)",
+    subtitle: "Not a PC version — for AMD-chip Android devices & AMD emulators",
     devices:
-      "For Android emulators on PC / Mac — e.g. BlueStacks, LDPlayer, NoxPlayer, MEmu, MuMu Player, Android Studio AVD.",
+      "This is NOT a Windows / PC version. Use it only if your Android device or emulator runs on an AMD chip — common in some tablets (a few Lenovo / Intel-Atom era tabs) and in AMD-based Android emulators like BlueStacks, LDPlayer, NoxPlayer, MEmu, MuMu Player on AMD PCs. On normal ARM phones, always pick 64-bit or 32-bit instead.",
     url: "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.5/VidyaX_V1.2.5_.For_Emulators.apk",
   },
 ];
