@@ -43,7 +43,7 @@ function AndroidPage() {
           </p>
           <h1 className="mt-2 text-2xl font-black sm:text-3xl">Choose your build</h1>
           <p className="mt-2 text-xs font-semibold leading-6 opacity-90 sm:text-sm">
-            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. For PC / Mac use the Emulator build.
+            Most users should pick <span className="font-black">64-bit</span>. If it fails to install, try 32-bit. The <span className="font-black">Emulator (AMD)</span> build is <span className="underline">not a PC / Windows version</span> — it’s only for AMD-chip Android devices and AMD-based emulators.
           </p>
         </div>
 

@@ -925,6 +925,26 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
         "Site pe wapas aakar latest APK download karo aur install kar lo — purana data aur login waise ka waisa rahega. Auto-update ke liye Telegram channel se notify hote raho.",
     },
     {
+      img: faqInstallImg,
+      alt: "Choose Android APK build",
+      q_en: "Which Android version should I download — 32-bit, 64-bit or Emulator?",
+      a_en:
+        "On the Android download page you’ll see three builds. 64-bit is for almost all modern phones (2018+) — pick this by default. 32-bit is only for very old / low-RAM phones where 64-bit fails to install. The 'Emulator (AMD)' build is NOT a Windows/PC version — it’s only for AMD-chip Android devices or AMD-based emulators (BlueStacks, LDPlayer, etc. on AMD PCs). On normal ARM phones, never pick the emulator build.",
+      q_hi: "Kaunsa Android version download karu — 32-bit, 64-bit ya Emulator?",
+      a_hi:
+        "Android download page pe 3 builds milte hain. 64-bit lagbhag har modern phone (2018+) ke liye hai — default isi ko pick karo. 32-bit sirf bahot purane / kam-RAM wale phone ke liye hai jaha 64-bit install na ho. 'Emulator (AMD)' build Windows/PC version NAHI hai — ye sirf AMD-chip wale Android devices ya AMD-based emulators (BlueStacks, LDPlayer waghera AMD PC pe) ke liye hai. Normal ARM phone pe Emulator build kabhi mat chuno.",
+    },
+    {
+      img: faqAboutImg,
+      alt: "Video tutorials for VidyaX",
+      q_en: "Where can I find video tutorials for using VidyaX?",
+      a_en:
+        "Open the Tutorials page from the home screen — you’ll get 8 short video segments covering install/update, login, batches, connecting your PW account, searching & enrolling, lectures/notes/DPPs, profile and leaderboard. Tap any segment to play.",
+      q_hi: "VidyaX use karne ke video tutorials kaha milenge?",
+      a_hi:
+        "Home page se Tutorials page open karo — 8 chhote video segments milenge: install/update, login, batches, PW account connect karna, search & enroll, lectures/notes/DPPs, profile aur leaderboard. Kisi bhi segment pe tap karke play kar sakte ho.",
+    },
+    {
       img: faqSupportImg,
       alt: "Customer support agent",
       q_en: "What if I face login or download issues?",
