@@ -324,6 +324,9 @@ function Index() {
           <Link to="/tutorials" className="transition hover:text-primary">
             Tutorials
           </Link>
+          <Link to="/feedback" className="transition hover:text-primary">
+            Give Feedback
+          </Link>
           <Link to="/faq" className="transition hover:text-primary">
             FAQ
           </Link>
@@ -550,6 +553,34 @@ function Index() {
         </div>
       </section>
 
+      <section className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <Link
+          to="/feedback"
+          className="group flex items-center justify-between gap-4 rounded-3xl border bg-card p-5 shadow-card transition hover:-translate-y-0.5 hover:border-primary sm:p-6"
+        >
+          <div className="flex items-center gap-4">
+            <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-soft text-primary text-xl">
+              ✦
+            </div>
+            <div>
+              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                Monthly Feedback Portal
+              </p>
+              <h3 className="mt-1 text-lg font-black sm:text-xl">
+                Give Feedback
+              </h3>
+              <p className="mt-0.5 text-[12px] font-bold text-muted-foreground sm:text-sm">
+                Open 7th–21st each month. We reply on email in 24–48 hours.
+              </p>
+            </div>
+          </div>
+          <span className="hidden text-xs font-black text-primary sm:inline">
+            Open portal →
+          </span>
+        </Link>
+      </section>
+
+
       <section id="support" className="mx-auto w-full max-w-7xl px-5 pb-16 sm:px-8">
         <div className="mb-5 flex flex-col items-start justify-between gap-3 rounded-2xl border bg-card p-4 shadow-card sm:flex-row sm:items-center">
           <div>
@@ -621,6 +652,7 @@ function Index() {
             <Link to="/" className="hover:text-primary">Home</Link>
             <Link to="/download" className="hover:text-primary">Download</Link>
             <Link to="/tutorials" className="hover:text-primary">Tutorials</Link>
+            <Link to="/feedback" className="hover:text-primary">Feedback</Link>
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>

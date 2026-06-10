@@ -12,11 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorialsRouteImport } from './routes/tutorials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as DmcaRouteImport } from './routes/dmca'
 import { Route as AndroidRouteImport } from './routes/android'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FeedbackAdminRouteImport } from './routes/feedback.admin'
 
 const TutorialsRoute = TutorialsRouteImport.update({
   id: '/tutorials',
@@ -31,6 +33,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -58,6 +65,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackAdminRoute = FeedbackAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => FeedbackRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -65,9 +77,11 @@ export interface FileRoutesByFullPath {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/feedback/admin': typeof FeedbackAdminRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -75,9 +89,11 @@ export interface FileRoutesByTo {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/feedback/admin': typeof FeedbackAdminRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,9 +102,11 @@ export interface FileRoutesById {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
+  '/feedback/admin': typeof FeedbackAdminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -98,9 +116,11 @@ export interface FileRouteTypes {
     | '/dmca'
     | '/download'
     | '/faq'
+    | '/feedback'
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/feedback/admin'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -108,9 +128,11 @@ export interface FileRouteTypes {
     | '/dmca'
     | '/download'
     | '/faq'
+    | '/feedback'
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/feedback/admin'
   id:
     | '__root__'
     | '/'
@@ -118,9 +140,11 @@ export interface FileRouteTypes {
     | '/dmca'
     | '/download'
     | '/faq'
+    | '/feedback'
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
+    | '/feedback/admin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -129,6 +153,7 @@ export interface RootRouteChildren {
   DmcaRoute: typeof DmcaRoute
   DownloadRoute: typeof DownloadRoute
   FaqRoute: typeof FaqRoute
+  FeedbackRoute: typeof FeedbackRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TutorialsRoute: typeof TutorialsRoute
@@ -155,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -192,8 +224,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback/admin': {
+      id: '/feedback/admin'
+      path: '/admin'
+      fullPath: '/feedback/admin'
+      preLoaderRoute: typeof FeedbackAdminRouteImport
+      parentRoute: typeof FeedbackRoute
+    }
   }
 }
+
+interface FeedbackRouteChildren {
+  FeedbackAdminRoute: typeof FeedbackAdminRoute
+}
+
+const FeedbackRouteChildren: FeedbackRouteChildren = {
+  FeedbackAdminRoute: FeedbackAdminRoute,
+}
+
+const FeedbackRouteWithChildren = FeedbackRoute._addFileChildren(
+  FeedbackRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -201,6 +252,7 @@ const rootRouteChildren: RootRouteChildren = {
   DmcaRoute: DmcaRoute,
   DownloadRoute: DownloadRoute,
   FaqRoute: FaqRoute,
+  FeedbackRoute: FeedbackRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TutorialsRoute: TutorialsRoute,
