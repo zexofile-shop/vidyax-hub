@@ -35,7 +35,7 @@
 // 4. Paste the URL below as FEEDBACK_ENDPOINT and your SECRET as ADMIN_KEY.
 // ============================================================================
 
-export const FEEDBACK_ENDPOINT = ""; "https://script.google.com/macros/s/AKfycbxoXpcX3yOcXonYOjbEiSFQXxpPK4TY4JPhWV2TFRDLrZu8uq7Ap6IdS42LQZnYCfhY/exec"
+export const FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbxoXpcX3yOcXonYOjbEiSFQXxpPK4TY4JPhWV2TFRDLrZu8uq7Ap6IdS42LQZnYCfhY/exec"
 export const ADMIN_KEY = "@7368932901N"; // must match SECRET in Apps Script
 
 // Portal opens on day 7 of every month for 15 days (days 7..21 inclusive).
