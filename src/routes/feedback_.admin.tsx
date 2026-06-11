@@ -74,11 +74,62 @@ function FeedbackAdmin() {
         setErr("API key mismatch — feedback data could not be loaded.");
         return;
       }
-      const data: FeedbackItem[] = Array.isArray(j.data)
-        ? j.data
-        : Array.isArray(j.rows)
-          ? j.rows
-          : [];
+      // Google Apps Script returns rows as a 2D array:
+      // [[header1, header2, ...], [val1, val2, ...], ...]
+      // We need to map each row into a named FeedbackItem object.
+      let data: FeedbackItem[] = [];
+
+      if (Array.isArray(j.data) && j.data.length > 0 && typeof j.data[0] === "object" && !Array.isArray(j.data[0])) {
+        // Already an array of objects (custom Apps Script format)
+        data = (j.data as FeedbackItem[]).map((item, i) => ({
+          ...item,
+          rowIndex: item.rowIndex ?? i + 2,
+        }));
+      } else if (Array.isArray(j.rows) && j.rows.length > 0) {
+        if (Array.isArray(j.rows[0])) {
+          // Raw 2D array from getDataRange().getValues()
+          // First row is the header, rest are data rows
+          const [headers, ...dataRows] = j.rows as string[][];
+          const colIndex = (name: string) =>
+            headers.findIndex((h: string) =>
+              h?.toString().toLowerCase() === name.toLowerCase()
+            );
+
+          const tIdx     = colIndex("timestamp");
+          const nameIdx  = colIndex("name");
+          const emailIdx = colIndex("email");
+          const ratingIdx= colIndex("rating");
+          const catIdx   = colIndex("category");
+          const msgIdx   = colIndex("message");
+          const monthIdx = colIndex("month");
+          const uaIdx    = colIndex("useragent");
+          const statusIdx= colIndex("status");
+          const replyIdx = colIndex("admin_reply");
+
+          data = dataRows
+            .filter((row) => row.some((cell) => cell !== "" && cell != null))
+            .map((row, i) => ({
+              rowIndex:    i + 2, // row 1 = header, data starts at row 2
+              timestamp:   tIdx >= 0     ? String(row[tIdx] ?? "")     : undefined,
+              name:        nameIdx >= 0  ? String(row[nameIdx] ?? "")  : undefined,
+              email:       emailIdx >= 0 ? String(row[emailIdx] ?? "") : undefined,
+              rating:      ratingIdx >= 0? String(row[ratingIdx] ?? ""): undefined,
+              category:    catIdx >= 0   ? String(row[catIdx] ?? "")   : undefined,
+              message:     msgIdx >= 0   ? String(row[msgIdx] ?? "")   : undefined,
+              month:       monthIdx >= 0 ? String(row[monthIdx] ?? "") : undefined,
+              userAgent:   uaIdx >= 0    ? String(row[uaIdx] ?? "")    : undefined,
+              status:      statusIdx >= 0? String(row[statusIdx] ?? ""): undefined,
+              admin_reply: replyIdx >= 0 ? String(row[replyIdx] ?? "") : undefined,
+            }));
+        } else {
+          // Array of objects format
+          data = (j.rows as FeedbackItem[]).map((item, i) => ({
+            ...item,
+            rowIndex: item.rowIndex ?? i + 2,
+          }));
+        }
+      }
+
       setItems(data);
     } catch {
       setErr("Couldn't load feedback data. Check endpoint.");
