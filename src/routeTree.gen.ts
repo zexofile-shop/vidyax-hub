@@ -18,7 +18,7 @@ import { Route as DownloadRouteImport } from './routes/download'
 import { Route as DmcaRouteImport } from './routes/dmca'
 import { Route as AndroidRouteImport } from './routes/android'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as FeedbackAdminRouteImport } from './routes/feedback.admin'
+import { Route as FeedbackAdminRouteImport } from './routes/feedback_.admin'
 
 const TutorialsRoute = TutorialsRouteImport.update({
   id: '/tutorials',
@@ -66,9 +66,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeedbackAdminRoute = FeedbackAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => FeedbackRoute,
+  id: '/feedback_/admin',
+  path: '/feedback/admin',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -77,7 +77,7 @@ export interface FileRoutesByFullPath {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
-  '/feedback': typeof FeedbackRouteWithChildren
+  '/feedback': typeof FeedbackRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
@@ -89,7 +89,7 @@ export interface FileRoutesByTo {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
-  '/feedback': typeof FeedbackRouteWithChildren
+  '/feedback': typeof FeedbackRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
@@ -102,11 +102,11 @@ export interface FileRoutesById {
   '/dmca': typeof DmcaRoute
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
-  '/feedback': typeof FeedbackRouteWithChildren
+  '/feedback': typeof FeedbackRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
-  '/feedback/admin': typeof FeedbackAdminRoute
+  '/feedback_/admin': typeof FeedbackAdminRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -144,7 +144,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/sitemap.xml'
     | '/tutorials'
-    | '/feedback/admin'
+    | '/feedback_/admin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -153,10 +153,11 @@ export interface RootRouteChildren {
   DmcaRoute: typeof DmcaRoute
   DownloadRoute: typeof DownloadRoute
   FaqRoute: typeof FaqRoute
-  FeedbackRoute: typeof FeedbackRouteWithChildren
+  FeedbackRoute: typeof FeedbackRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TutorialsRoute: typeof TutorialsRoute
+  FeedbackAdminRoute: typeof FeedbackAdminRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -224,27 +225,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/feedback/admin': {
-      id: '/feedback/admin'
-      path: '/admin'
+    '/feedback_/admin': {
+      id: '/feedback_/admin'
+      path: '/feedback/admin'
       fullPath: '/feedback/admin'
       preLoaderRoute: typeof FeedbackAdminRouteImport
-      parentRoute: typeof FeedbackRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface FeedbackRouteChildren {
-  FeedbackAdminRoute: typeof FeedbackAdminRoute
-}
-
-const FeedbackRouteChildren: FeedbackRouteChildren = {
-  FeedbackAdminRoute: FeedbackAdminRoute,
-}
-
-const FeedbackRouteWithChildren = FeedbackRoute._addFileChildren(
-  FeedbackRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -252,10 +241,11 @@ const rootRouteChildren: RootRouteChildren = {
   DmcaRoute: DmcaRoute,
   DownloadRoute: DownloadRoute,
   FaqRoute: FaqRoute,
-  FeedbackRoute: FeedbackRouteWithChildren,
+  FeedbackRoute: FeedbackRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TutorialsRoute: TutorialsRoute,
+  FeedbackAdminRoute: FeedbackAdminRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
