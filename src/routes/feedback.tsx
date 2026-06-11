@@ -84,21 +84,42 @@ function FeedbackPage() {
       return;
     }
     setState("sending");
+
+    const payload = {
+      action:    "submit_feedback",
+      name:      form.name,
+      email:     form.email,
+      rating:    form.rating,
+      category:  form.category,
+      message:   form.message,
+      month:     status.monthLabel,
+      userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+    };
+
+    console.log("[VidyaX Feedback] Endpoint:", FEEDBACK_ENDPOINT);
+    console.log("[VidyaX Feedback] Payload:", JSON.stringify(payload, null, 2));
+
     try {
-      await fetch(FEEDBACK_ENDPOINT, {
+      const response = await fetch(FEEDBACK_ENDPOINT, {
         method: "POST",
+        // no-cors avoids CORS preflight on Google Apps Script.
+        // Response will always be opaque (status: 0) — that is expected.
         mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({
-          action: "submit_feedback",
-          ...form,
-          month: status.monthLabel,
-          userAgent:
-            typeof navigator !== "undefined" ? navigator.userAgent : "",
-        }),
+        // FIX: "text/plain;charset=utf-8" is NOT a CORS-safelisted Content-Type
+        // because of the extra ;charset= parameter. The browser strips the header
+        // in no-cors mode, so the body never reaches Apps Script as expected.
+        // Plain "text/plain" (no params) IS safelisted and works correctly.
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload),
       });
+
+      // Opaque response is expected with no-cors — it does NOT mean failure.
+      console.log("[VidyaX Feedback] Response type:", response.type, "| status:", response.status);
+      console.log("[VidyaX Feedback] Request dispatched — check Google Sheet for the new row.");
+
       setState("sent");
-    } catch {
+    } catch (err) {
+      console.error("[VidyaX Feedback] Fetch failed:", err);
       setState("error");
       setErrorMsg("Couldn't submit right now. Please try again in a minute.");
     }
