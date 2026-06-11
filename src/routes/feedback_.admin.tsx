@@ -45,20 +45,33 @@ function FeedbackAdmin() {
   const [query, setQuery] = useState("");
 
   const load = async (key: string) => {
+    const trimmedKey = key.trim();
+
+    // ✅ FIX: Client-side key check FIRST — no API dependency for auth
+    if (trimmedKey !== ADMIN_KEY.trim()) {
+      setErr("Wrong admin key.");
+      setAuthed(false);
+      return;
+    }
+
+    // ✅ Key is correct — unlock dashboard immediately
+    setAdminKey(trimmedKey);
+    setAuthed(true);
+    setErr("");
+
     if (!FEEDBACK_ENDPOINT) {
       setErr("Feedback endpoint not configured.");
       return;
     }
     setLoading(true);
-    setErr("");
     try {
       const r = await fetch(
-        `${FEEDBACK_ENDPOINT}?key=${encodeURIComponent(key)}`,
+        `${FEEDBACK_ENDPOINT}?key=${encodeURIComponent(trimmedKey)}`,
       );
       const j = await r.json();
       if (!j.ok) {
-        setErr("Wrong admin key.");
-        setAuthed(false);
+        // API secret mismatch — auth stays unlocked, but data won't load
+        setErr("API key mismatch — feedback data could not be loaded.");
         return;
       }
       const data: FeedbackItem[] = Array.isArray(j.data)
@@ -67,10 +80,8 @@ function FeedbackAdmin() {
           ? j.rows
           : [];
       setItems(data);
-      setAdminKey(key);
-      setAuthed(true);
     } catch {
-      setErr("Couldn't load. Check endpoint.");
+      setErr("Couldn't load feedback data. Check endpoint.");
     } finally {
       setLoading(false);
     }
@@ -92,7 +103,7 @@ function FeedbackAdmin() {
             value={keyInput}
             onChange={(e) => setKeyInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") load(keyInput || ADMIN_KEY);
+              if (e.key === "Enter") load(keyInput.trim());
             }}
             placeholder="Admin key"
             className="mt-4 w-full rounded-xl border bg-background px-3 py-2.5 text-sm font-semibold outline-none focus:border-primary"
@@ -101,7 +112,7 @@ function FeedbackAdmin() {
             <p className="mt-2 text-xs font-bold text-destructive">{err}</p>
           )}
           <button
-            onClick={() => load(keyInput || ADMIN_KEY)}
+            onClick={() => load(keyInput.trim())}
             disabled={loading}
             className="mt-4 w-full rounded-xl bg-primary px-4 py-2.5 text-sm font-black text-primary-foreground disabled:opacity-60"
           >
