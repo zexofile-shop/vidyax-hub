@@ -4,7 +4,7 @@ import { Lock, RefreshCw, Mail, Star, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { ADMIN_KEY, FEEDBACK_ENDPOINT } from "@/lib/feedback-config";
 
-export const Route = createFileRoute("/feedback/admin")({
+export const Route = createFileRoute("/feedback_/admin")({
   head: () => ({
     meta: [
       { title: "Feedback Admin — VidyaX" },
