@@ -21,7 +21,7 @@ export const Route = createFileRoute("/android")({
 });
 
 function AndroidPage() {
-  const version = "1.2.5";
+  const version = "1.2.6";
   return (
     <main className="min-h-screen bg-background text-foreground">
       <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4 sm:px-8">

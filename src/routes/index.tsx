@@ -117,7 +117,7 @@ const notifyWindowsUrl =
     "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
   );
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.5.apk";
+const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.6.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -266,7 +266,7 @@ function Index() {
     };
   }, []);
 
-  const currentVersion = appData?.latestVersion || "1.2.5";
+  const currentVersion = appData?.latestVersion || "1.2.6";
   const currentDownloadUrl = appData?.downloadUrl || defaultApkUrl;
   const lastUpdatedDate = appData
     ? new Date(appData.updatedAt).toLocaleDateString("en-IN", {
@@ -274,7 +274,7 @@ function Index() {
         month: "short",
         year: "numeric",
       })
-    : "3 Jun 2026";
+    : "14 Jun 2026";
 
   const downloadOptions = [
     {
