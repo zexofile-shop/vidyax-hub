@@ -16,7 +16,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "Recommended for most modern phones",
     devices:
       "Works on almost all phones from 2018+ — e.g. Samsung Galaxy S/A series, OnePlus, Xiaomi/Redmi Note, Realme, Vivo, Oppo, iQOO, Google Pixel, Motorola Edge.",
-    url: "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.5/VidyaX_V1.2.5_64Bit.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_64Bit.apk",
     recommended: true,
   },
   {
@@ -25,7 +25,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "For older / budget devices",
     devices:
       "Use only if 64-bit doesn’t install — e.g. older Redmi 4/5/6, Samsung J-series, Micromax, Lava, Karbonn, or any phone from before 2018 with ≤ 2 GB RAM.",
-    url: "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.5/VidyaX_V1.2.5_32Bit.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_32Bit.apk",
   },
   {
     id: "emu",
@@ -33,7 +33,7 @@ export const ANDROID_VARIANTS: AndroidVariant[] = [
     subtitle: "Not a PC version — for AMD-chip Android devices & AMD emulators",
     devices:
       "This is NOT a Windows / PC version. Use it only if your Android device or emulator runs on an AMD chip — common in some tablets (a few Lenovo / Intel-Atom era tabs) and in AMD-based Android emulators like BlueStacks, LDPlayer, NoxPlayer, MEmu, MuMu Player on AMD PCs. On normal ARM phones, always pick 64-bit or 32-bit instead.",
-    url: "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.5/VidyaX_V1.2.5_.For_Emulators.apk",
+    url: "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_.Emulator.apk",
   },
 ];
 
