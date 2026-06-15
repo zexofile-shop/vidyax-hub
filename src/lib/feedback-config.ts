@@ -1,42 +1,15 @@
 // ============================================================================
-// VidyaX Feedback Portal — Configuration
-// ============================================================================
-// NO BACKEND / NO LOVABLE CLOUD required.
-// We use a free Google Apps Script Web App as a tiny endpoint that writes
-// submissions to a Google Sheet you own. You read submissions from the same
-// endpoint on the on-site admin page (/feedback/admin).
-//
-// One-time setup (5 minutes):
-// 1. Create a new Google Sheet. First row headers (exactly):
-//      timestamp | name | email | rating | category | message | month | userAgent
-// 2. Extensions → Apps Script → paste this code:
-//
-//      const SECRET = "CHANGE_ME_TO_A_LONG_RANDOM_STRING";
-//      function doPost(e){
-//        const sh = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-//        const d = JSON.parse(e.postData.contents);
-//        sh.appendRow([new Date(), d.name||"", d.email||"", d.rating||"",
-//          d.category||"", d.message||"", d.month||"", d.userAgent||""]);
-//        return ContentService.createTextOutput(JSON.stringify({ok:true}))
-//          .setMimeType(ContentService.MimeType.JSON);
-//      }
-//      function doGet(e){
-//        if((e.parameter.key||"")!==SECRET)
-//          return ContentService.createTextOutput(JSON.stringify({ok:false}))
-//            .setMimeType(ContentService.MimeType.JSON);
-//        const sh = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-//        const rows = sh.getDataRange().getValues();
-//        return ContentService.createTextOutput(JSON.stringify({ok:true,rows}))
-//          .setMimeType(ContentService.MimeType.JSON);
-//      }
-//
-// 3. Deploy → New deployment → Type: Web app → Execute as: Me →
-//    Who has access: Anyone → Deploy. Copy the /exec URL.
-// 4. Paste the URL below as FEEDBACK_ENDPOINT and your SECRET as ADMIN_KEY.
+// VidyaX Feedback Portal — Configuration (Telegram Bot)
 // ============================================================================
 
-export const FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbwvEEgpNqyJ9-1oNNf4LK6xX1dJ5fe1GexGc9i4523euvmO1eBM1YssMI0oH-7B9Abi/exec"
-export const ADMIN_KEY = "@7368932901N"; // must match SECRET in Apps Script
+export const TELEGRAM_BOT_TOKEN = "8716876737:AAFEOf645VMisyzvs7qvPdZW1xEUs3Oti-c";
+
+// ⚠️ IMPORTANT: AAPKO APNI CHAT ID YAHA DAALNI HAI ⚠️
+// 1. Apne bot (@VidyaXFeedBackOrg_bot) ko open karein aur "Hello" message bhejein.
+// 2. Apne browser me ye link open karein: 
+//    https://api.telegram.org/bot8716876737:AAFEOf645VMisyzvs7qvPdZW1xEUs3Oti-c/getUpdates
+// 3. Waha par aapko "chat": {"id": 123456789} dikhega, waha se number copy karke niche daalein.
+export const TELEGRAM_CHAT_ID = "7652204324"; 
 
 // Portal opens on day 7 of every month for 15 days (days 7..21 inclusive).
 export const PORTAL_OPEN_DAY = 7;
