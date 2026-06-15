@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaqSection } from "./index";
 
 export const Route = createFileRoute("/faq")({
@@ -23,33 +23,9 @@ export const Route = createFileRoute("/faq")({
   component: FaqPage,
 });
 
-const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
-
 function FaqPage() {
-  const [version, setVersion] = useState("1.2.4");
-  const [updatedAt, setUpdatedAt] = useState("Latest");
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const r = await fetch(`${API_URL}?t=${Date.now()}`);
-        const j = await r.json();
-        if (j?.success && j.data) {
-          setVersion(j.data.latestVersion);
-          setUpdatedAt(
-            new Date(j.data.updatedAt).toLocaleDateString("en-IN", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            }),
-          );
-        }
-      } catch {
-        /* ignore */
-      }
-    })();
-  }, []);
-
+  const version = "1.2.6";
+  const updatedAt = "14 June 2026";
 
   return (
     <main className="min-h-screen bg-background text-foreground">
