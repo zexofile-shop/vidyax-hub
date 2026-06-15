@@ -3,12 +3,6 @@
 // ============================================================================
 
 export const TELEGRAM_BOT_TOKEN = "8716876737:AAFEOf645VMisyzvs7qvPdZW1xEUs3Oti-c";
-
-// ⚠️ IMPORTANT: AAPKO APNI CHAT ID YAHA DAALNI HAI ⚠️
-// 1. Apne bot (@VidyaXFeedBackOrg_bot) ko open karein aur "Hello" message bhejein.
-// 2. Apne browser me ye link open karein: 
-//    https://api.telegram.org/bot8716876737:AAFEOf645VMisyzvs7qvPdZW1xEUs3Oti-c/getUpdates
-// 3. Waha par aapko "chat": {"id": 123456789} dikhega, waha se number copy karke niche daalein.
 export const TELEGRAM_CHAT_ID = "7652204324"; 
 
 // Portal opens on day 7 of every month for 15 days (days 7..21 inclusive).
