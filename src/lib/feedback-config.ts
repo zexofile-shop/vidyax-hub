@@ -1,17 +1,16 @@
 // ============================================================================
-// VidyaX Feedback Portal — Configuration (Telegram Bot)
+// VidyaX Feedback Portal — Secure Configuration
 // ============================================================================
 
-export const TELEGRAM_BOT_TOKEN = "8716876737:AAFEOf645VMisyzvs7qvPdZW1xEUs3Oti-c";
-export const TELEGRAM_CHAT_ID = "7652204324"; 
+// ⚠️ Yaha par Google Apps Script wali Web App URL paste karein ⚠️
+export const FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzrsVpjHNxlpFD6ZTGPDqVCzMxstrg39bwXZkaCuCbXLdE-tYXDhKi1nklZN6I2rpfX/exec"; 
 
-// Portal opens on day 7 of every month for 15 days (days 7..21 inclusive).
 export const PORTAL_OPEN_DAY = 7;
 export const PORTAL_DURATION_DAYS = 15;
 
 export type PortalStatus = {
   isOpen: boolean;
-  monthLabel: string; // e.g. "June 2026"
+  monthLabel: string;
   opensAt: Date;
   closesAt: Date;
   nextOpensAt: Date;
