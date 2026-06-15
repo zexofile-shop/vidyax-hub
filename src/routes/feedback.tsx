@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { CheckCircle2, Lock, MessageSquare, Sparkles, Star } from "lucide-react";
 import {
-  FEEDBACK_ENDPOINT,
+  TELEGRAM_BOT_TOKEN,
+  TELEGRAM_CHAT_ID,
   formatDate,
   getPortalStatus,
 } from "@/lib/feedback-config";
@@ -77,45 +78,46 @@ function FeedbackPage() {
       setErrorMsg("Please share a little more detail (min 12 characters).");
       return;
     }
-    if (!FEEDBACK_ENDPOINT) {
-      setErrorMsg(
-        "Feedback endpoint is not configured yet. Please try again later.",
-      );
+    
+    if (TELEGRAM_CHAT_ID === "YOUR_CHAT_ID_HERE") {
+      setErrorMsg("Admin hasn't configured the Telegram Chat ID yet.");
       return;
     }
+
     setState("sending");
 
-    const payload = {
-      action:    "submit_feedback",
-      name:      form.name,
-      email:     form.email,
-      rating:    form.rating,
-      category:  form.category,
-      message:   form.message,
-      month:     status.monthLabel,
-      userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
-    };
+    const messageText = `
+🚀 *New VidyaX Feedback*
+━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${form.name}
+📧 *Email:* ${form.email}
+⭐ *Rating:* ${form.rating}/5
+📂 *Category:* ${form.category}
+📅 *Month:* ${status.monthLabel}
 
-    console.log("[VidyaX Feedback] Endpoint:", FEEDBACK_ENDPOINT);
-    console.log("[VidyaX Feedback] Payload:", JSON.stringify(payload, null, 2));
+💬 *Message:*
+${form.message}
+
+📱 *Device:* ${typeof navigator !== "undefined" ? navigator.userAgent : "Unknown"}
+`;
 
     try {
-      const response = await fetch(FEEDBACK_ENDPOINT, {
+      const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
         method: "POST",
-        // no-cors avoids CORS preflight on Google Apps Script.
-        // Response will always be opaque (status: 0) — that is expected.
-        mode: "no-cors",
-        // FIX: "text/plain;charset=utf-8" is NOT a CORS-safelisted Content-Type
-        // because of the extra ;charset= parameter. The browser strips the header
-        // in no-cors mode, so the body never reaches Apps Script as expected.
-        // Plain "text/plain" (no params) IS safelisted and works correctly.
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: messageText,
+          parse_mode: "Markdown",
+        }),
       });
 
-      // Opaque response is expected with no-cors — it does NOT mean failure.
-      console.log("[VidyaX Feedback] Response type:", response.type, "| status:", response.status);
-      console.log("[VidyaX Feedback] Request dispatched — check Google Sheet for the new row.");
+      const data = await response.json();
+      if (!data.ok) {
+        throw new Error(data.description);
+      }
 
       setState("sent");
     } catch (err) {
