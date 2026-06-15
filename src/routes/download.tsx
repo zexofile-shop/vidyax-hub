@@ -1,7 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { ShareCard } from "./index";
-
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -24,8 +22,7 @@ export const Route = createFileRoute("/download")({
   component: DownloadPage,
 });
 
-const API_URL = "https://vidya-x-application.vercel.app/api/app-version";
-const defaultApkUrl = "https://github.com/VidyaX-EdusparK/VidyaX-app/releases/download/1.2.41/Vidyax-v1.2.6.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_64Bit.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const notifyIosUrl =
   "https://t.me/Edusparkcontactbot?text=" +
@@ -39,33 +36,9 @@ const notifyWindowsUrl =
   );
 
 function DownloadPage() {
-  const [data, setData] = useState<{ latestVersion: string; downloadUrl: string; updatedAt: string } | null>(
-    null,
-  );
-
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const r = await fetch(`${API_URL}?t=${Date.now()}`);
-        const j = await r.json();
-        if (j?.success) setData(j.data);
-      } catch {
-        /* ignore */
-      }
-    })();
-  }, []);
-
-  const version = data?.latestVersion || "1.2.6";
-  const apkUrl = data?.downloadUrl || defaultApkUrl;
-  const updatedAt = data
-    ? new Date(data.updatedAt).toLocaleDateString("en-IN", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      })
-    : "14 June 2026";
-
+  const version = "1.2.6";
+  const apkUrl = defaultApkUrl;
+  const updatedAt = "14 June 2026";
 
   const platforms = [
     { name: "Android", status: `v${version} · Updated ${updatedAt}`, href: apkUrl, active: true, cta: "Download APK" },
@@ -121,7 +94,6 @@ function DownloadPage() {
           })}
         </div>
 
-
         <div className="mt-8 rounded-2xl border bg-card p-5 shadow-card">
           <h2 className="text-lg font-black">Install instructions (Android)</h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm font-semibold text-muted-foreground">
@@ -151,8 +123,6 @@ function DownloadPage() {
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
-
