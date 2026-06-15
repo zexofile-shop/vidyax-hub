@@ -79,8 +79,8 @@ function FeedbackPage() {
       return;
     }
     
-    if (TELEGRAM_CHAT_ID === "YOUR_CHAT_ID_HERE") {
-      setErrorMsg("Admin hasn't configured the Telegram Chat ID yet.");
+    if (!TELEGRAM_CHAT_ID || !TELEGRAM_BOT_TOKEN) {
+      setErrorMsg("Feedback system is not configured yet. Please try again later.");
       return;
     }
 
