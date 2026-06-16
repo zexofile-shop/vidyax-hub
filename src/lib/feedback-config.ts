@@ -3,7 +3,7 @@
 // ============================================================================
 
 // ⚠️ Yaha par Google Apps Script wali Web App URL paste karein ⚠️
-export const FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzrsVpjHNxlpFD6ZTGPDqVCzMxstrg39bwXZkaCuCbXLdE-tYXDhKi1nklZN6I2rpfX/exec"; 
+export const FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbyOn67EZvjCwC9JJhWzP0SAg2hJFi4x6tGN-zyvXDQb7vg6T-xK4Ti54CSnjimHMTSD/exec"; 
 
 export const PORTAL_OPEN_DAY = 7;
 export const PORTAL_DURATION_DAYS = 15;
