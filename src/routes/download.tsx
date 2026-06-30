@@ -22,7 +22,7 @@ export const Route = createFileRoute("/download")({
   component: DownloadPage,
 });
 
-const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_64Bit.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk";
 const telegramCommunityUrl = "https://t.me/+J_bKwBOe70czNjI1";
 const notifyIosUrl =
   "https://t.me/Edusparkcontactbot?text=" +
@@ -36,9 +36,9 @@ const notifyWindowsUrl =
   );
 
 function DownloadPage() {
-  const version = "1.2.6";
+  const version = "1.2.7";
   const apkUrl = defaultApkUrl;
-  const updatedAt = "14 June 2026";
+  const updatedAt = "01 June 2026";
 
   const platforms = [
     { name: "Android", status: `v${version} · Updated ${updatedAt}`, href: apkUrl, active: true, cta: "Download APK" },
@@ -108,7 +108,7 @@ function DownloadPage() {
         <ShareCard version={version} androidUrl={apkUrl} updatedAt={updatedAt} />
 
         <div className="mt-8 text-center">
-          <a
+          
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
