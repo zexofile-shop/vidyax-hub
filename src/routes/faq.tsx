@@ -24,8 +24,8 @@ export const Route = createFileRoute("/faq")({
 });
 
 function FaqPage() {
-  const version = "1.2.6";
-  const updatedAt = "14 June 2026";
+  const version = "1.2.7";
+  const updatedAt = "01 June 2026";
 
   return (
     <main className="min-h-screen bg-background text-foreground">
