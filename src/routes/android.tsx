@@ -21,7 +21,7 @@ export const Route = createFileRoute("/android")({
 });
 
 function AndroidPage() {
-  const version = "1.2.6";
+  const version = "1.2.7";
   return (
     <main className="min-h-screen bg-background text-foreground">
       <nav className="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-4 sm:px-8">
@@ -49,7 +49,7 @@ function AndroidPage() {
 
         <div className="mt-5 space-y-3 sm:mt-7">
           {ANDROID_VARIANTS.map((v) => (
-            <a
+            
               key={v.id}
               href={v.url}
               target="_blank"
