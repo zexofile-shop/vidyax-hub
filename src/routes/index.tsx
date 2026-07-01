@@ -113,7 +113,7 @@ const notifyWindowsUrl =
     "Hi Eduspark Team,\n\nPlease notify me as soon as the VidyaX Windows version is released. I want to be among the first users to install it on my PC/Laptop.\n\nThank you!",
   );
 const supportEmail = "edusparkkoficial@gmail.com";
-const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.6/VidyaX_1.2.6_64Bit.apk";
+const defaultApkUrl = "https://github.com/Bhavishy-dev/Vidya-X-versions/releases/download/1.2.7/VidyaX_1.2.7_64Bit.apk";
 
 function scrollToDownload() {
   document.getElementById("download")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -214,9 +214,9 @@ function Index() {
   const [activeHeroShot, setActiveHeroShot] = useState(0);
 
   // Hardcoded values directly to prevent API overriding
-  const currentVersion = "1.2.6";
+  const currentVersion = "1.2.7";
   const currentDownloadUrl = defaultApkUrl;
-  const lastUpdatedDate = "14 June 2026";
+  const lastUpdatedDate = "01 June 2026";
 
   useEffect(() => {
     const stop = (e: Event) => e.preventDefault();
