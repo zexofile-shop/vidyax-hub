@@ -540,7 +540,7 @@ function Index() {
             className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
-              <Sparkles className="h-4 w-4" />
+              <MessageSquareText className="h-4 w-4" />
             </div>
             <h2 className="text-sm font-black leading-tight">Give Feedback</h2>
             <p className="mt-1 line-clamp-2 text-[11px] font-semibold leading-4 text-muted-foreground">
