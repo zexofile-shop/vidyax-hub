@@ -963,8 +963,8 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
     const url = "https://vidyax.site/faq";
     const title = "VidyaX — FAQ";
     const text = t(
-      "Got questions about VidyaX? Here are the answers ✨",
-      "VidyaX ke baare me sawaal? Yaha sab answers hain ✨",
+      "Got questions about VidyaX? Here are the answers 👇",
+      "VidyaX ke baare me sawaal? Yaha sab answers hain 👇",
     );
     try {
       const nav = navigator as Navigator;
