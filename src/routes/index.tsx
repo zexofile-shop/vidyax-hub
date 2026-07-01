@@ -291,9 +291,9 @@ function Index() {
           <Link to="/tutorials" className="transition hover:text-primary">
             Tutorials
           </Link>
-          <Link to="/feedback" className="transition hover:text-primary">
+          <a href="https://feedback.vidyax.site" target="_blank" rel="noreferrer" className="transition hover:text-primary">
             Give Feedback
-          </Link>
+          </a>
           <Link to="/faq" className="transition hover:text-primary">
             FAQ
           </Link>
@@ -533,8 +533,10 @@ function Index() {
         <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-3 pt-1 sm:mx-0 sm:px-0 [scrollbar-width:none]">
           
           {/* New Feedback Box */}
-          <Link
-            to="/feedback"
+          <a
+            href="https://feedback.vidyax.site"
+            target="_blank"
+            rel="noreferrer"
             className="group flex h-[150px] w-[58%] max-w-[210px] shrink-0 flex-col rounded-2xl border bg-card p-3.5 shadow-card transition hover:border-primary focus:outline-none focus:ring-2 focus:ring-ring/30 sm:w-[210px] sm:hover:-translate-y-1"
           >
             <div className="mb-2 grid h-8 w-8 place-items-center rounded-lg bg-brand-soft text-primary transition group-hover:scale-105">
@@ -542,10 +544,10 @@ function Index() {
             </div>
             <h2 className="text-sm font-black leading-tight">Give Feedback</h2>
             <p className="mt-1 line-clamp-2 text-[11px] font-semibold leading-4 text-muted-foreground">
-              Monthly portal (7th-21st). We reply in 24-48 hrs.
+              Monthly portal (7th–21st). We reply in 24–48 hrs.
             </p>
             <p className="mt-auto text-[10px] font-bold text-primary">Open portal →</p>
-          </Link>
+          </a>
 
           <a
             href={telegramCommunityUrl}
@@ -611,7 +613,7 @@ function Index() {
             <Link to="/" className="hover:text-primary">Home</Link>
             <Link to="/download" className="hover:text-primary">Download</Link>
             <Link to="/tutorials" className="hover:text-primary">Tutorials</Link>
-            <Link to="/feedback" className="hover:text-primary">Feedback</Link>
+            <a href="https://feedback.vidyax.site" target="_blank" rel="noreferrer" className="hover:text-primary">Feedback</a>
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
@@ -744,7 +746,7 @@ export function ShareCard({
   return (
     <div className="mt-8 flex flex-col items-center gap-3 text-center">
       <p className="text-sm font-bold text-muted-foreground sm:text-base">
-        Spread VidyaX with your friends ✨
+        Spread VidyaX with your friends 🚀
       </p>
       <button
         type="button"
@@ -961,8 +963,8 @@ export function FaqSection({ version, updatedAt }: { version: string; updatedAt:
     const url = "https://vidyax.site/faq";
     const title = "VidyaX — FAQ";
     const text = t(
-      "Got questions about VidyaX? Here are the answers ✨",
-      "VidyaX ke baare me sawaal? Yaha sab answers hain ✨",
+      "Got questions about VidyaX? Here are the answers 👇",
+      "VidyaX ke baare me sawaal? Yaha sab answers hain 👇",
     );
     try {
       const nav = navigator as Navigator;

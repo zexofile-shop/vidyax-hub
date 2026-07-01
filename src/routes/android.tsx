@@ -49,7 +49,7 @@ function AndroidPage() {
 
         <div className="mt-5 space-y-3 sm:mt-7">
           {ANDROID_VARIANTS.map((v) => (
-            
+            <a
               key={v.id}
               href={v.url}
               target="_blank"
