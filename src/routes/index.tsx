@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Sparkles } from "lucide-react";
+import { MessageSquareText } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
