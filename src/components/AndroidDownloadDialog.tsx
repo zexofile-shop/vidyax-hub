@@ -96,7 +96,7 @@ export function AndroidDownloadDialog({
 
         <div className="space-y-2.5 p-4 sm:p-5">
           {ANDROID_VARIANTS.map((v) => (
-            
+            <a
               key={v.id}
               href={v.url}
               target="_blank"
