@@ -108,7 +108,7 @@ function DownloadPage() {
         <ShareCard version={version} androidUrl={apkUrl} updatedAt={updatedAt} />
 
         <div className="mt-8 text-center">
-          
+          <a
             href={telegramCommunityUrl}
             target="_blank"
             rel="noreferrer"
