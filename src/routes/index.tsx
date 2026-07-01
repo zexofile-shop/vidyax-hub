@@ -746,7 +746,7 @@ export function ShareCard({
   return (
     <div className="mt-8 flex flex-col items-center gap-3 text-center">
       <p className="text-sm font-bold text-muted-foreground sm:text-base">
-        Spread VidyaX with your friends ✨
+        Spread VidyaX with your friends 🚀
       </p>
       <button
         type="button"
