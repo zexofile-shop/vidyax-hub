@@ -182,10 +182,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <TelegramAlertPopup />
+      <RewardStripePopup />
       {children}
     </>
   );
 }
+
 
 function RootComponent() {
   return <Outlet />;
