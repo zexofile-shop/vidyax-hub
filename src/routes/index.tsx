@@ -764,6 +764,8 @@ export function ShareCard({
       </button>
 
       <AdhyayXPromoCard />
+      <JunglePromoCard />
+
     </div>
   );
 }
@@ -832,6 +834,63 @@ function AdhyayXPromoCard() {
     </div>
   );
 }
+
+function JunglePromoCard() {
+  const JUNGLE_URL = "https://filmm.me/7cd3eSb9";
+  return (
+    <div className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-emerald-950/95 via-emerald-900/90 to-amber-900/90 p-5 shadow-card sm:p-6">
+      <div className="flex items-center justify-between gap-2">
+        <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/95 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-950">
+          <span aria-hidden>🎬</span> Sponsored
+        </span>
+        <span className="text-[10px] font-black uppercase tracking-wider text-amber-200/90">
+          Student Offer
+        </span>
+      </div>
+
+      <h3 className="mt-3 text-xl font-black leading-tight text-white sm:text-2xl">
+        Welcome to the Jungle 🌴
+      </h3>
+      <p className="mt-1 text-sm font-bold text-amber-100/90">
+        Sign up & claim your <span className="text-amber-300">₹170 welcome reward</span> — instantly withdrawable.
+      </p>
+
+      <ul className="mt-4 space-y-2 text-left">
+        {[
+          "Free ₹170 on signup — no deposit needed",
+          "Instant withdrawal to your UPI / bank",
+          "Great side income for students",
+        ].map((f) => (
+          <li key={f} className="flex items-start gap-2 text-sm font-bold text-white/95">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400 text-emerald-950">
+              <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden="true">
+                <path fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" d="M5 12l5 5L20 7" />
+              </svg>
+            </span>
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={JUNGLE_URL}
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-400 px-7 py-3 text-sm font-black text-emerald-950 shadow-soft transition hover:-translate-y-0.5 hover:bg-amber-300 active:scale-95"
+      >
+        Claim ₹170 Reward
+        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+          <path fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
+        </svg>
+      </a>
+
+      <p className="mt-3 text-center text-[10px] font-bold text-amber-100/70">
+        Trusted &amp; frequently used by <span className="text-amber-200">Nitesh — Founder, Eduspark · VidyaX</span>
+      </p>
+    </div>
+  );
+}
+
 
 import faqAboutImg from "../assets/faq-about.jpg";
 import faqFreeImg from "../assets/faq-free.jpg";
