@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import logo from "../assets/adhyayx-logo.jpg";
 import waLogo from "../assets/whatsapp-logo.png.asset.json";
 
+const ASSET_BASE = "https://vidyax.lovable.app";
+const WA_LOGO = waLogo.url.startsWith("http") ? waLogo.url : `${ASSET_BASE}${waLogo.url}`;
+
 
 
 const TIP_TEXT = "AdhyayX is Live Now! ";
