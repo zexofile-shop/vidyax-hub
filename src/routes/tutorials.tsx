@@ -87,6 +87,25 @@ const segments: { title: string; desc: string; videoUrl: string; poster: string 
 
 function TutorialsPage() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const enterPip = async () => {
+    const v = videoRef.current as (HTMLVideoElement & { requestPictureInPicture?: () => Promise<PictureInPictureWindow> }) | null;
+    if (!v) return;
+    try {
+      if (document.pictureInPictureElement) {
+        await document.exitPictureInPicture();
+        return;
+      }
+      if (v.requestPictureInPicture) {
+        await v.requestPictureInPicture();
+      } else {
+        alert("Picture-in-Picture is not supported in this browser.");
+      }
+    } catch (err) {
+      console.error("PiP failed:", err);
+    }
+  };
 
   // Lock body scroll while modal is open (prevents layout shift / odd bottom artifacts)
   useEffect(() => {
