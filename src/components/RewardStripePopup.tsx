@@ -30,9 +30,12 @@ export default function RewardStripePopup() {
     const el = document.getElementById("reward-offer");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
+      close();
+    } else {
+      window.location.assign("/reward");
     }
-    close();
   };
+
 
   if (!mounted) return null;
 
