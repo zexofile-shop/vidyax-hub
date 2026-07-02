@@ -1,5 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import TelegramAlertPopup from "../components/TelegramAlertPopup";
+import RewardStripePopup from "../components/RewardStripePopup";
+
 
 
 import appCss from "../styles.css?url";
