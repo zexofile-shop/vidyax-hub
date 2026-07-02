@@ -3,16 +3,22 @@ import { X } from "lucide-react";
 
 /**
  * Slim "stripe" style slider that slides up from bottom.
- * Clicking it smooth-scrolls to the #reward-offer section on the home page.
+ * Waits for a `show-reward-stripe` window event, then appears.
+ * Clicking it smooth-scrolls to #reward-offer, or navigates to /reward.
  */
-export default function RewardStripePopup({ delay = 300 }: { delay?: number }) {
+export default function RewardStripePopup() {
   const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const t = window.setTimeout(() => setVisible(true), delay);
-    return () => window.clearTimeout(t);
-  }, [delay]);
+    const onShow = () => {
+      setMounted(true);
+      window.requestAnimationFrame(() => setVisible(true));
+    };
+    window.addEventListener("show-reward-stripe", onShow);
+    return () => window.removeEventListener("show-reward-stripe", onShow);
+  }, []);
+
 
   const close = (e?: React.MouseEvent) => {
     e?.stopPropagation();
