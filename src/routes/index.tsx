@@ -764,6 +764,8 @@ export function ShareCard({
       </button>
 
       <AdhyayXPromoCard />
+      <JunglePromoCard />
+
     </div>
   );
 }
