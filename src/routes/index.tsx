@@ -617,6 +617,8 @@ function Index() {
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
+            <Link to="/reward" className="hover:text-primary">₹170 Reward</Link>
+
           </nav>
           <p className="mt-3 text-[11px] font-semibold text-muted-foreground">
             © {new Date().getFullYear()} Eduspark · VidyaX. All rights reserved.
@@ -836,60 +838,77 @@ function AdhyayXPromoCard() {
 }
 
 function JunglePromoCard() {
-  const JUNGLE_URL = "https://filmm.me/7cd3eSb9";
+  return <RewardOfferCard />;
+}
+
+export function RewardOfferCard() {
+  const REWARD_URL = "https://filmm.me/7cd3eSb9";
   return (
-    <div className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border-2 border-amber-500/40 bg-gradient-to-br from-emerald-950/95 via-emerald-900/90 to-amber-900/90 p-5 shadow-card sm:p-6">
-      <div className="flex items-center justify-between gap-2">
-        <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/95 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-950">
-          <span aria-hidden>🎬</span> Sponsored
+    <div
+      id="reward-offer"
+      className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border-2 border-amber-400/40 bg-gradient-to-br from-[#0b0f1a] via-[#12172a] to-[#1a1330] p-5 shadow-card sm:p-6"
+    >
+      {/* Header row — no sponsored tag */}
+      <div className="flex items-center gap-2">
+        <span className="grid h-9 w-9 place-items-center rounded-full bg-amber-400 text-lg shadow-md">
+          💰
         </span>
-        <span className="text-[10px] font-black uppercase tracking-wider text-amber-200/90">
-          Student Offer
-        </span>
+        <div>
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-amber-300">
+            Instant Reward
+          </p>
+          <p className="text-[11px] font-bold text-white/70">Signup bonus for students</p>
+        </div>
       </div>
 
-      <h3 className="mt-3 text-xl font-black leading-tight text-white sm:text-2xl">
-        Welcome to the Jungle 🌴
-      </h3>
-      <p className="mt-1 text-sm font-bold text-amber-100/90">
-        Sign up & claim your <span className="text-amber-300">₹170 welcome reward</span> — instantly withdrawable.
-      </p>
+      {/* Big loot headline */}
+      <div className="mt-4 rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-500/15 to-amber-300/5 p-4">
+        <p className="text-[11px] font-black uppercase tracking-wider text-amber-200/90">
+          Get Instantly
+        </p>
+        <p className="mt-1 flex items-baseline gap-1 text-white">
+          <span className="text-4xl font-black text-amber-300 sm:text-5xl">₹170</span>
+          <span className="text-sm font-bold text-white/80">on signup</span>
+        </p>
+        <p className="mt-1 text-xs font-semibold text-white/75">
+          No deposit needed · Withdraw to UPI / Bank
+        </p>
+      </div>
 
+      {/* Trust bullets */}
       <ul className="mt-4 space-y-2 text-left">
         {[
-          "Free ₹170 on signup — no deposit needed",
-          "Instant withdrawal to your UPI / bank",
-          "Great side income for students",
+          { icon: "✅", text: "Verified & used by Nitesh — Founder, Eduspark" },
+          { icon: "⚡", text: "Instant credit to your UPI / bank account" },
+          { icon: "🔒", text: "100% safe signup — no hidden charges" },
         ].map((f) => (
-          <li key={f} className="flex items-start gap-2 text-sm font-bold text-white/95">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400 text-emerald-950">
-              <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden="true">
-                <path fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" d="M5 12l5 5L20 7" />
-              </svg>
-            </span>
-            <span>{f}</span>
+          <li key={f.text} className="flex items-start gap-2.5 text-sm font-bold text-white/95">
+            <span className="mt-0.5 shrink-0 text-base">{f.icon}</span>
+            <span>{f.text}</span>
           </li>
         ))}
       </ul>
 
       <a
-        href={JUNGLE_URL}
+        href={REWARD_URL}
         target="_blank"
-        rel="noopener noreferrer sponsored"
-        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-amber-400 px-7 py-3 text-sm font-black text-emerald-950 shadow-soft transition hover:-translate-y-0.5 hover:bg-amber-300 active:scale-95"
+        rel="noopener noreferrer"
+        className="shine-sweep mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 px-7 py-3.5 text-sm font-black text-[#1a1330] shadow-lg transition hover:-translate-y-0.5 active:scale-95"
       >
-        Claim ₹170 Reward
+        Claim ₹170 Now
         <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-          <path fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" />
+          <path fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
         </svg>
       </a>
 
-      <p className="mt-3 text-center text-[10px] font-bold text-amber-100/70">
-        Trusted &amp; frequently used by <span className="text-amber-200">Nitesh — Founder, Eduspark · VidyaX</span>
-      </p>
+      <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-bold text-white/60">
+        <span className="text-amber-300">★★★★★</span>
+        <span>Trusted by 10,000+ students</span>
+      </div>
     </div>
   );
 }
+
 
 
 import faqAboutImg from "../assets/faq-about.jpg";

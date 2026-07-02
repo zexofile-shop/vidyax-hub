@@ -19,8 +19,12 @@ export default function TelegramAlertPopup() {
 
   const closePopup = () => {
     setIsVisible(false);
-    window.setTimeout(() => setIsOpen(false), 200);
+    window.setTimeout(() => {
+      setIsOpen(false);
+      window.dispatchEvent(new CustomEvent("show-reward-stripe"));
+    }, 200);
   };
+
 
   const openTelegram = () => {
     window.open(TELEGRAM_URL, "_blank", "noopener,noreferrer");
