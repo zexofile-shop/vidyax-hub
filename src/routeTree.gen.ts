@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorialsRouteImport } from './routes/tutorials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RewardRouteImport } from './routes/reward'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DownloadRouteImport } from './routes/download'
@@ -26,6 +27,11 @@ const TutorialsRoute = TutorialsRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardRoute = RewardRouteImport.update({
+  id: '/reward',
+  path: '/reward',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/reward': typeof RewardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/reward': typeof RewardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/download': typeof DownloadRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/reward': typeof RewardRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tutorials': typeof TutorialsRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/faq'
     | '/privacy'
+    | '/reward'
     | '/sitemap.xml'
     | '/tutorials'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/faq'
     | '/privacy'
+    | '/reward'
     | '/sitemap.xml'
     | '/tutorials'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/faq'
     | '/privacy'
+    | '/reward'
     | '/sitemap.xml'
     | '/tutorials'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   DownloadRoute: typeof DownloadRoute
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
+  RewardRoute: typeof RewardRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TutorialsRoute: typeof TutorialsRoute
 }
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reward': {
+      id: '/reward'
+      path: '/reward'
+      fullPath: '/reward'
+      preLoaderRoute: typeof RewardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadRoute: DownloadRoute,
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
+  RewardRoute: RewardRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TutorialsRoute: TutorialsRoute,
 }

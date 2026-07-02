@@ -617,6 +617,8 @@ function Index() {
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
+            <Link to="/reward" className="hover:text-primary">₹170 Reward</Link>
+
           </nav>
           <p className="mt-3 text-[11px] font-semibold text-muted-foreground">
             © {new Date().getFullYear()} Eduspark · VidyaX. All rights reserved.
