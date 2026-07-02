@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/adhyayx-logo.jpg";
+import waLogo from "../assets/whatsapp-logo.png.asset.json";
+
+
 
 const TIP_TEXT = "AdhyayX is Live Now! ";
 
