@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { MessageSquareText } from "lucide-react";
+import { MessageSquareText, Wallet, BadgeCheck, Zap, ShieldCheck, ArrowRight, Star } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -617,7 +617,7 @@ function Index() {
             <Link to="/faq" className="hover:text-primary">FAQ</Link>
             <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
             <Link to="/dmca" className="hover:text-primary">DMCA</Link>
-            <Link to="/reward" className="hover:text-primary">₹170 Reward</Link>
+            <Link to="/reward" className="hover:text-primary">Earn Now</Link>
 
           </nav>
           <p className="mt-3 text-[11px] font-semibold text-muted-foreground">
@@ -841,50 +841,55 @@ function JunglePromoCard() {
   return <RewardOfferCard />;
 }
 
+// ⚠️ To change the Earn Now offer link, edit REWARD_URL below.
+// It is the single source of truth — also imported by /reward page and the bottom stripe.
+export const REWARD_URL = "https://filmm.me/5OPLcB0a";
+
 export function RewardOfferCard() {
-  const REWARD_URL = "https://filmm.me/7cd3eSb9";
   return (
     <div
       id="reward-offer"
-      className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border-2 border-amber-400/40 bg-gradient-to-br from-[#0b0f1a] via-[#12172a] to-[#1a1330] p-5 shadow-card sm:p-6"
+      className="mt-6 w-full max-w-md overflow-hidden rounded-3xl border border-emerald-400/20 bg-gradient-to-br from-[#07120d] via-[#0a1b14] to-[#0d2419] p-6 shadow-card"
     >
-      {/* Header row — no sponsored tag */}
-      <div className="flex items-center gap-2">
-        <span className="grid h-9 w-9 place-items-center rounded-full bg-amber-400 text-lg shadow-md">
-          💰
+      {/* Header */}
+      <div className="flex items-center gap-3">
+        <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 text-[#062015] shadow-md">
+          <Wallet size={20} strokeWidth={2.5} />
         </span>
         <div>
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-amber-300">
-            Instant Reward
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-300">
+            Earn Now
           </p>
-          <p className="text-[11px] font-bold text-white/70">Signup bonus for students</p>
+          <p className="text-xs font-semibold text-white/60">Verified student payout</p>
         </div>
       </div>
 
-      {/* Big loot headline */}
-      <div className="mt-4 rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-500/15 to-amber-300/5 p-4">
-        <p className="text-[11px] font-black uppercase tracking-wider text-amber-200/90">
-          Get Instantly
+      {/* Money block */}
+      <div className="mt-5 rounded-2xl border border-emerald-400/15 bg-black/30 p-5">
+        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-300/80">
+          Signup Bonus
         </p>
-        <p className="mt-1 flex items-baseline gap-1 text-white">
-          <span className="text-4xl font-black text-amber-300 sm:text-5xl">₹170</span>
-          <span className="text-sm font-bold text-white/80">on signup</span>
+        <p className="mt-2 text-3xl font-black leading-none tracking-tight text-white sm:text-4xl">
+          Earn real money — <span className="text-emerald-300">instantly</span>
         </p>
-        <p className="mt-1 text-xs font-semibold text-white/75">
-          No deposit needed · Withdraw to UPI / Bank
+        <p className="mt-3 text-sm font-medium leading-relaxed text-white/70">
+          Create your account and receive an instant welcome payout directly to your UPI or bank.
+          No deposit. No conditions.
         </p>
       </div>
 
-      {/* Trust bullets */}
-      <ul className="mt-4 space-y-2 text-left">
+      {/* Trust rows — icons, no emojis */}
+      <ul className="mt-5 space-y-3">
         {[
-          { icon: "✅", text: "Verified & used by Nitesh — Founder, Eduspark" },
-          { icon: "⚡", text: "Instant credit to your UPI / bank account" },
-          { icon: "🔒", text: "100% safe signup — no hidden charges" },
-        ].map((f) => (
-          <li key={f.text} className="flex items-start gap-2.5 text-sm font-bold text-white/95">
-            <span className="mt-0.5 shrink-0 text-base">{f.icon}</span>
-            <span>{f.text}</span>
+          { Icon: BadgeCheck, text: "Verified & used by Nitesh — Founder, Eduspark" },
+          { Icon: Zap, text: "Instant credit to UPI / bank account" },
+          { Icon: ShieldCheck, text: "100% safe · No hidden charges" },
+        ].map(({ Icon, text }) => (
+          <li key={text} className="flex items-start gap-3 text-sm font-semibold text-white/90">
+            <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-md bg-emerald-400/10 text-emerald-300">
+              <Icon size={14} strokeWidth={2.5} />
+            </span>
+            <span>{text}</span>
           </li>
         ))}
       </ul>
@@ -893,16 +898,14 @@ export function RewardOfferCard() {
         href={REWARD_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="shine-sweep mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-yellow-300 px-7 py-3.5 text-sm font-black text-[#1a1330] shadow-lg transition hover:-translate-y-0.5 active:scale-95"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 px-7 py-3.5 text-sm font-black text-[#062015] shadow-lg transition hover:-translate-y-0.5 active:scale-95"
       >
-        Claim ₹170 Now
-        <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-          <path fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
-        </svg>
+        Earn Now
+        <ArrowRight size={16} strokeWidth={3} />
       </a>
 
-      <div className="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-bold text-white/60">
-        <span className="text-amber-300">★★★★★</span>
+      <div className="mt-4 flex items-center justify-center gap-1.5 text-[11px] font-bold text-white/50">
+        <Star size={12} className="fill-emerald-300 text-emerald-300" strokeWidth={0} />
         <span>Trusted by 10,000+ students</span>
       </div>
     </div>
