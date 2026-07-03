@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { X, Wallet, ArrowRight } from "lucide-react";
 
 /**
- * Slim "stripe" style slider that slides up from bottom.
- * Waits for a `show-reward-stripe` window event, then appears.
- * Clicking it smooth-scrolls to #reward-offer, or navigates to /reward.
+ * Slim bottom "stripe" — money theme, no emojis.
+ * Shown on `show-reward-stripe` window event.
+ * Click → smooth-scrolls to #reward-offer, or navigates to /reward.
  */
 export default function RewardStripePopup() {
   const [visible, setVisible] = useState(false);
@@ -19,14 +19,13 @@ export default function RewardStripePopup() {
     return () => window.removeEventListener("show-reward-stripe", onShow);
   }, []);
 
-
-  const close = (e?: React.MouseEvent) => {
+  const close = (e?: React.MouseEvent | React.KeyboardEvent) => {
     e?.stopPropagation();
     setVisible(false);
     window.setTimeout(() => setMounted(false), 250);
   };
 
-  const scrollToReward = () => {
+  const goToReward = () => {
     const el = document.getElementById("reward-offer");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -35,7 +34,6 @@ export default function RewardStripePopup() {
       window.location.assign("/reward");
     }
   };
-
 
   if (!mounted) return null;
 
@@ -49,42 +47,46 @@ export default function RewardStripePopup() {
       }}
       aria-live="polite"
     >
-      <button
-        type="button"
-        onClick={scrollToReward}
-        className="group relative flex w-full max-w-md items-center gap-3 overflow-hidden rounded-full border border-amber-300/40 bg-gradient-to-r from-[#1a1330] via-[#241a45] to-[#1a1330] px-3.5 py-2.5 text-left shadow-2xl ring-1 ring-amber-300/20 transition hover:-translate-y-0.5"
-      >
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-amber-300 to-yellow-500 text-base shadow-md">
-          💰
+      <div className="relative flex w-full max-w-md items-center gap-3 overflow-hidden rounded-2xl border border-emerald-400/25 bg-[#07120d]/95 px-3.5 py-2.5 shadow-2xl ring-1 ring-emerald-400/10 backdrop-blur">
+        {/* Money icon */}
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 text-[#062015] shadow-md">
+          <Wallet size={17} strokeWidth={2.5} />
         </span>
-        <div className="min-w-0 flex-1">
+
+        {/* Copy */}
+        <button
+          type="button"
+          onClick={goToReward}
+          className="min-w-0 flex-1 text-left"
+        >
           <p className="truncate text-[13px] font-black leading-tight text-white">
-            Earn <span className="text-amber-300">₹170 instantly</span>
+            Earn Now — <span className="text-emerald-300">instant payout</span>
           </p>
-          <p className="truncate text-[11px] font-semibold text-white/70">
-            Tap to claim your reward
+          <p className="truncate text-[11px] font-semibold text-white/60">
+            Verified student offer · UPI / Bank
           </p>
-        </div>
-        <span className="hidden shrink-0 rounded-full bg-amber-400 px-3 py-1 text-[11px] font-black text-[#1a1330] shadow-sm sm:inline-block">
-          Claim
-        </span>
-        <span
-          role="button"
-          tabIndex={0}
-          onClick={close as unknown as React.MouseEventHandler}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              close();
-            }
-          }}
-          aria-label="Dismiss reward offer"
-          className="ml-1 grid h-8 w-8 shrink-0 cursor-pointer place-items-center rounded-full bg-white/10 text-white/90 ring-1 ring-white/15 transition hover:bg-white/20"
-          style={{ aspectRatio: "1 / 1" }}
+        </button>
+
+        {/* CTA */}
+        <button
+          type="button"
+          onClick={goToReward}
+          className="hidden shrink-0 items-center gap-1 rounded-lg bg-gradient-to-r from-emerald-400 to-teal-400 px-3 py-1.5 text-[11px] font-black text-[#062015] shadow-sm sm:inline-flex"
+        >
+          Earn
+          <ArrowRight size={12} strokeWidth={3} />
+        </button>
+
+        {/* Cross */}
+        <button
+          type="button"
+          onClick={close}
+          aria-label="Dismiss"
+          className="ml-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 text-white/80 ring-1 ring-white/10 transition hover:bg-white/10"
         >
           <X size={15} strokeWidth={2.75} />
-        </span>
-      </button>
+        </button>
+      </div>
     </div>
   );
 }

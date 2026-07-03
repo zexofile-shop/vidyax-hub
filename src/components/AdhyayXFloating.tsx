@@ -40,12 +40,12 @@ export default function AdhyayXFloating() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Join VidyaX WhatsApp Channel"
-        className="block h-14 w-14 overflow-hidden rounded-full bg-white shadow-lg ring-1 ring-black/10 transition-transform hover:scale-105 sm:h-16 sm:w-16"
+        className="block h-14 w-14 overflow-hidden rounded-full shadow-lg ring-1 ring-black/10 transition-transform hover:scale-105 sm:h-16 sm:w-16"
       >
         <img
           src={WA_LOGO}
           alt="WhatsApp"
-          className="h-full w-full object-contain"
+          className="h-full w-full object-cover"
           loading="lazy"
         />
       </a>
